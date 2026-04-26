@@ -1,6 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 
+const LOGO_IMG = "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/45df6c21-6239-4f1c-8904-6639b775df22.png";
+
+/* Логотип: картинка из CDN */
+const Logo = ({ size = 44, className = "" }: { size?: number; className?: string }) => (
+  <img src={LOGO_IMG} alt="Т1 ИЗОЛЯЦИЯ" height={size} style={{ height: size }} className={`w-auto object-contain ${className}`} />
+);
+
 /* ─── Images ────────────────────────────────────────────────── */
 const IMG_HERO    = "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/13ad7087-45ba-4c45-a9d9-f6fac5286d8d.jpg";
 const IMG_BOILER  = "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/b4f523ee-7f73-4d6e-a86b-a0a81dd4b98b.jpg";
@@ -174,12 +181,8 @@ const Index = () => {
           <div className="flex items-center justify-between h-16 lg:h-20">
 
             {/* Logo */}
-            <a href="#" className="flex items-center gap-2 group">
-              <div className="flex items-center">
-                <span className="text-2xl font-black text-white tracking-tighter leading-none">Т1</span>
-                <div className="w-[3px] h-7 bg-orange-500 mx-2 group-hover:h-8 transition-all duration-300" />
-                <span className="text-2xl font-black text-white tracking-tighter leading-none">ИЗОЛЯЦИЯ</span>
-              </div>
+            <a href="#" className="flex items-center group">
+              <Logo size={40} className="group-hover:opacity-90 transition-opacity duration-300" />
             </a>
 
             {/* Desktop Nav */}
@@ -199,7 +202,8 @@ const Index = () => {
                 8 800 000 00 00
               </a>
               <a href="#contacts"
-                className="btn-primary bg-orange-500 hover:bg-orange-600 text-white px-6 py-2.5 text-xs font-black uppercase tracking-widest transition-colors">
+                className="btn-primary text-white px-6 py-2.5 text-xs font-black uppercase tracking-widest transition-all duration-300 hover:opacity-90"
+                style={{ background: "linear-gradient(135deg, #e63012 0%, #f97316 60%, #fbbf24 100%)" }}>
                 Получить расчёт
               </a>
             </div>
@@ -221,7 +225,8 @@ const Index = () => {
               </a>
             ))}
             <a href="tel:+78000000000" className="block mt-5 text-white font-bold text-lg">8 800 000 00 00</a>
-            <a href="#contacts" className="block mt-3 bg-orange-500 text-white text-center py-3 font-black text-xs uppercase tracking-widest">
+            <a href="#contacts" className="block mt-3 text-white text-center py-3 font-black text-xs uppercase tracking-widest"
+              style={{ background: "linear-gradient(135deg, #e63012 0%, #f97316 60%, #fbbf24 100%)" }}>
               Получить расчёт
             </a>
           </div>
@@ -262,12 +267,13 @@ const Index = () => {
               Проектирование, поставка и <strong className="text-white">монтаж теплоизоляции</strong> любой сложности — трубопроводы, оборудование, резервуары и суда. По всей России.
             </p>
             <p className="text-gray-400 text-sm mb-10">
-              Ключевые запросы: изоляция трубопроводов · теплоизоляция оборудования · судовая теплоизоляция · монтаж теплоизоляции
+              Изоляция трубопроводов · Теплоизоляция оборудования · Судовая теплоизоляция · Монтаж теплоизоляции
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-16">
               <a href="#request"
-                className="btn-primary group bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 font-black uppercase tracking-widest text-sm transition-all duration-300 flex items-center justify-center gap-3">
+                className="btn-primary group text-white px-8 py-4 font-black uppercase tracking-widest text-sm transition-all duration-300 flex items-center justify-center gap-3"
+                style={{ background: "linear-gradient(135deg, #e63012 0%, #f97316 50%, #fbbf24 100%)" }}>
                 Получить расчёт
                 <Icon name="ArrowRight" size={16} className="group-hover:translate-x-1 transition-transform" />
               </a>
@@ -296,7 +302,7 @@ const Index = () => {
       </section>
 
       {/* ── MARQUEE STRIP ──────────────────────────────────────── */}
-      <div className="bg-orange-500 py-3 overflow-hidden">
+      <div className="py-3 overflow-hidden" style={{ background: "linear-gradient(90deg, #e63012 0%, #f97316 50%, #fbbf24 100%)" }}>
         <div className="flex gap-12 animate-[marquee_18s_linear_infinite] whitespace-nowrap w-max">
           {Array(3).fill(["Промышленная теплоизоляция", "Изоляция трубопроводов", "Теплоизоляция оборудования", "Судовая теплоизоляция", "Монтаж теплоизоляции под ключ", "Работаем по ГОСТ", "Гарантия качества"]).flat().map((t, i) => (
             <span key={i} className="text-white text-xs font-bold uppercase tracking-widest flex items-center gap-4">
@@ -537,7 +543,8 @@ const Index = () => {
               <p className="text-gray-400 text-sm mt-1">Направим полный пакет по запросу в течение 1 рабочего дня</p>
             </div>
             <a href="#contacts"
-              className="btn-primary bg-orange-500 hover:bg-orange-600 text-white px-8 py-3.5 font-black uppercase tracking-widest text-xs transition-all duration-300 whitespace-nowrap flex items-center gap-2 group">
+              className="btn-primary text-white px-8 py-3.5 font-black uppercase tracking-widest text-xs transition-all duration-300 hover:opacity-90 whitespace-nowrap flex items-center gap-2 group"
+              style={{ background: "linear-gradient(135deg, #e63012 0%, #f97316 60%, #fbbf24 100%)" }}>
               Запросить документы
               <Icon name="ArrowRight" size={14} className="group-hover:translate-x-1 transition-transform" />
             </a>
@@ -636,7 +643,7 @@ const Index = () => {
 
               {submitted ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center">
-                  <div className="w-16 h-16 bg-orange-500 flex items-center justify-center mb-6">
+                  <div className="w-16 h-16 flex items-center justify-center mb-6" style={{ background: "linear-gradient(135deg, #e63012 0%, #f97316 50%, #fbbf24 100%)" }}>
                     <Icon name="Check" size={28} className="text-white" />
                   </div>
                   <h4 className="text-gray-900 font-black text-xl mb-2">Заявка отправлена!</h4>
@@ -667,7 +674,8 @@ const Index = () => {
                       className="w-full border border-gray-200 focus:border-orange-500 text-gray-900 placeholder-gray-300 px-4 py-3.5 outline-none transition-colors text-sm resize-none" />
                   </div>
                   <button type="submit"
-                    className="btn-primary w-full bg-orange-500 hover:bg-orange-600 text-white py-4 font-black uppercase tracking-widest text-xs transition-all duration-300 flex items-center justify-center gap-2 group">
+                    className="btn-primary w-full text-white py-4 font-black uppercase tracking-widest text-xs transition-all duration-300 flex items-center justify-center gap-2 group hover:opacity-90"
+                    style={{ background: "linear-gradient(135deg, #e63012 0%, #f97316 50%, #fbbf24 100%)" }}>
                     Получить коммерческое предложение
                     <Icon name="ArrowRight" size={14} className="group-hover:translate-x-1 transition-transform" />
                   </button>
@@ -719,7 +727,7 @@ const Index = () => {
 
             {submitted2 ? (
               <div className="flex flex-col items-center py-10 text-center">
-                <div className="w-16 h-16 bg-orange-500 flex items-center justify-center mb-5">
+                <div className="w-16 h-16 flex items-center justify-center mb-5" style={{ background: "linear-gradient(135deg, #e63012 0%, #f97316 50%, #fbbf24 100%)" }}>
                   <Icon name="Check" size={28} className="text-white" />
                 </div>
                 <h4 className="text-white font-black text-xl mb-2">Заявка принята!</h4>
@@ -752,7 +760,8 @@ const Index = () => {
                     className="w-full bg-gray-900 border border-gray-700 focus:border-orange-500 text-white placeholder-gray-600 px-4 py-3.5 outline-none transition-colors text-sm resize-none" />
                 </div>
                 <button type="submit"
-                  className="btn-primary w-full bg-orange-500 hover:bg-orange-600 text-white py-4 font-black uppercase tracking-widest text-xs transition-all duration-300">
+                  className="btn-primary w-full text-white py-4 font-black uppercase tracking-widest text-xs transition-all duration-300 hover:opacity-90"
+                  style={{ background: "linear-gradient(135deg, #e63012 0%, #f97316 50%, #fbbf24 100%)" }}>
                   Отправить заявку
                 </button>
                 <p className="text-gray-600 text-xs text-center">
@@ -772,11 +781,9 @@ const Index = () => {
 
             {/* Brand */}
             <div>
-              <div className="flex items-center gap-1 mb-5">
-                <span className="text-xl font-black text-white tracking-tighter">Т1</span>
-                <div className="w-[3px] h-6 bg-orange-500 mx-1.5" />
-                <span className="text-xl font-black text-white tracking-tighter">ИЗОЛЯЦИЯ</span>
-              </div>
+              <a href="#" className="inline-block mb-5">
+                <Logo size={36} />
+              </a>
               <p className="text-gray-600 text-sm leading-relaxed mb-5">
                 Промышленная теплоизоляция под ключ. Изоляция трубопроводов, оборудования и судов. Работаем по всей России с 2012 года.
               </p>
