@@ -426,71 +426,181 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA BANNER */}
-      <section className="py-20 bg-orange-500">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-5xl font-black text-white mb-6">
-            Готовы обсудить ваш проект?
-          </h2>
-          <p className="text-orange-100 text-lg mb-10 max-w-xl mx-auto">
-            Оставьте заявку — наш специалист свяжется с вами и бесплатно проконсультирует по вашей задаче.
-          </p>
-          <a
-            href="#contacts"
-            className="inline-block bg-white text-orange-500 hover:bg-gray-100 px-10 py-4 font-black uppercase tracking-wide text-sm transition-colors"
-          >
-            Получить бесплатный расчёт
-          </a>
+      {/* CTA ЗАЯВКА */}
+      <section id="request" className="py-0 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gray-950 relative overflow-hidden">
+            {/* decorative lines */}
+            <div className="absolute top-0 left-0 w-1 h-full bg-orange-500" />
+            <div className="absolute inset-0 opacity-5" style={{backgroundImage: "repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)", backgroundSize: "20px 20px"}} />
+
+            <div className="relative z-10 grid lg:grid-cols-2 gap-0">
+              {/* Left */}
+              <div className="p-12 lg:p-16 flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-0.5 bg-orange-500" />
+                  <span className="text-orange-500 text-xs font-bold uppercase tracking-widest">Коммерческое предложение</span>
+                </div>
+                <h2 className="text-3xl lg:text-4xl font-black text-white leading-tight mb-6">
+                  Нужен расчёт стоимости теплоизоляции?
+                </h2>
+                <p className="text-gray-400 text-lg leading-relaxed mb-10">
+                  Подготовим предложение под ваш объект в короткий срок.
+                </p>
+
+                <div className="space-y-4">
+                  {[
+                    "Бесплатный выезд специалиста на объект",
+                    "Расчёт в течение 1–2 рабочих дней",
+                    "Детальная смета без скрытых платежей",
+                    "Гарантия на все виды работ",
+                  ].map((point) => (
+                    <div key={point} className="flex items-center gap-3">
+                      <div className="w-5 h-5 bg-orange-500 flex items-center justify-center flex-shrink-0">
+                        <Icon name="Check" size={12} className="text-white" />
+                      </div>
+                      <span className="text-gray-300 text-sm">{point}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right — form */}
+              <div className="bg-white p-12 lg:p-16">
+                <h3 className="text-gray-900 font-black text-2xl mb-2">Получить коммерческое предложение</h3>
+                <p className="text-gray-500 text-sm mb-8">Ответим в течение 1 рабочего дня</p>
+
+                {submitted ? (
+                  <div className="flex flex-col items-center justify-center py-12 text-center">
+                    <div className="w-16 h-16 bg-orange-500 flex items-center justify-center mb-6">
+                      <Icon name="Check" size={28} className="text-white" />
+                    </div>
+                    <h4 className="text-gray-900 font-bold text-xl mb-2">Заявка отправлена!</h4>
+                    <p className="text-gray-500">Мы свяжемся с вами в ближайшее время</p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                      <label className="block text-gray-500 text-xs uppercase tracking-wide font-medium mb-2">Ваше имя *</label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        placeholder="Иван Петров"
+                        className="w-full bg-white border border-gray-200 text-gray-900 placeholder-gray-400 px-4 py-3 focus:outline-none focus:border-orange-500 transition-colors text-sm"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-gray-500 text-xs uppercase tracking-wide font-medium mb-2">Телефон *</label>
+                      <input
+                        type="tel"
+                        required
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        placeholder="+7 (___) ___-__-__"
+                        className="w-full bg-white border border-gray-200 text-gray-900 placeholder-gray-400 px-4 py-3 focus:outline-none focus:border-orange-500 transition-colors text-sm"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-gray-500 text-xs uppercase tracking-wide font-medium mb-2">Комментарий</label>
+                      <textarea
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        placeholder="Опишите объект, тип изоляции, объём работ..."
+                        rows={4}
+                        className="w-full bg-white border border-gray-200 text-gray-900 placeholder-gray-400 px-4 py-3 focus:outline-none focus:border-orange-500 transition-colors text-sm resize-none"
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      className="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 font-bold uppercase tracking-wide text-sm transition-colors"
+                    >
+                      Получить коммерческое предложение
+                    </button>
+                    <p className="text-gray-400 text-xs text-center">
+                      Нажимая кнопку, вы соглашаетесь с{" "}
+                      <a href="#privacy" className="underline hover:text-orange-500 transition-colors">
+                        политикой обработки персональных данных
+                      </a>
+                    </p>
+                  </form>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* CONTACTS */}
       <section id="contacts" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16">
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-0.5 bg-orange-500" />
-                <span className="text-orange-500 text-sm font-semibold uppercase tracking-widest">Контакты</span>
-              </div>
-              <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-8">Свяжитесь с нами</h2>
-
-              <div className="space-y-6">
-                {[
-                  { icon: "Phone", label: "Телефон", value: "8 800 000 00 00" },
-                  { icon: "Mail", label: "Email", value: "info@t1izol.ru" },
-                  { icon: "MapPin", label: "Адрес", value: "Санкт-Петербург, ул. Промышленная, 1" },
-                  { icon: "Clock", label: "Режим работы", value: "Пн–Пт: 9:00 – 18:00" },
-                ].map((contact) => (
-                  <div key={contact.label} className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-gray-100 flex items-center justify-center flex-shrink-0">
-                      <Icon name={contact.icon} size={20} className="text-orange-500" />
-                    </div>
-                    <div>
-                      <div className="text-xs text-gray-400 uppercase tracking-wide font-medium mb-0.5">{contact.label}</div>
-                      <div className="font-semibold text-gray-900">{contact.value}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="w-12 h-0.5 bg-orange-500" />
+              <span className="text-orange-500 text-sm font-semibold uppercase tracking-widest">Контакты</span>
+              <div className="w-12 h-0.5 bg-orange-500" />
             </div>
+            <h2 className="text-4xl lg:text-5xl font-black text-gray-900">Как с нами связаться</h2>
+          </div>
 
-            <div className="bg-gray-950 p-8 lg:p-10">
-              <h3 className="text-white font-black text-2xl mb-2">Оставьте заявку</h3>
-              <p className="text-gray-400 text-sm mb-8">Ответим в течение 1 рабочего дня</p>
-
-              {submitted ? (
-                <div className="flex flex-col items-center justify-center py-12 text-center">
-                  <div className="w-16 h-16 bg-orange-500 flex items-center justify-center mb-6">
-                    <Icon name="Check" size={28} className="text-white" />
-                  </div>
-                  <h4 className="text-white font-bold text-xl mb-2">Заявка отправлена!</h4>
-                  <p className="text-gray-400">Мы свяжемся с вами в ближайшее время</p>
+          <div className="grid sm:grid-cols-3 gap-6 mb-16">
+            {[
+              {
+                icon: "Phone",
+                label: "Телефон",
+                value: "8 800 000 00 00",
+                sub: "Бесплатно по России",
+                href: "tel:+78000000000",
+              },
+              {
+                icon: "Mail",
+                label: "Email",
+                value: "info@t1izol.ru",
+                sub: "Ответим в течение 1 дня",
+                href: "mailto:info@t1izol.ru",
+              },
+              {
+                icon: "MapPin",
+                label: "Адрес",
+                value: "Санкт-Петербург",
+                sub: "ул. Промышленная, 1",
+                href: "#",
+              },
+            ].map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="group border border-gray-200 p-8 hover:border-orange-400 hover:shadow-lg transition-all flex flex-col items-center text-center"
+              >
+                <div className="w-14 h-14 bg-gray-100 flex items-center justify-center mb-5 group-hover:bg-orange-500 transition-colors">
+                  <Icon name={item.icon} size={22} className="text-orange-500 group-hover:text-white transition-colors" />
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="text-xs text-gray-400 uppercase tracking-widest font-medium mb-2">{item.label}</div>
+                <div className="font-black text-gray-900 text-lg mb-1">{item.value}</div>
+                <div className="text-gray-500 text-sm">{item.sub}</div>
+              </a>
+            ))}
+          </div>
+
+          {/* Second form */}
+          <div className="max-w-2xl mx-auto bg-gray-950 p-10 lg:p-14">
+            <h3 className="text-white font-black text-2xl mb-2 text-center">Оставьте заявку</h3>
+            <p className="text-gray-400 text-sm mb-8 text-center">Свяжемся в течение 1 рабочего дня</p>
+
+            {submitted ? (
+              <div className="flex flex-col items-center justify-center py-8 text-center">
+                <div className="w-16 h-16 bg-orange-500 flex items-center justify-center mb-6">
+                  <Icon name="Check" size={28} className="text-white" />
+                </div>
+                <h4 className="text-white font-bold text-xl mb-2">Заявка принята!</h4>
+                <p className="text-gray-400">Мы свяжемся с вами в ближайшее время</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-gray-400 text-xs uppercase tracking-wide font-medium mb-2">Ваше имя</label>
+                    <label className="block text-gray-400 text-xs uppercase tracking-wide font-medium mb-2">Имя *</label>
                     <input
                       type="text"
                       required
@@ -501,7 +611,7 @@ const Index = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-gray-400 text-xs uppercase tracking-wide font-medium mb-2">Телефон</label>
+                    <label className="block text-gray-400 text-xs uppercase tracking-wide font-medium mb-2">Телефон *</label>
                     <input
                       type="tel"
                       required
@@ -511,54 +621,117 @@ const Index = () => {
                       className="w-full bg-gray-900 border border-gray-700 text-white placeholder-gray-600 px-4 py-3 focus:outline-none focus:border-orange-500 transition-colors text-sm"
                     />
                   </div>
-                  <div>
-                    <label className="block text-gray-400 text-xs uppercase tracking-wide font-medium mb-2">Описание задачи</label>
-                    <textarea
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Опишите объект, тип изоляции, объём работ..."
-                      rows={4}
-                      className="w-full bg-gray-900 border border-gray-700 text-white placeholder-gray-600 px-4 py-3 focus:outline-none focus:border-orange-500 transition-colors text-sm resize-none"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 font-bold uppercase tracking-wide text-sm transition-colors"
-                  >
-                    Отправить заявку
-                  </button>
-                  <p className="text-gray-600 text-xs text-center">
-                    Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных
-                  </p>
-                </form>
-              )}
-            </div>
+                </div>
+                <div>
+                  <label className="block text-gray-400 text-xs uppercase tracking-wide font-medium mb-2">Комментарий</label>
+                  <textarea
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    placeholder="Опишите объект, тип изоляции, объём работ..."
+                    rows={3}
+                    className="w-full bg-gray-900 border border-gray-700 text-white placeholder-gray-600 px-4 py-3 focus:outline-none focus:border-orange-500 transition-colors text-sm resize-none"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 font-bold uppercase tracking-wide text-sm transition-colors"
+                >
+                  Отправить заявку
+                </button>
+                <p className="text-gray-600 text-xs text-center">
+                  Нажимая кнопку, вы соглашаетесь с{" "}
+                  <a href="#privacy" className="underline hover:text-orange-400 transition-colors">
+                    политикой обработки персональных данных
+                  </a>
+                </p>
+              </form>
+            )}
           </div>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-gray-950 border-t border-white/10 py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-1">
-              <span className="text-xl font-black text-white tracking-tight">Т1</span>
-              <div className="w-1 h-5 bg-orange-500 mx-1" />
-              <span className="text-xl font-black text-white tracking-tight">ИЗОЛЯЦИЯ</span>
+      <footer id="privacy" className="bg-gray-950 border-t border-white/10">
+        {/* Top */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            {/* Brand */}
+            <div className="lg:col-span-1">
+              <div className="flex items-center gap-1 mb-5">
+                <span className="text-xl font-black text-white tracking-tight">Т1</span>
+                <div className="w-1 h-5 bg-orange-500 mx-1" />
+                <span className="text-xl font-black text-white tracking-tight">ИЗОЛЯЦИЯ</span>
+              </div>
+              <p className="text-gray-500 text-sm leading-relaxed">
+                Промышленная теплоизоляция под ключ. Работаем по всей России с 2012 года.
+              </p>
             </div>
-            <p className="text-gray-600 text-sm text-center">
+
+            {/* Menu */}
+            <div>
+              <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-5">Навигация</h4>
+              <ul className="space-y-3">
+                {NAV_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className="text-gray-500 hover:text-orange-400 text-sm transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Services shortlist */}
+            <div>
+              <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-5">Услуги</h4>
+              <ul className="space-y-3">
+                {SERVICES.slice(0, 5).map((s) => (
+                  <li key={s.title}>
+                    <a href="#services" className="text-gray-500 hover:text-orange-400 text-sm transition-colors">
+                      {s.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contacts */}
+            <div>
+              <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-5">Контакты</h4>
+              <ul className="space-y-4">
+                {[
+                  { icon: "Phone", value: "8 800 000 00 00", href: "tel:+78000000000" },
+                  { icon: "Mail", value: "info@t1izol.ru", href: "mailto:info@t1izol.ru" },
+                  { icon: "MapPin", value: "Санкт-Петербург, ул. Промышленная, 1", href: "#" },
+                ].map((c) => (
+                  <li key={c.value}>
+                    <a href={c.href} className="flex items-start gap-3 group">
+                      <Icon name={c.icon} size={14} className="text-orange-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-500 group-hover:text-gray-300 text-sm transition-colors leading-snug">{c.value}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="border-t border-white/5">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-gray-600 text-xs text-center sm:text-left">
               © {new Date().getFullYear()} Т1 ИЗОЛЯЦИЯ. Все права защищены.
             </p>
             <div className="flex gap-6">
-              {NAV_LINKS.slice(0, 4).map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-gray-500 hover:text-orange-400 text-xs uppercase tracking-wide transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
+              <a href="#privacy" className="text-gray-600 hover:text-gray-400 text-xs transition-colors">
+                Политика конфиденциальности
+              </a>
+              <a href="#privacy" className="text-gray-600 hover:text-gray-400 text-xs transition-colors">
+                Обработка персональных данных
+              </a>
             </div>
           </div>
         </div>
