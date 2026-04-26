@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
-import { LOGO_SYMBOL, IMG_SHIP, GRAD, NAV_LINKS, SERVICES, CONTACTS_INFO, useVisible } from "./data";
+import { LOGO_SYMBOL, IMG_SHIP, IMG_PIPE, IMG_BOILER, GRAD, NAV_LINKS, SERVICES, CONTACTS_INFO, useVisible } from "./data";
 
 const Logo = ({ size = 44, className = "" }: { size?: number; className?: string }) => (
   <div className={`flex items-center gap-2 ${className}`}>
@@ -35,12 +35,17 @@ export const CtaSection = () => {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <section id="request" className="overflow-hidden" ref={ctaVis.ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="request" className="overflow-hidden relative" ref={ctaVis.ref}>
+      {/* Subtle full bg */}
+      <div className="absolute inset-0 pointer-events-none">
+        <img src={IMG_PIPE} alt="" aria-hidden className="w-full h-full object-cover opacity-[0.05]" />
+        <div className="absolute inset-0 bg-gray-950/60" />
+      </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2">
 
           {/* Left dark */}
-          <div className={`relative bg-gray-950 p-12 lg:p-16 overflow-hidden ${ctaVis.visible ? "animate-fadeInLeft" : "opacity-0"}`}>
+          <div className={`relative bg-gray-950/90 p-12 lg:p-16 overflow-hidden ${ctaVis.visible ? "animate-fadeInLeft" : "opacity-0"}`}>
             <div className="absolute left-0 top-0 w-1 h-full bg-orange-500" />
             <div className="absolute inset-0 opacity-[0.03]"
               style={{ backgroundImage: "repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%)", backgroundSize: "24px 24px" }} />
@@ -137,14 +142,18 @@ export const CtaSection = () => {
 };
 
 /* ─── Contacts section ───────────────────────────────────────── */
+
 export const ContactsSection = () => {
   const contVis = useVisible(0.1);
   const [submitted2, setSubmitted2] = useState(false);
   const [form2Data, setForm2Data] = useState({ name: "", phone: "", message: "" });
 
   return (
-    <section id="contacts" className="py-28 bg-white overflow-hidden" ref={contVis.ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contacts" className="py-28 bg-white overflow-hidden relative" ref={contVis.ref}>
+      <div className="absolute inset-0 pointer-events-none">
+        <img src={IMG_BOILER} alt="" aria-hidden className="w-full h-full object-cover opacity-[0.04]" />
+      </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-16 transition-all duration-700 ${contVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="w-10 h-px bg-orange-500" />
@@ -227,6 +236,7 @@ export const ContactsSection = () => {
 };
 
 /* ─── Footer ─────────────────────────────────────────────────── */
+
 export const SiteFooter = () => (
   <footer id="privacy" className="bg-[#050505] border-t border-white/5">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -238,7 +248,7 @@ export const SiteFooter = () => (
             <Logo size={36} />
           </a>
           <p className="text-gray-600 text-sm leading-relaxed mb-5">
-            Промышленная теплоизоляция под ключ. Изоляция трубопроводов, оборудования и судов. Работаем по всей России с 2012 года.
+            Промышленная теплоизоляция. Изоляция трубопроводов, оборудования и судов. Работаем по всей России.
           </p>
           <a href="tel:+78000000000" className="text-white font-bold hover:text-orange-400 transition-colors text-sm">
             8 800 000 00 00
@@ -297,7 +307,7 @@ export const SiteFooter = () => (
       {/* Bottom */}
       <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-gray-700 text-xs">
-          © {new Date().getFullYear()} Т1 ИЗОЛЯЦИЯ. Все права защищены. Промышленная теплоизоляция под ключ.
+          © {new Date().getFullYear()} Т1 ИЗОЛЯЦИЯ. Все права защищены. Промышленная теплоизоляция.
         </p>
         <div className="flex flex-wrap justify-center gap-6">
           <a href="#privacy" className="text-gray-700 hover:text-gray-400 text-xs transition-colors">Политика конфиденциальности</a>

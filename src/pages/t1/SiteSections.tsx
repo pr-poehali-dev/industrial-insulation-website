@@ -6,15 +6,16 @@ import {
   useVisible,
 } from "./data";
 
+// Тематические фото для каждой карточки услуг (по порядку SERVICES)
 const SERVICE_IMGS = [
-  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/6a3cb15e-2c7a-40d3-a075-c99e7ed457f2.jpg",
-  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/b4f523ee-7f73-4d6e-a86b-a0a81dd4b98b.jpg",
-  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/13ad7087-45ba-4c45-a9d9-f6fac5286d8d.jpg",
-  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/e61d4de9-bcc7-4f47-b8a7-0687a3bf4b9e.jpg",
-  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/6a3cb15e-2c7a-40d3-a075-c99e7ed457f2.jpg",
-  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/b4f523ee-7f73-4d6e-a86b-a0a81dd4b98b.jpg",
-  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/e61d4de9-bcc7-4f47-b8a7-0687a3bf4b9e.jpg",
-  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/13ad7087-45ba-4c45-a9d9-f6fac5286d8d.jpg",
+  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/03841964-0c63-4461-be67-e7e5fe5dd7f1.jpg", // трубопроводы
+  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/7225b93c-1003-44b7-a36f-76ffd5b8d88e.jpg", // оборудование
+  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/64c6bebe-8689-4b29-98e0-be7c4a203df3.jpg", // резервуары
+  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/54225ad3-2b0d-4899-be42-3c5da2e37189.jpg", // судовая
+  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/40c5740f-7f9e-4d35-8c08-e38e1a2b6b7d.jpg", // вентиляция
+  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/d0ed56cb-322d-46c3-9571-f0e5a4f43703.jpg", // кожухи
+  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/62c10ffd-18cb-4f61-a83e-97bfa3120d57.jpg", // огнезащита
+  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/ea11e02a-fb71-4dc6-9b16-04ad25dd97fa.jpg", // комплексный монтаж
 ];
 
 /* ─── Hero + Marquee ─────────────────────────────────────────── */
@@ -52,10 +53,10 @@ export const HeroSection = () => {
             <h1 className="text-5xl sm:text-6xl lg:text-[5.5rem] font-black text-white leading-[1.05] mb-8 tracking-tight text-center">
               Промышленная<br />
               <span className="gradient-text">теплоизоляция</span><br />
-              под ключ
+              любой сложности
             </h1>
             <p className="text-lg sm:text-xl text-gray-300 mb-4 leading-relaxed max-w-2xl text-center">
-              Проектирование, поставка и <strong className="text-white">монтаж теплоизоляции</strong> любой сложности — трубопроводы, оборудование, резервуары и суда. По всей России.
+              Проектирование, поставка и <strong className="text-white">монтаж теплоизоляции</strong> — трубопроводы, оборудование, резервуары и суда. По всей России.
             </p>
             <p className="text-gray-400 text-sm mb-10 text-center">
               Изоляция трубопроводов · Теплоизоляция оборудования · Судовая теплоизоляция · Монтаж теплоизоляции
@@ -90,7 +91,7 @@ export const HeroSection = () => {
       {/* Marquee */}
       <div className="py-3 overflow-hidden" style={{ background: GRAD_H }}>
         <div className="flex gap-12 animate-[marquee_18s_linear_infinite] whitespace-nowrap w-max">
-          {Array(3).fill(["Промышленная теплоизоляция", "Изоляция трубопроводов", "Теплоизоляция оборудования", "Судовая теплоизоляция", "Монтаж теплоизоляции под ключ", "Работаем по ГОСТ", "Гарантия качества"]).flat().map((t, i) => (
+          {Array(3).fill(["Промышленная теплоизоляция", "Изоляция трубопроводов", "Теплоизоляция оборудования", "Судовая теплоизоляция", "Комплексный монтаж", "Работаем по ГОСТ", "Гарантия качества"]).flat().map((t, i) => (
             <span key={i} className="text-white text-xs font-bold uppercase tracking-widest flex items-center gap-4">
               {t} <span className="text-white/40">·</span>
             </span>
@@ -121,7 +122,7 @@ export const AboutSection = () => {
               Надёжный подрядчик, которому доверяют директора предприятий
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed mb-5">
-              <strong>Т1 ИЗОЛЯЦИЯ</strong> — специализированный подрядчик в сфере <strong>промышленной теплоизоляции</strong>. С 2012 года мы выполняем полный цикл работ: от проектирования до сдачи объекта с документацией.
+              <strong>Т1 ИЗОЛЯЦИЯ</strong> — специализированный подрядчик в сфере <strong>промышленной теплоизоляции</strong>. Мы выполняем полный цикл работ: от проектирования до сдачи объекта с документацией.
             </p>
             <p className="text-gray-500 leading-relaxed mb-10">
               Наши заказчики — руководители крупных предприятий, главные инженеры и технические директора, для которых важны сроки, качество и бумаги в порядке. Мы работаем именно с такими задачами.
@@ -141,8 +142,8 @@ export const AboutSection = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent" />
             </div>
             <div className="absolute -bottom-6 -left-6 bg-orange-500 text-white p-6 shadow-xl hidden lg:block">
-              <div className="text-4xl font-black leading-none">2012</div>
-              <div className="text-xs font-bold uppercase tracking-wide mt-1 text-orange-100">Год основания</div>
+              <div className="text-4xl font-black leading-none">12+</div>
+              <div className="text-xs font-bold uppercase tracking-wide mt-1 text-orange-100">Лет на рынке</div>
             </div>
             <div className="absolute top-0 right-0 w-1 h-full bg-orange-500" />
           </div>
@@ -174,7 +175,7 @@ export const ServicesSection = () => {
           </h2>
           <p className="text-gray-400 mt-4 max-w-xl mx-auto text-sm leading-relaxed">
             От технической консультации до сдачи объекта — один подрядчик, полная ответственность.
-          </p>
+            </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5">
           {SERVICES.map((s, i) => (
