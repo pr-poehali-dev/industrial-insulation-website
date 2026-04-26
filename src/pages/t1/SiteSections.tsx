@@ -34,20 +34,13 @@ export const HeroSection = () => {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 w-full">
           <div className={`text-center flex flex-col items-center transition-all duration-1000 ${heroVis.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <div className="flex items-center justify-center gap-3 mb-10">
-              <div className="w-10 h-px bg-orange-500" />
-              <span className="text-orange-400 text-xs font-bold uppercase tracking-[0.25em]">
-                Промышленная теплоизоляция · Монтаж под ключ
-              </span>
-              <div className="w-10 h-px bg-orange-500" />
-            </div>
 
-            {/* Большой логотип по центру */}
+            {/* Логотип */}
             <img
               src="https://cdn.poehali.dev/files/53d29d32-74f0-4088-9d14-8c8b870bf4a3.png"
               alt="Т1 Изоляция"
-              className="mb-8 drop-shadow-2xl"
-              style={{ height: 120, width: "auto" }}
+              className="mb-10 drop-shadow-2xl"
+              style={{ height: 180, width: "auto" }}
             />
 
             <h1 className="text-5xl sm:text-6xl lg:text-[5.5rem] font-black text-white leading-[1.05] mb-8 tracking-tight text-center">
@@ -55,13 +48,10 @@ export const HeroSection = () => {
               <span className="gradient-text">теплоизоляция</span><br />
               любой сложности
             </h1>
-            <p className="text-lg sm:text-xl text-gray-300 mb-4 leading-relaxed max-w-2xl text-center">
+            <p className="text-lg sm:text-xl text-gray-300 mb-10 leading-relaxed max-w-2xl text-center">
               Проектирование, поставка и <strong className="text-white">монтаж теплоизоляции</strong> — трубопроводы, оборудование, резервуары и суда. По всей России.
             </p>
-            <p className="text-gray-400 text-sm mb-10 text-center">
-              Изоляция трубопроводов · Теплоизоляция оборудования · Судовая теплоизоляция · Монтаж теплоизоляции
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 mb-16 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="#request"
                 className="btn-primary group text-white px-8 py-4 font-black uppercase tracking-widest text-sm transition-all duration-300 flex items-center justify-center gap-3"
                 style={{ background: GRAD }}>
@@ -72,14 +62,6 @@ export const HeroSection = () => {
                 className="border border-white/30 hover:border-white text-white hover:bg-white/5 px-8 py-4 font-bold uppercase tracking-widest text-sm transition-all duration-300 text-center backdrop-blur-sm">
                 Оставить заявку
               </a>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-white/10 w-full max-w-2xl">
-              {STATS.map((s, i) => (
-                <div key={s.label} className={`text-center transition-all duration-700 delay-${(i + 1) * 100} ${heroVis.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-                  <div className="text-3xl lg:text-4xl font-black text-orange-500 leading-none">{s.num}</div>
-                  <div className="text-xs text-gray-400 mt-1.5 uppercase tracking-wide">{s.label}</div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
