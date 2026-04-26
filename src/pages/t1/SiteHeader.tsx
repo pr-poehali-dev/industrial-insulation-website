@@ -1,9 +1,31 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
-import { LOGO_IMG, NAV_LINKS, GRAD } from "./data";
+import { LOGO_SYMBOL, NAV_LINKS, GRAD } from "./data";
 
 const Logo = ({ size = 44, className = "" }: { size?: number; className?: string }) => (
-  <img src={LOGO_IMG} alt="Т1 ИЗОЛЯЦИЯ" height={size} style={{ height: size }} className={`w-auto object-contain ${className}`} />
+  <div className={`flex items-center gap-2.5 ${className}`}>
+    <img
+      src={LOGO_SYMBOL}
+      alt=""
+      aria-hidden
+      style={{ height: size, width: "auto" }}
+      className="object-contain"
+    />
+    <div className="flex flex-col leading-none">
+      <span
+        className="font-black text-white tracking-wider uppercase"
+        style={{ fontFamily: "'Oswald', sans-serif", fontSize: size * 0.45, letterSpacing: "0.08em" }}
+      >
+        Т1
+      </span>
+      <span
+        className="font-bold text-white tracking-widest uppercase"
+        style={{ fontFamily: "'Oswald', sans-serif", fontSize: size * 0.28, letterSpacing: "0.12em", color: "#d1d5db" }}
+      >
+        ИЗОЛЯЦИЯ
+      </span>
+    </div>
+  </div>
 );
 
 const SiteHeader = () => {

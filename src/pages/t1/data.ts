@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 
 export const LOGO_IMG = "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/45df6c21-6239-4f1c-8904-6639b775df22.png";
+export const LOGO_SYMBOL = "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/e38f0751-d1a7-416f-b744-f1feb00543dd.png";
 
 export const IMG_HERO   = "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/13ad7087-45ba-4c45-a9d9-f6fac5286d8d.jpg";
 export const IMG_BOILER = "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/b4f523ee-7f73-4d6e-a86b-a0a81dd4b98b.jpg";

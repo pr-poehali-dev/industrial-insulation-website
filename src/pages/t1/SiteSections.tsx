@@ -1,14 +1,10 @@
 import Icon from "@/components/ui/icon";
 import {
-  LOGO_IMG, IMG_HERO, IMG_BOILER, IMG_PIPE,
+  IMG_HERO, IMG_BOILER, IMG_PIPE,
   GRAD, GRAD_H,
   STATS, SERVICES, WHY_US, INDUSTRIES, CERTIFICATES, PROCESS,
   useVisible,
 } from "./data";
-
-const Logo = ({ size = 44, className = "" }: { size?: number; className?: string }) => (
-  <img src={LOGO_IMG} alt="Т1 ИЗОЛЯЦИЯ" height={size} style={{ height: size }} className={`w-auto object-contain ${className}`} />
-);
 
 /* ─── Hero + Marquee ─────────────────────────────────────────── */
 export const HeroSection = () => {
@@ -362,5 +358,3 @@ export const ProcessSection = () => {
   );
 };
 
-/* suppress unused import warning */
-void Logo;
