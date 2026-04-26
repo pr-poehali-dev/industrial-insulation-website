@@ -39,7 +39,7 @@ export const HeroSection = () => {
             <img
               src="https://cdn.poehali.dev/files/53d29d32-74f0-4088-9d14-8c8b870bf4a3.png"
               alt="Т1 Изоляция"
-              className="mb-10 drop-shadow-2xl"
+              className="drop-shadow-2xl py-0 px-0 mx-0 my-0 object-fill rounded-xl"
               style={{ height: 180, width: "auto" }}
             />
 
