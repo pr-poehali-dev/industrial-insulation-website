@@ -1,10 +1,21 @@
 import Icon from "@/components/ui/icon";
 import {
-  IMG_HERO, IMG_BOILER, IMG_PIPE,
+  IMG_HERO, IMG_BOILER, IMG_PIPE, IMG_SHIP,
   GRAD, GRAD_H,
   STATS, SERVICES, WHY_US, INDUSTRIES, CERTIFICATES, PROCESS,
   useVisible,
 } from "./data";
+
+const SERVICE_IMGS = [
+  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/6a3cb15e-2c7a-40d3-a075-c99e7ed457f2.jpg",
+  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/b4f523ee-7f73-4d6e-a86b-a0a81dd4b98b.jpg",
+  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/13ad7087-45ba-4c45-a9d9-f6fac5286d8d.jpg",
+  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/e61d4de9-bcc7-4f47-b8a7-0687a3bf4b9e.jpg",
+  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/6a3cb15e-2c7a-40d3-a075-c99e7ed457f2.jpg",
+  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/b4f523ee-7f73-4d6e-a86b-a0a81dd4b98b.jpg",
+  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/e61d4de9-bcc7-4f47-b8a7-0687a3bf4b9e.jpg",
+  "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/13ad7087-45ba-4c45-a9d9-f6fac5286d8d.jpg",
+];
 
 /* ─── Hero + Marquee ─────────────────────────────────────────── */
 export const HeroSection = () => {
@@ -21,25 +32,35 @@ export const HeroSection = () => {
           style={{ backgroundImage: "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)", backgroundSize: "80px 80px" }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 w-full">
-          <div className={`max-w-3xl transition-all duration-1000 ${heroVis.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <div className="flex items-center gap-3 mb-8">
+          <div className={`text-center flex flex-col items-center transition-all duration-1000 ${heroVis.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+            <div className="flex items-center justify-center gap-3 mb-10">
               <div className="w-10 h-px bg-orange-500" />
               <span className="text-orange-400 text-xs font-bold uppercase tracking-[0.25em]">
                 Промышленная теплоизоляция · Монтаж под ключ
               </span>
+              <div className="w-10 h-px bg-orange-500" />
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-[4.5rem] font-black text-white leading-[1.05] mb-8 tracking-tight">
+
+            {/* Большой логотип по центру */}
+            <img
+              src="https://cdn.poehali.dev/files/53d29d32-74f0-4088-9d14-8c8b870bf4a3.png"
+              alt="Т1 Изоляция"
+              className="mb-8 drop-shadow-2xl"
+              style={{ height: 120, width: "auto" }}
+            />
+
+            <h1 className="text-5xl sm:text-6xl lg:text-[5.5rem] font-black text-white leading-[1.05] mb-8 tracking-tight text-center">
               Промышленная<br />
               <span className="gradient-text">теплоизоляция</span><br />
               под ключ
             </h1>
-            <p className="text-lg sm:text-xl text-gray-300 mb-4 leading-relaxed max-w-2xl">
+            <p className="text-lg sm:text-xl text-gray-300 mb-4 leading-relaxed max-w-2xl text-center">
               Проектирование, поставка и <strong className="text-white">монтаж теплоизоляции</strong> любой сложности — трубопроводы, оборудование, резервуары и суда. По всей России.
             </p>
-            <p className="text-gray-400 text-sm mb-10">
+            <p className="text-gray-400 text-sm mb-10 text-center">
               Изоляция трубопроводов · Теплоизоляция оборудования · Судовая теплоизоляция · Монтаж теплоизоляции
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 mb-16">
+            <div className="flex flex-col sm:flex-row gap-4 mb-16 justify-center">
               <a href="#request"
                 className="btn-primary group text-white px-8 py-4 font-black uppercase tracking-widest text-sm transition-all duration-300 flex items-center justify-center gap-3"
                 style={{ background: GRAD }}>
@@ -51,9 +72,9 @@ export const HeroSection = () => {
                 Оставить заявку
               </a>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-white/10">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-white/10 w-full max-w-2xl">
               {STATS.map((s, i) => (
-                <div key={s.label} className={`transition-all duration-700 delay-${(i + 1) * 100} ${heroVis.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+                <div key={s.label} className={`text-center transition-all duration-700 delay-${(i + 1) * 100} ${heroVis.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
                   <div className="text-3xl lg:text-4xl font-black text-orange-500 leading-none">{s.num}</div>
                   <div className="text-xs text-gray-400 mt-1.5 uppercase tracking-wide">{s.label}</div>
                 </div>
@@ -84,8 +105,12 @@ export const HeroSection = () => {
 export const AboutSection = () => {
   const aboutVis = useVisible(0.1);
   return (
-    <section id="about" className="py-28 bg-white overflow-hidden" ref={aboutVis.ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-28 bg-white overflow-hidden relative" ref={aboutVis.ref}>
+      {/* Subtle background photo */}
+      <div className="absolute inset-0 pointer-events-none">
+        <img src={IMG_PIPE} alt="" aria-hidden className="w-full h-full object-cover opacity-[0.04]" />
+      </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <div className={`transition-all duration-800 ${aboutVis.visible ? "animate-fadeInLeft" : "opacity-0"}`}>
             <div className="flex items-center gap-3 mb-7">
@@ -131,7 +156,12 @@ export const AboutSection = () => {
 export const ServicesSection = () => {
   const servicesVis = useVisible(0.1);
   return (
-    <section id="services" className="py-28 bg-[#0a0a0a] overflow-hidden noise-bg" ref={servicesVis.ref}>
+    <section id="services" className="py-28 bg-[#0a0a0a] overflow-hidden noise-bg relative" ref={servicesVis.ref}>
+      {/* Subtle bg photo */}
+      <div className="absolute inset-0 pointer-events-none">
+        <img src={IMG_HERO} alt="" aria-hidden className="w-full h-full object-cover opacity-[0.06]" />
+        <div className="absolute inset-0 bg-[#0a0a0a]/80" />
+      </div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-16 transition-all duration-700 ${servicesVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
           <div className="flex items-center justify-center gap-3 mb-6">
@@ -149,24 +179,37 @@ export const ServicesSection = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5">
           {SERVICES.map((s, i) => (
             <div key={s.title}
-              className={`group relative bg-[#0a0a0a] p-8 hover:bg-[#111] transition-all duration-300 cursor-default overflow-hidden
+              className={`group relative overflow-hidden cursor-default
                 ${servicesVis.visible ? `animate-fadeInUp delay-${Math.min((i + 1) * 100, 800)}` : "opacity-0"}`}>
-              <div className="absolute top-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-500" />
-              {s.tag && (
-                <span className="inline-block mb-4 text-[10px] font-bold uppercase tracking-widest text-orange-500 border border-orange-500/30 px-2 py-0.5">
-                  {s.tag}
-                </span>
-              )}
-              <div className="w-11 h-11 bg-orange-500/10 flex items-center justify-center mb-5 group-hover:bg-orange-500 transition-all duration-300">
-                <Icon name={s.icon} size={20} className="text-orange-500 group-hover:text-white transition-colors duration-300" />
+              {/* Background photo that appears on hover */}
+              <div className="absolute inset-0">
+                <img
+                  src={SERVICE_IMGS[i % SERVICE_IMGS.length]}
+                  alt=""
+                  aria-hidden
+                  className="w-full h-full object-cover transition-all duration-700 scale-110 group-hover:scale-100 opacity-0 group-hover:opacity-100"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
-              <h3 className="text-white font-bold text-base mb-3 leading-snug group-hover:text-orange-50 transition-colors">
-                {s.title}
-              </h3>
-              <p className="text-gray-500 text-sm leading-relaxed group-hover:text-gray-400 transition-colors">{s.desc}</p>
-              <div className="mt-5 flex items-center gap-2 text-orange-500 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                <span className="text-xs font-bold uppercase tracking-wide">Подробнее</span>
-                <Icon name="ArrowRight" size={12} />
+              {/* Card content */}
+              <div className="relative z-10 bg-[#0f0f0f] group-hover:bg-transparent transition-colors duration-500 p-8 h-full">
+                <div className="absolute top-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-500" />
+                {s.tag && (
+                  <span className="inline-block mb-4 text-[10px] font-bold uppercase tracking-widest text-orange-500 border border-orange-500/30 px-2 py-0.5">
+                    {s.tag}
+                  </span>
+                )}
+                <div className="w-11 h-11 bg-orange-500/10 flex items-center justify-center mb-5 group-hover:bg-orange-500 transition-all duration-300">
+                  <Icon name={s.icon} size={20} className="text-orange-500 group-hover:text-white transition-colors duration-300" />
+                </div>
+                <h3 className="text-white font-bold text-base mb-3 leading-snug">
+                  {s.title}
+                </h3>
+                <p className="text-gray-500 text-sm leading-relaxed group-hover:text-gray-300 transition-colors duration-300">{s.desc}</p>
+                <div className="mt-5 flex items-center gap-2 text-orange-400 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                  <span className="text-xs font-bold uppercase tracking-wide">Подробнее</span>
+                  <Icon name="ArrowRight" size={12} />
+                </div>
               </div>
             </div>
           ))}
@@ -180,8 +223,12 @@ export const ServicesSection = () => {
 export const WhyUsSection = () => {
   const whyVis = useVisible(0.1);
   return (
-    <section id="why" className="py-28 bg-white overflow-hidden" ref={whyVis.ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="why" className="py-28 bg-white overflow-hidden relative" ref={whyVis.ref}>
+      {/* Subtle background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <img src={IMG_BOILER} alt="" aria-hidden className="w-full h-full object-cover opacity-[0.04]" />
+      </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           <div className={`transition-all duration-700 ${whyVis.visible ? "animate-fadeInLeft" : "opacity-0"}`}>
             <div className="flex items-center gap-3 mb-7">
@@ -229,7 +276,12 @@ export const WhyUsSection = () => {
 export const IndustriesSection = () => {
   const indVis = useVisible(0.1);
   return (
-    <section id="industries" className="py-28 bg-gray-950 overflow-hidden noise-bg" ref={indVis.ref}>
+    <section id="industries" className="py-28 bg-gray-950 overflow-hidden noise-bg relative" ref={indVis.ref}>
+      {/* Subtle background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <img src={IMG_SHIP} alt="" aria-hidden className="w-full h-full object-cover opacity-[0.07]" />
+        <div className="absolute inset-0 bg-gray-950/70" />
+      </div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`mb-16 transition-all duration-700 ${indVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
           <div className="flex items-center gap-3 mb-6">
@@ -248,7 +300,7 @@ export const IndustriesSection = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-px bg-white/5">
           {INDUSTRIES.map((ind, i) => (
             <div key={ind.title}
-              className={`group flex flex-col items-center text-center p-8 bg-gray-950 hover:bg-orange-500 transition-all duration-400 cursor-default
+              className={`group flex flex-col items-center text-center p-8 bg-gray-950/80 hover:bg-orange-500 transition-all duration-400 cursor-default
                 ${indVis.visible ? `animate-fadeInUp delay-${(i + 1) * 100}` : "opacity-0"}`}>
               <Icon name={ind.icon} size={28} className="text-gray-400 group-hover:text-white transition-colors duration-300 mb-4" />
               <h3 className="text-gray-300 group-hover:text-white font-bold text-sm transition-colors leading-snug mb-1">{ind.title}</h3>
@@ -265,8 +317,12 @@ export const IndustriesSection = () => {
 export const CertificatesSection = () => {
   const certVis = useVisible(0.1);
   return (
-    <section id="certificates" className="py-28 bg-white overflow-hidden" ref={certVis.ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="certificates" className="py-28 bg-white overflow-hidden relative" ref={certVis.ref}>
+      {/* Subtle background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <img src={IMG_BOILER} alt="" aria-hidden className="w-full h-full object-cover opacity-[0.03]" />
+      </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-16 transition-all duration-700 ${certVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="w-10 h-px bg-orange-500" />
@@ -324,7 +380,12 @@ export const CertificatesSection = () => {
 export const ProcessSection = () => {
   const procVis = useVisible(0.1);
   return (
-    <section id="process" className="py-28 bg-[#0a0a0a] overflow-hidden noise-bg" ref={procVis.ref}>
+    <section id="process" className="py-28 bg-[#0a0a0a] overflow-hidden noise-bg relative" ref={procVis.ref}>
+      {/* Subtle background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <img src={IMG_PIPE} alt="" aria-hidden className="w-full h-full object-cover opacity-[0.05]" />
+        <div className="absolute inset-0 bg-[#0a0a0a]/75" />
+      </div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-16 transition-all duration-700 ${procVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
           <div className="flex items-center justify-center gap-3 mb-6">
@@ -339,7 +400,7 @@ export const ProcessSection = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-px bg-white/5">
           {PROCESS.map((step, i) => (
             <div key={step.num}
-              className={`group relative bg-[#0a0a0a] p-8 hover:bg-[#111] transition-all duration-300
+              className={`group relative bg-[#0a0a0a]/80 p-8 hover:bg-[#111] transition-all duration-300
                 ${procVis.visible ? `animate-fadeInUp delay-${(i + 1) * 100}` : "opacity-0"}`}>
               <div className="absolute top-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-500" />
               <div className="flex items-center gap-3 mb-6">
@@ -357,4 +418,3 @@ export const ProcessSection = () => {
     </section>
   );
 };
-
