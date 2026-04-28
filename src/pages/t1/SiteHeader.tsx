@@ -61,9 +61,15 @@ const SiteHeader = () => {
 
           {/* CTA */}
           <div className="hidden lg:flex items-center gap-5">
-            <a href="tel:+78000000000" className="text-white font-bold text-sm hover:text-orange-400 transition-colors">
-              8 800 000 00 00
-            </a>
+            {/* Контакты */}
+            <div className="flex flex-col items-end gap-0.5 border-r border-white/10 pr-5">
+              <span className="text-gray-500 text-[10px] uppercase tracking-widest font-semibold">Санкт-Петербург</span>
+              <a href="mailto:teplofabrika@mail.ru"
+                className="flex items-center gap-1.5 text-gray-300 hover:text-orange-400 transition-colors duration-300 group">
+                <Icon name="Mail" size={11} className="text-orange-500/70 group-hover:text-orange-400 transition-colors" />
+                <span className="text-xs font-medium tracking-wide">teplofabrika@mail.ru</span>
+              </a>
+            </div>
             <a href="#contacts"
               className="btn-primary text-white px-6 py-2.5 text-xs font-black uppercase tracking-widest transition-all duration-300 hover:opacity-90"
               style={{ background: GRAD }}>
@@ -87,7 +93,10 @@ const SiteHeader = () => {
               {link.label}
             </a>
           ))}
-          <a href="tel:+78000000000" className="block mt-5 text-white font-bold text-lg">8 800 000 00 00</a>
+          <a href="mailto:teplofabrika@mail.ru" className="flex items-center gap-2 mt-5 text-gray-300 text-sm font-medium">
+            <Icon name="Mail" size={14} className="text-orange-500" />
+            teplofabrika@mail.ru
+          </a>
           <a href="#contacts" className="block mt-3 text-white text-center py-3 font-black text-xs uppercase tracking-widest"
             style={{ background: GRAD }}>
             Получить расчёт
