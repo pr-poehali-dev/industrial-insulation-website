@@ -104,13 +104,11 @@ export const CatalogSection = () => {
         {/* Видео фон */}
         <video
           autoPlay muted loop playsInline
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
           poster={IMG_SHIP}
-        >
-          <source src="https://videos.pexels.com/video-files/8968775/8968775-sd_960_506_25fps.mp4" type="video/mp4" />
-          <source src="https://videos.pexels.com/video-files/8968775/8968775-hd_1920_1080_24fps.mp4" type="video/mp4" />
-          <img src={IMG_SHIP} alt="Судостроение" className="absolute inset-0 w-full h-full object-cover" />
-        </video>
+          src="https://videos.pexels.com/video-files/8968775/8968775-sd_960_506_25fps.mp4"
+        />
         <div className="absolute inset-0 bg-black/65" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/40 via-transparent to-[#0a0a0a]/50" />
 
