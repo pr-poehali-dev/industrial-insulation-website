@@ -132,12 +132,32 @@ export const AboutSection = () => {
 };
 
 /* ─── Catalog ────────────────────────────────────────────────── */
+const CATALOG_SHIP = [
+  "Трубки",
+  "Рулоны",
+  "Высокоплотные рулоны",
+  "Стыковочные ленты",
+  "Клей и очиститель",
+  "Защитные покрытия",
+  "ИТШМИ ПАНЦИРЬ",
+  "ЗМ ПАНЦИРЬ",
+];
+
+const CATALOG_INDUSTRY = [
+  "Трубки",
+  "Рулоны",
+  "Высокоплотные рулоны",
+  "Стыковочные ленты",
+  "Клей и очиститель",
+  "Защитные покрытия",
+];
+
 export const CatalogSection = () => {
   const catalogVis = useVisible(0.1);
   return (
     <section id="catalog" className="py-28 bg-[#0a0a0a] overflow-hidden relative" ref={catalogVis.ref}>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`text-center mb-16 transition-all duration-700 ${catalogVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
+        <div className={`text-center mb-20 transition-all duration-700 ${catalogVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="w-10 h-px bg-orange-500" />
             <span className="text-orange-500 text-xs font-bold uppercase tracking-[0.2em]">Материалы</span>
@@ -148,12 +168,34 @@ export const CatalogSection = () => {
           </h2>
         </div>
 
-        {/* Подраздел 1 */}
-        <div className="mb-16">
+        {/* Судостроение */}
+        <div className="mb-20">
+          <h3 className="text-2xl font-black text-white mb-8">Каталог для судостроения</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-white/5">
+            {CATALOG_SHIP.map((name, i) => (
+              <div key={name}
+                className={`group bg-[#0f0f0f] hover:bg-orange-500 p-8 cursor-default transition-all duration-300
+                  ${catalogVis.visible ? `animate-fadeInUp delay-${Math.min((i + 1) * 75, 600)}` : "opacity-0"}`}>
+                <div className="w-8 h-0.5 bg-orange-500 group-hover:bg-white mb-5 transition-colors duration-300" />
+                <p className="text-gray-300 group-hover:text-white font-semibold text-sm leading-snug transition-colors duration-300">{name}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Подраздел 2 */}
+        {/* Промышленность и ПГС */}
         <div>
+          <h3 className="text-2xl font-black text-white mb-8">Каталог для промышленности и ПГС</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-white/5">
+            {CATALOG_INDUSTRY.map((name, i) => (
+              <div key={name}
+                className={`group bg-[#0f0f0f] hover:bg-orange-500 p-8 cursor-default transition-all duration-300
+                  ${catalogVis.visible ? `animate-fadeInUp delay-${Math.min((i + 1) * 75, 600)}` : "opacity-0"}`}>
+                <div className="w-8 h-0.5 bg-orange-500 group-hover:bg-white mb-5 transition-colors duration-300" />
+                <p className="text-gray-300 group-hover:text-white font-semibold text-sm leading-snug transition-colors duration-300">{name}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
