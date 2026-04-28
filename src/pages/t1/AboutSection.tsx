@@ -57,20 +57,21 @@ export const AboutSection = () => {
               </p>
             </div>
 
-            {/* Логотип вместо фото */}
-            <div className="mt-14 flex items-center">
+          </div>
+
+          {/* ── Правая колонка: логотип + компетенции + цифры ── */}
+          <div className={`transition-all duration-700 delay-150 ${aboutVis.visible ? "animate-fadeInRight" : "opacity-0"}`}>
+
+            {/* Логотип крупно */}
+            <div className="flex items-center justify-center mb-10 p-8 rounded-3xl bg-white border border-gray-100">
               <img
                 src={LOGO_SYMBOL}
                 alt="Т1 ИЗОЛЯЦИЯ — логотип"
-                className="h-20 sm:h-24 w-auto object-contain opacity-90"
+                className="h-40 sm:h-52 w-auto object-contain"
               />
             </div>
-          </div>
 
-          {/* ── Правая колонка: компетенции + цифры ── */}
-          <div className={`transition-all duration-700 delay-150 ${aboutVis.visible ? "animate-fadeInRight" : "opacity-0"}`}>
-
-            <p className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.3em] mb-6">Ключевые компетенции</p>
+            <p className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.3em] mb-5">Ключевые компетенции</p>
 
             <div className="grid grid-cols-2 gap-3">
               {ABOUT_ADVANTAGES.map((item, i) => (
@@ -92,7 +93,7 @@ export const AboutSection = () => {
             </div>
 
             {/* Разделитель */}
-            <div className="mt-10 mb-10 h-px w-full bg-gray-200" />
+            <div className="mt-8 mb-8 h-px w-full bg-gray-200" />
 
             {/* Цифры */}
             <div className="grid grid-cols-2 gap-3">
