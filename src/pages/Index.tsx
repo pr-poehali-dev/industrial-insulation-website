@@ -1,5 +1,5 @@
 import SiteHeader from "./t1/SiteHeader";
-import { HeroSection, AboutSection, ServicesSection, WhyUsSection, IndustriesSection, CertificatesSection, ProcessSection } from "./t1/SiteSections";
+import { HeroSection, AboutSection, CatalogSection, IndustriesSection, CertificatesSection, ProcessSection } from "./t1/SiteSections";
 import { CtaSection, ContactsSection, SiteFooter } from "./t1/SiteConversions";
 
 const Index = () => (
@@ -7,8 +7,7 @@ const Index = () => (
     <SiteHeader />
     <HeroSection />
     <AboutSection />
-    <ServicesSection />
-    <WhyUsSection />
+    <CatalogSection />
     <IndustriesSection />
     <CertificatesSection />
     <ProcessSection />

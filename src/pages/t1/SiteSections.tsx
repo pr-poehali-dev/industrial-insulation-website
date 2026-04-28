@@ -131,125 +131,36 @@ export const AboutSection = () => {
   );
 };
 
-/* ─── Services ───────────────────────────────────────────────── */
-export const ServicesSection = () => {
-  const servicesVis = useVisible(0.1);
+/* ─── Catalog ────────────────────────────────────────────────── */
+export const CatalogSection = () => {
+  const catalogVis = useVisible(0.1);
   return (
-    <section id="services" className="py-28 bg-[#0a0a0a] overflow-hidden noise-bg relative" ref={servicesVis.ref}>
-      {/* Subtle bg photo */}
-      <div className="absolute inset-0 pointer-events-none">
-        <img src={IMG_HERO} alt="" aria-hidden className="w-full h-full object-cover opacity-[0.06]" />
-        <div className="absolute inset-0 bg-[#0a0a0a]/80" />
-      </div>
+    <section id="catalog" className="py-28 bg-[#0a0a0a] overflow-hidden relative" ref={catalogVis.ref}>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`text-center mb-16 transition-all duration-700 ${servicesVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
+        <div className={`text-center mb-16 transition-all duration-700 ${catalogVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="w-10 h-px bg-orange-500" />
-            <span className="text-orange-500 text-xs font-bold uppercase tracking-[0.2em]">Услуги</span>
+            <span className="text-orange-500 text-xs font-bold uppercase tracking-[0.2em]">Материалы</span>
             <div className="w-10 h-px bg-orange-500" />
           </div>
           <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tight">
-            Полный спектр услуг<br />по теплоизоляции
+            Каталог изоляционных материалов
           </h2>
-          <p className="text-gray-400 mt-4 max-w-xl mx-auto text-sm leading-relaxed">
-            От технической консультации до сдачи объекта — один подрядчик, полная ответственность.
-            </p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5">
-          {SERVICES.map((s, i) => (
-            <div key={s.title}
-              className={`group relative overflow-hidden cursor-default
-                ${servicesVis.visible ? `animate-fadeInUp delay-${Math.min((i + 1) * 100, 800)}` : "opacity-0"}`}>
-              {/* Background photo that appears on hover */}
-              <div className="absolute inset-0">
-                <img
-                  src={SERVICE_IMGS[i % SERVICE_IMGS.length]}
-                  alt=""
-                  aria-hidden
-                  className="w-full h-full object-cover transition-all duration-700 scale-110 group-hover:scale-100 opacity-0 group-hover:opacity-100"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
-              {/* Card content */}
-              <div className="relative z-10 bg-[#0f0f0f] group-hover:bg-transparent transition-colors duration-500 p-8 h-full">
-                <div className="absolute top-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-500" />
-                {s.tag && (
-                  <span className="inline-block mb-4 text-[10px] font-bold uppercase tracking-widest text-orange-500 border border-orange-500/30 px-2 py-0.5">
-                    {s.tag}
-                  </span>
-                )}
-                <div className="w-11 h-11 bg-orange-500/10 flex items-center justify-center mb-5 group-hover:bg-orange-500 transition-all duration-300">
-                  <Icon name={s.icon} size={20} className="text-orange-500 group-hover:text-white transition-colors duration-300" />
-                </div>
-                <h3 className="text-white font-bold text-base mb-3 leading-snug">
-                  {s.title}
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed group-hover:text-gray-300 transition-colors duration-300">{s.desc}</p>
-                <div className="mt-5 flex items-center gap-2 text-orange-400 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                  <span className="text-xs font-bold uppercase tracking-wide">Подробнее</span>
-                  <Icon name="ArrowRight" size={12} />
-                </div>
-              </div>
-            </div>
-          ))}
+
+        {/* Подраздел 1 */}
+        <div className="mb-16">
+        </div>
+
+        {/* Подраздел 2 */}
+        <div>
         </div>
       </div>
     </section>
   );
 };
 
-/* ─── Why Us ─────────────────────────────────────────────────── */
-export const WhyUsSection = () => {
-  const whyVis = useVisible(0.1);
-  return (
-    <section id="why" className="py-28 bg-white overflow-hidden relative" ref={whyVis.ref}>
-      {/* Subtle background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <img src={IMG_BOILER} alt="" aria-hidden className="w-full h-full object-cover opacity-[0.04]" />
-      </div>
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-          <div className={`transition-all duration-700 ${whyVis.visible ? "animate-fadeInLeft" : "opacity-0"}`}>
-            <div className="flex items-center gap-3 mb-7">
-              <div className="w-10 h-px bg-orange-500" />
-              <span className="text-orange-500 text-xs font-bold uppercase tracking-[0.2em]">Почему нас выбирают</span>
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-black text-gray-900 leading-tight mb-6 tracking-tight">
-              То, что важно для технического директора
-            </h2>
-            <p className="text-gray-500 leading-relaxed mb-8 text-lg">
-              Мы знаем: вам нужен подрядчик, который не подведёт. Поэтому выстраиваем работу так, чтобы вы могли нам доверять.
-            </p>
-            <div className="relative overflow-hidden rounded-none">
-              <img src={IMG_PIPE} alt="Монтаж теплоизоляции трубопроводов" className="w-full h-64 object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/20 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 bg-black/80 backdrop-blur-sm p-4">
-                <p className="text-white text-xs leading-relaxed">
-                  <strong className="text-orange-400">Каждый объект</strong> — именной. Назначаем персонального прораба и инженера технадзора.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="grid gap-4">
-            {WHY_US.map((item, i) => (
-              <div key={item.title}
-                className={`group flex gap-5 p-5 border border-gray-100 hover:border-orange-200 hover:bg-orange-50/40 transition-all duration-300 card-hover
-                  ${whyVis.visible ? `animate-fadeInRight delay-${(i + 1) * 100}` : "opacity-0"}`}>
-                <div className="flex-shrink-0 w-12 h-12 bg-gray-100 group-hover:bg-orange-500 flex items-center justify-center transition-all duration-300">
-                  <Icon name={item.icon} size={20} className="text-gray-600 group-hover:text-white transition-colors duration-300" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 mb-1 text-sm">{item.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+
 
 /* ─── Industries ─────────────────────────────────────────────── */
 export const IndustriesSection = () => {
