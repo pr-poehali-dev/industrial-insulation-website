@@ -60,20 +60,36 @@ const SiteHeader = () => {
           </nav>
 
           {/* CTA */}
-          <div className="hidden lg:flex items-center gap-5">
-            {/* Контакты */}
-            <div className="flex flex-col items-end gap-0.5 border-r border-white/10 pr-5">
-              <span className="text-gray-500 text-[10px] tracking-wide">Санкт-Петербург, Решетникова ул., 13А</span>
+          <div className="hidden lg:flex items-center gap-4">
+            {/* Контакты — десктоп */}
+            <div className="flex flex-col items-end gap-1 border-r border-white/8 pr-4">
+              <div className="flex items-center gap-1.5">
+                <Icon name="MapPin" size={10} className="text-orange-500/60 flex-shrink-0" />
+                <span className="text-gray-500 text-[10px] leading-none">Санкт-Петербург, Решетникова ул., 13А</span>
+              </div>
               <a href="mailto:teplofabrika@mail.ru"
-                className="flex items-center gap-1.5 text-gray-300 hover:text-orange-400 transition-colors duration-300 group">
-                <Icon name="Mail" size={11} className="text-orange-500/70 group-hover:text-orange-400 transition-colors" />
-                <span className="text-xs font-medium tracking-wide">teplofabrika@mail.ru</span>
+                className="flex items-center gap-1.5 group">
+                <Icon name="Mail" size={10} className="text-orange-500/60 group-hover:text-orange-400 flex-shrink-0 transition-colors duration-300" />
+                <span className="text-[11px] text-gray-400 group-hover:text-orange-400 font-medium transition-colors duration-300 leading-none">teplofabrika@mail.ru</span>
               </a>
             </div>
             <a href="#contacts"
               className="btn-primary text-white px-6 py-2.5 text-xs font-black uppercase tracking-widest transition-all duration-300 hover:opacity-90"
               style={{ background: GRAD }}>
               Получить расчёт
+            </a>
+          </div>
+
+          {/* Контакты — планшет (md..lg) */}
+          <div className="hidden md:flex lg:hidden items-center gap-3">
+            <a href="mailto:teplofabrika@mail.ru" className="flex items-center gap-1.5 group">
+              <Icon name="Mail" size={14} className="text-orange-500" />
+              <span className="text-gray-400 text-xs group-hover:text-orange-400 transition-colors duration-300">teplofabrika@mail.ru</span>
+            </a>
+            <a href="#contacts"
+              className="btn-primary text-white px-4 py-2 text-xs font-black uppercase tracking-widest transition-all duration-300 hover:opacity-90"
+              style={{ background: GRAD }}>
+              Расчёт
             </a>
           </div>
 
@@ -93,11 +109,17 @@ const SiteHeader = () => {
               {link.label}
             </a>
           ))}
-          <a href="mailto:teplofabrika@mail.ru" className="flex items-center gap-2 mt-5 text-gray-300 text-sm font-medium">
-            <Icon name="Mail" size={14} className="text-orange-500" />
-            teplofabrika@mail.ru
-          </a>
-          <a href="#contacts" className="block mt-3 text-white text-center py-3 font-black text-xs uppercase tracking-widest"
+          <div className="mt-4 pt-4 border-t border-white/5 flex flex-col gap-2">
+            <div className="flex items-center gap-2 text-gray-500 text-xs">
+              <Icon name="MapPin" size={12} className="text-orange-500/60 flex-shrink-0" />
+              Санкт-Петербург, Решетникова ул., 13А
+            </div>
+            <a href="mailto:teplofabrika@mail.ru" className="flex items-center gap-2 text-gray-400 text-xs">
+              <Icon name="Mail" size={12} className="text-orange-500/60 flex-shrink-0" />
+              teplofabrika@mail.ru
+            </a>
+          </div>
+          <a href="#contacts" className="block mt-4 text-white text-center py-3 font-black text-xs uppercase tracking-widest"
             style={{ background: GRAD }}>
             Получить расчёт
           </a>
