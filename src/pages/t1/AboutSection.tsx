@@ -13,13 +13,12 @@ const ABOUT_ADVANTAGES = [
 export const AboutSection = () => {
   const aboutVis = useVisible(0.1);
   return (
-    <section id="about" className="py-32 lg:py-40 bg-[#f8f7f5] overflow-hidden relative" ref={aboutVis.ref}>
+    <section id="about" className="py-32 lg:py-40 bg-[#f2ede8] overflow-hidden relative" ref={aboutVis.ref}>
 
-      {/* Полупрозрачное фото фоном */}
+      {/* Фоновое фото едва видно */}
       <div className="absolute inset-0 pointer-events-none">
-        <img src={IMG_BOILER} alt="" aria-hidden className="w-full h-full object-cover opacity-[0.055]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#f8f7f5] via-[#f8f7f5]/80 to-[#f8f7f5]/60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#f8f7f5]/50 via-transparent to-[#f8f7f5]/50" />
+        <img src={IMG_PIPE} alt="" aria-hidden className="w-full h-full object-cover opacity-[0.12]" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(242,237,232,0.92) 0%, rgba(242,237,232,0.80) 50%, rgba(242,237,232,0.88) 100%)" }} />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
