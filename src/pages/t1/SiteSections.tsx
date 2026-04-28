@@ -179,26 +179,43 @@ const CatalogCard = ({ name, img, delay, visible }: { name: string; img: string;
     <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent
       group-hover:via-orange-400/80 transition-all duration-[350ms]" />
 
-    {/* Фото — появляется справа при hover */}
-    <div
-      className="absolute top-0 right-0 bottom-0 w-2/5 opacity-0 translate-x-4
-        group-hover:opacity-100 group-hover:translate-x-0
-        transition-[opacity,transform] duration-[350ms] ease-out"
-    >
-      <img src={img} alt={name} className="w-full h-full object-cover" />
-      {/* Fade слева поверх фото */}
-      <div className="absolute inset-0" style={{ background: "linear-gradient(to right, #141414 0%, transparent 60%)" }} />
-      {/* Тёмный оверлей */}
-      <div className="absolute inset-0 bg-black/40" />
-    </div>
+    {/* МОБАЙЛ: горизонтальный лейаут — фото всегда справа */}
+    <div className="flex sm:block">
 
-    {/* Контент — чуть смещается влево при hover */}
-    <div className="relative z-10 flex flex-col justify-between p-5 sm:p-6 min-h-[120px]
-      translate-x-0 group-hover:-translate-x-1 transition-transform duration-[350ms] ease-out">
-      <div className="w-2 h-2 rounded-full bg-orange-500 mb-4" />
-      <p className="text-white font-semibold text-sm sm:text-base leading-snug tracking-wide">
-        {name}
-      </p>
+      {/* Контент */}
+      <div className="relative z-10 flex flex-col justify-center
+        p-5 min-h-[88px]
+        sm:p-6 sm:min-h-[120px]
+        flex-1 min-w-0
+        translate-x-0 group-hover:-translate-x-1 transition-transform duration-[350ms] ease-out sm:pr-6">
+        <div className="w-2 h-2 rounded-full bg-orange-500 mb-3" />
+        <p className="text-white font-semibold text-sm sm:text-base leading-snug tracking-wide">
+          {name}
+        </p>
+      </div>
+
+      {/* Фото — на мобайле всегда видно справа, на десктопе hover */}
+      <div className="relative flex-shrink-0 w-24 h-auto sm:w-0 sm:h-0
+        sm:absolute sm:inset-0 sm:w-auto sm:h-auto
+        overflow-hidden">
+
+        {/* Мобайл: всегда показываем */}
+        <div className="sm:hidden w-24 h-full min-h-[88px]">
+          <img src={img} alt={name} className="w-full h-full object-cover opacity-70" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to right, #141414 0%, transparent 50%)" }} />
+        </div>
+
+        {/* Десктоп: hover */}
+        <div className="hidden sm:block absolute top-0 right-0 bottom-0 w-2/5
+          opacity-0 translate-x-4
+          group-hover:opacity-100 group-hover:translate-x-0
+          transition-[opacity,transform] duration-[350ms] ease-out">
+          <img src={img} alt={name} className="w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to right, #141414 0%, transparent 60%)" }} />
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
+      </div>
+
     </div>
 
     {/* Угловое свечение */}
@@ -248,7 +265,7 @@ export const CatalogSection = () => {
             <div className="flex-1 h-px bg-white/20" />
             <span className="text-orange-400/80 text-xs font-bold uppercase tracking-widest">{CATALOG_SHIP.length} позиций</span>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {CATALOG_SHIP.map((item, i) => (
               <CatalogCard key={item.name} name={item.name} img={item.img} delay={i * 60} visible={catalogVis.visible} />
             ))}
@@ -263,7 +280,7 @@ export const CatalogSection = () => {
           <div className="flex-1 h-px bg-white/10" />
           <span className="text-orange-500/60 text-xs font-bold uppercase tracking-widest">{CATALOG_INDUSTRY.length} позиций</span>
         </div>
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           {CATALOG_INDUSTRY.map((item, i) => (
             <CatalogCard key={item.name} name={item.name} img={item.img} delay={i * 60} visible={catalogVis.visible} />
           ))}
