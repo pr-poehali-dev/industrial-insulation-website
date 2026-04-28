@@ -234,7 +234,7 @@ export const CatalogSection = () => {
             <div className="flex-1 h-px bg-white/20" />
             <span className="text-orange-400/80 text-xs font-bold uppercase tracking-widest">{CATALOG_SHIP.length} позиций</span>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {CATALOG_SHIP.map((item, i) => (
               <CatalogCard key={item.name} name={item.name} img={item.img} delay={i * 60} visible={catalogVis.visible} />
             ))}
@@ -249,7 +249,7 @@ export const CatalogSection = () => {
           <div className="flex-1 h-px bg-white/10" />
           <span className="text-orange-500/60 text-xs font-bold uppercase tracking-widest">{CATALOG_INDUSTRY.length} позиций</span>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
           {CATALOG_INDUSTRY.map((item, i) => (
             <CatalogCard key={item.name} name={item.name} img={item.img} delay={i * 60} visible={catalogVis.visible} />
           ))}
