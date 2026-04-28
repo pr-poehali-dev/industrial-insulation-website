@@ -166,18 +166,34 @@ const CATALOG_INDUSTRY: { name: string; img: string }[] = [
 const CatalogCard = ({ name, img, delay, visible }: { name: string; img: string; delay: number; visible: boolean }) => (
   <div
     className={`group relative overflow-hidden cursor-default rounded-[20px]
-      border border-white/[0.05] hover:border-white/[0.10]
-      shadow-[0_2px_16px_rgba(0,0,0,0.6)] hover:shadow-[0_6px_32px_rgba(0,0,0,0.8)]
-      transition-[border-color,box-shadow] duration-[350ms]
+      border border-white/[0.05] hover:border-white/[0.12]
+      transition-[border-color,box-shadow,background] duration-500
       ${visible ? "animate-fadeInUp" : "opacity-0"}`}
     style={{
       animationDelay: `${delay}ms`,
       background: "linear-gradient(145deg, #141414 0%, #181818 50%, #161210 100%)",
+      boxShadow: "0 2px 16px rgba(0,0,0,0.6)",
     }}
+    onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 40px rgba(0,0,0,0.85), 0 0 0 1px rgba(255,255,255,0.07)"; }}
+    onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 16px rgba(0,0,0,0.6)"; }}
   >
-    {/* Тонкая оранжевая черта слева — единственный акцент */}
-    <div className="absolute top-4 left-0 bottom-4 w-[2px] rounded-full opacity-40 group-hover:opacity-80 transition-opacity duration-[350ms]"
+    {/* Оранжевая черта слева */}
+    <div className="absolute top-4 left-0 bottom-4 w-[2px] rounded-full opacity-35 group-hover:opacity-70 transition-opacity duration-500"
       style={{ background: "linear-gradient(to bottom, #e63012, #f97316, #fbbf24)" }} />
+
+    {/* Фото — десктоп: fade + slide справа почти на всю карточку */}
+    <div className="hidden sm:block absolute inset-0 overflow-hidden rounded-[20px]">
+      <img
+        src={img} alt={name}
+        className="absolute inset-0 w-full h-full object-cover
+          opacity-0 translate-x-6 scale-[1.04]
+          group-hover:opacity-100 group-hover:translate-x-0 group-hover:scale-100
+          transition-[opacity,transform] duration-500 ease-out"
+      />
+      {/* Тёмный overlay поверх фото — слева плотнее, справа прозрачнее */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        style={{ background: "linear-gradient(to right, rgba(18,17,15,0.92) 0%, rgba(18,17,15,0.7) 40%, rgba(18,17,15,0.35) 100%)" }} />
+    </div>
 
     {/* МОБАЙЛ: горизонтальный лейаут */}
     <div className="flex sm:block">
@@ -185,29 +201,20 @@ const CatalogCard = ({ name, img, delay, visible }: { name: string; img: string;
       {/* Контент */}
       <div className="relative z-10 flex items-center
         pl-6 pr-4 py-5 min-h-[80px]
-        sm:pl-7 sm:pr-5 sm:py-6 sm:min-h-[110px]
+        sm:pl-7 sm:pr-6 sm:py-7 sm:min-h-[110px]
         flex-1 min-w-0">
-        <p className="text-gray-100 group-hover:text-white font-medium text-sm sm:text-[15px] leading-snug tracking-wide transition-colors duration-[350ms]">
+        <p className="text-gray-300 group-hover:text-white font-medium text-sm sm:text-[15px] leading-snug tracking-wide transition-colors duration-500">
           {name}
         </p>
       </div>
 
-      {/* Фото — мобайл: всегда справа */}
+      {/* Фото — мобайл: всегда справа, тихо */}
       <div className="sm:hidden relative flex-shrink-0 w-20 min-h-[80px] overflow-hidden">
-        <img src={img} alt={name} className="absolute inset-0 w-full h-full object-cover opacity-40" />
+        <img src={img} alt={name} className="absolute inset-0 w-full h-full object-cover opacity-35" />
         <div className="absolute inset-0"
-          style={{ background: "linear-gradient(to right, #141414 0%, transparent 60%)" }} />
+          style={{ background: "linear-gradient(to right, #141414 0%, transparent 65%)" }} />
       </div>
 
-    </div>
-
-    {/* Фото — десктоп: появляется при hover */}
-    <div className="hidden sm:block absolute top-0 right-0 bottom-0 w-[40%] overflow-hidden
-      opacity-0 group-hover:opacity-100 transition-opacity duration-[350ms] ease-out">
-      <img src={img} alt={name} className="absolute inset-0 w-full h-full object-cover" />
-      <div className="absolute inset-0"
-        style={{ background: "linear-gradient(to right, #141414 0%, rgba(20,18,16,0.55) 35%, transparent 100%)" }} />
-      <div className="absolute inset-0 bg-black/25" />
     </div>
   </div>
 );
