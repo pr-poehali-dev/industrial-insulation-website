@@ -30,7 +30,7 @@ export const AboutSection = () => {
           <span className="text-orange-600 text-[11px] font-bold uppercase tracking-[0.3em]">О компании</span>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-stretch">
 
           {/* ── Левая колонка: текст ── */}
           <div className={`transition-all duration-700 ${aboutVis.visible ? "animate-fadeInLeft" : "opacity-0"}`}>
@@ -82,20 +82,17 @@ export const AboutSection = () => {
 
           </div>
 
-          {/* ── Правая колонка: логотип + цифры ── */}
-          <div className={`transition-all duration-700 delay-150 ${aboutVis.visible ? "animate-fadeInRight" : "opacity-0"}`}>
+          {/* ── Правая колонка: логотип на всю высоту + цифры снизу ── */}
+          <div className={`flex flex-col transition-all duration-700 delay-150 ${aboutVis.visible ? "animate-fadeInRight" : "opacity-0"}`}>
 
-            {/* Логотип крупно */}
-            <div className="flex items-center justify-center mb-8 p-8 rounded-3xl bg-white border border-gray-100">
+            {/* Логотип — растягивается на всю оставшуюся высоту */}
+            <div className="flex-1 flex items-center justify-center p-8 rounded-3xl bg-white border border-gray-100 mb-4">
               <img
                 src={LOGO_SYMBOL}
                 alt="Т1 ИЗОЛЯЦИЯ — логотип"
-                className="h-40 sm:h-52 w-auto object-contain"
+                className="w-full max-w-xs object-contain"
               />
             </div>
-
-            {/* Разделитель */}
-            <div className="mt-8 mb-8 h-px w-full bg-gray-200" />
 
             {/* Цифры */}
             <div className="grid grid-cols-2 gap-3">
