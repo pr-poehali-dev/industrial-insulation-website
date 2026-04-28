@@ -2,12 +2,12 @@ import Icon from "@/components/ui/icon";
 import { IMG_BOILER, IMG_PIPE, STATS, useVisible } from "./data";
 
 const ABOUT_ADVANTAGES = [
-  { icon: "BadgeCheck",  text: "Официальный поставщик производителей" },
   { icon: "MapPin",      text: "Работаем по всей России" },
-  { icon: "FileText",    text: "Сертификаты и документация" },
   { icon: "Settings",    text: "Подбор решений под объект" },
-  { icon: "Lightbulb",   text: "Техническая экспертиза" },
-  { icon: "ShieldCheck", text: "Высокое качество материалов" },
+  { icon: "Calculator",  text: "Технические расчёты" },
+  { icon: "Truck",       text: "Официальные поставки" },
+  { icon: "BadgeCheck",  text: "Сертификаты качества" },
+  { icon: "Anchor",      text: "Судостроение и промышленность" },
 ];
 
 export const AboutSection = () => {
@@ -70,24 +70,21 @@ export const AboutSection = () => {
           {/* ── Правая колонка: преимущества ── */}
           <div className={`transition-all duration-700 delay-150 ${aboutVis.visible ? "animate-fadeInRight" : "opacity-0"}`}>
 
-            <p className="text-gray-500 text-xs font-bold uppercase tracking-[0.2em] mb-6">Почему выбирают нас</p>
+            <p className="text-gray-600 text-[10px] font-bold uppercase tracking-[0.25em] mb-5">Ключевые компетенции</p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2.5">
               {ABOUT_ADVANTAGES.map((item, i) => (
                 <div
                   key={item.text}
-                  className="group flex items-start gap-4 p-5 rounded-[16px] border border-white/[0.05] hover:border-white/[0.10]
-                    transition-[border-color,background] duration-300"
-                  style={{
-                    background: "linear-gradient(145deg, #141414 0%, #181818 100%)",
-                    animationDelay: `${i * 60}ms`,
-                  }}
+                  className="group flex flex-col gap-3 p-4 rounded-2xl border border-white/[0.05] hover:border-orange-500/20
+                    hover:bg-white/[0.02] transition-all duration-300 cursor-default"
+                  style={{ animationDelay: `${i * 60}ms` }}
                 >
-                  <div className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center mt-0.5"
-                    style={{ background: "linear-gradient(135deg, rgba(230,48,18,0.15) 0%, rgba(249,115,22,0.08) 100%)" }}>
-                    <Icon name={item.icon as "BadgeCheck"} size={15} className="text-orange-400" />
+                  <div className="w-7 h-7 rounded-lg flex items-center justify-center"
+                    style={{ background: "linear-gradient(135deg, rgba(230,48,18,0.12) 0%, rgba(249,115,22,0.06) 100%)" }}>
+                    <Icon name={item.icon as "MapPin"} size={13} className="text-orange-400/80 group-hover:text-orange-400 transition-colors duration-300" />
                   </div>
-                  <p className="text-gray-300 group-hover:text-white text-sm leading-snug font-medium transition-colors duration-300">
+                  <p className="text-gray-400 group-hover:text-gray-200 text-[13px] leading-snug font-medium transition-colors duration-300">
                     {item.text}
                   </p>
                 </div>
