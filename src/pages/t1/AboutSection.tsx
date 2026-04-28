@@ -1,5 +1,5 @@
 import Icon from "@/components/ui/icon";
-import { IMG_BOILER, IMG_PIPE, LOGO_IMG, STATS, useVisible } from "./data";
+import { IMG_BOILER, IMG_PIPE, LOGO_SYMBOL, STATS, useVisible } from "./data";
 
 const ABOUT_ADVANTAGES = [
   { icon: "MapPin",        text: "Поставки по всей России" },
@@ -60,7 +60,7 @@ export const AboutSection = () => {
             {/* Логотип вместо фото */}
             <div className="mt-14 flex items-center">
               <img
-                src={LOGO_IMG}
+                src={LOGO_SYMBOL}
                 alt="Т1 ИЗОЛЯЦИЯ — логотип"
                 className="h-20 sm:h-24 w-auto object-contain opacity-90"
               />
