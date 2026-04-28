@@ -250,8 +250,8 @@ export const SiteFooter = () => (
           <p className="text-gray-600 text-sm leading-relaxed mb-5">
             Промышленная теплоизоляция. Изоляция трубопроводов, оборудования и судов. Работаем по всей России.
           </p>
-          <a href="tel:+78000000000" className="text-white font-bold hover:text-orange-400 transition-colors text-sm">
-            8 800 000 00 00
+          <a href="mailto:teplofabrika@mail.ru" className="text-white font-bold hover:text-orange-400 transition-colors text-sm">
+            teplofabrika@mail.ru
           </a>
         </div>
 

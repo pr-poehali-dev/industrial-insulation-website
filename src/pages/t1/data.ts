@@ -76,10 +76,10 @@ export const CERTIFICATES = [
 ];
 
 export const CONTACTS_INFO = [
-  { icon: "Phone",  label: "Телефон",      value: "8 800 000 00 00",  sub: "Бесплатно по России",       href: "tel:+78000000000" },
-  { icon: "Mail",   label: "Email",        value: "info@t1izol.ru",   sub: "Ответим за 1 рабочий день", href: "mailto:info@t1izol.ru" },
-  { icon: "MapPin", label: "Адрес",        value: "Санкт-Петербург",  sub: "ул. Промышленная, 1",       href: "#" },
-  { icon: "Clock",  label: "Режим работы", value: "Пн–Пт: 9:00–18:00", sub: "Сб–Вс — по договорённости", href: "#" },
+  { icon: "Building2", label: "Организация",   value: "ООО «Т1 ИЗОЛЯЦИЯ»",          sub: "ИНН 7810939850",                href: "#" },
+  { icon: "Mail",      label: "Email",          value: "teplofabrika@mail.ru",        sub: "Ответим за 1 рабочий день",     href: "mailto:teplofabrika@mail.ru" },
+  { icon: "MapPin",    label: "Адрес",          value: "196105, Санкт-Петербург",     sub: "ул. Решетникова, 13А",          href: "#" },
+  { icon: "Clock",     label: "Режим работы",   value: "Пн–Пт: 9:00–18:00",          sub: "Сб–Вс — по договорённости",    href: "#" },
 ];
 
 /* ─── Intersection Observer Hook ────────────────────────────── */
