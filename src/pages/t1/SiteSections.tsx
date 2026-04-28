@@ -132,31 +132,68 @@ export const AboutSection = () => {
 };
 
 /* ─── Catalog ────────────────────────────────────────────────── */
-const CATALOG_SHIP = [
-  "Трубки",
-  "Рулоны",
-  "Высокоплотные рулоны",
-  "Стыковочные ленты",
-  "Клей и очиститель",
-  "Защитные покрытия",
-  "ИТШМИ ПАНЦИРЬ",
-  "ЗМ ПАНЦИРЬ",
+const IMG_TUBES = "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/3ddf0ad3-7940-400c-a688-3e907253b23d.jpg";
+const IMG_ROLLS = "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/51e58607-a24b-44da-948e-737b95e9c9e0.jpg";
+const IMG_GLUE  = "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/a8546888-733b-4725-826e-b8ddc828706d.jpg";
+
+const CATALOG_SHIP: { name: string; img: string }[] = [
+  { name: "Трубки",               img: IMG_TUBES },
+  { name: "Рулоны",               img: IMG_ROLLS },
+  { name: "Высокоплотные рулоны", img: IMG_ROLLS },
+  { name: "Стыковочные ленты",    img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/6a3cb15e-2c7a40d3-a075-c99e7ed457f2.jpg" },
+  { name: "Клей и очиститель",    img: IMG_GLUE },
+  { name: "Защитные покрытия",    img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/d0ed56cb-322d-46c3-9571-f0e5a4f43703.jpg" },
+  { name: "ИТШМИ ПАНЦИРЬ",        img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/62c10ffd-18cb-4f61-a83e-97bfa3120d57.jpg" },
+  { name: "ЗМ ПАНЦИРЬ",           img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/ea11e02a-fb71-4dc6-9b16-04ad25dd97fa.jpg" },
 ];
 
-const CATALOG_INDUSTRY = [
-  "Трубки",
-  "Рулоны",
-  "Высокоплотные рулоны",
-  "Стыковочные ленты",
-  "Клей и очиститель",
-  "Защитные покрытия",
+const CATALOG_INDUSTRY: { name: string; img: string }[] = [
+  { name: "Трубки",               img: IMG_TUBES },
+  { name: "Рулоны",               img: IMG_ROLLS },
+  { name: "Высокоплотные рулоны", img: IMG_ROLLS },
+  { name: "Стыковочные ленты",    img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/03841964-0c63-4461-be67-e7e5fe5dd7f1.jpg" },
+  { name: "Клей и очиститель",    img: IMG_GLUE },
+  { name: "Защитные покрытия",    img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/d0ed56cb-322d-46c3-9571-f0e5a4f43703.jpg" },
 ];
+
+const CatalogCard = ({ name, img, delay, visible }: { name: string; img: string; delay: number; visible: boolean }) => (
+  <div
+    className={`group relative flex items-center justify-between bg-[#141414] rounded-2xl overflow-hidden cursor-default
+      shadow-[0_2px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_4px_32px_rgba(249,115,22,0.18)]
+      border border-white/5 hover:border-orange-500/40
+      transition-all duration-400 h-24 sm:h-28 px-6
+      ${visible ? `animate-fadeInUp` : "opacity-0"}`}
+    style={{ animationDelay: `${delay}ms` }}
+  >
+    {/* Left: accent line + title */}
+    <div className="flex items-center gap-4 flex-1 min-w-0 pr-4">
+      <div className="w-1 h-10 rounded-full bg-orange-500 flex-shrink-0 group-hover:h-14 transition-all duration-300" />
+      <p className="text-gray-200 group-hover:text-white font-bold text-base sm:text-lg leading-snug transition-colors duration-300 truncate">
+        {name}
+      </p>
+    </div>
+    {/* Right: image */}
+    <div className="w-24 sm:w-32 h-full flex-shrink-0 overflow-hidden">
+      <img
+        src={img}
+        alt={name}
+        className="w-full h-full object-cover opacity-40 group-hover:opacity-80 group-hover:scale-105 transition-all duration-500"
+      />
+      <div className="absolute inset-y-0 right-0 w-24 sm:w-32 bg-gradient-to-l from-transparent to-[#141414] group-hover:to-transparent transition-all duration-400" />
+    </div>
+    {/* Hover glow */}
+    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
+      style={{ background: "linear-gradient(135deg, rgba(249,115,22,0.04) 0%, transparent 60%)" }} />
+  </div>
+);
 
 export const CatalogSection = () => {
   const catalogVis = useVisible(0.1);
   return (
     <section id="catalog" className="py-28 bg-[#0a0a0a] overflow-hidden relative" ref={catalogVis.ref}>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Заголовок раздела */}
         <div className={`text-center mb-20 transition-all duration-700 ${catalogVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="w-10 h-px bg-orange-500" />
@@ -169,34 +206,33 @@ export const CatalogSection = () => {
         </div>
 
         {/* Судостроение */}
-        <div className="mb-20">
-          <h3 className="text-2xl font-black text-white mb-8">Каталог для судостроения</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-white/5">
-            {CATALOG_SHIP.map((name, i) => (
-              <div key={name}
-                className={`group bg-[#0f0f0f] hover:bg-orange-500 p-8 cursor-default transition-all duration-300
-                  ${catalogVis.visible ? `animate-fadeInUp delay-${Math.min((i + 1) * 75, 600)}` : "opacity-0"}`}>
-                <div className="w-8 h-0.5 bg-orange-500 group-hover:bg-white mb-5 transition-colors duration-300" />
-                <p className="text-gray-300 group-hover:text-white font-semibold text-sm leading-snug transition-colors duration-300">{name}</p>
-              </div>
+        <div className="mb-16">
+          <div className={`flex items-center gap-4 mb-8 transition-all duration-700 ${catalogVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
+            <h3 className="text-xl sm:text-2xl font-black text-white">Каталог для судостроения</h3>
+            <div className="flex-1 h-px bg-white/10" />
+            <span className="text-orange-500/60 text-xs font-bold uppercase tracking-widest">{CATALOG_SHIP.length} позиций</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {CATALOG_SHIP.map((item, i) => (
+              <CatalogCard key={item.name} name={item.name} img={item.img} delay={i * 60} visible={catalogVis.visible} />
             ))}
           </div>
         </div>
 
         {/* Промышленность и ПГС */}
         <div>
-          <h3 className="text-2xl font-black text-white mb-8">Каталог для промышленности и ПГС</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-white/5">
-            {CATALOG_INDUSTRY.map((name, i) => (
-              <div key={name}
-                className={`group bg-[#0f0f0f] hover:bg-orange-500 p-8 cursor-default transition-all duration-300
-                  ${catalogVis.visible ? `animate-fadeInUp delay-${Math.min((i + 1) * 75, 600)}` : "opacity-0"}`}>
-                <div className="w-8 h-0.5 bg-orange-500 group-hover:bg-white mb-5 transition-colors duration-300" />
-                <p className="text-gray-300 group-hover:text-white font-semibold text-sm leading-snug transition-colors duration-300">{name}</p>
-              </div>
+          <div className={`flex items-center gap-4 mb-8 transition-all duration-700 delay-200 ${catalogVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
+            <h3 className="text-xl sm:text-2xl font-black text-white">Каталог для промышленности и ПГС</h3>
+            <div className="flex-1 h-px bg-white/10" />
+            <span className="text-orange-500/60 text-xs font-bold uppercase tracking-widest">{CATALOG_INDUSTRY.length} позиций</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {CATALOG_INDUSTRY.map((item, i) => (
+              <CatalogCard key={item.name} name={item.name} img={item.img} delay={i * 60} visible={catalogVis.visible} />
             ))}
           </div>
         </div>
+
       </div>
     </section>
   );
