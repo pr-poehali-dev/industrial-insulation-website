@@ -165,17 +165,18 @@ export const ContactsSection = () => {
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
-          {CONTACTS_INFO.map((item, i) => (
+        <div className={`mb-16 border border-gray-100 divide-y sm:divide-y-0 sm:divide-x divide-gray-100 grid sm:grid-cols-2 lg:grid-cols-4 transition-all duration-700 ${contVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
+          {CONTACTS_INFO.map((item) => (
             <a key={item.label} href={item.href}
-              className={`group border border-gray-100 p-8 hover:border-orange-300 hover:shadow-xl transition-all duration-300 card-hover flex flex-col items-center text-center
-                ${contVis.visible ? `animate-fadeInUp delay-${(i + 1) * 100}` : "opacity-0"}`}>
-              <div className="w-14 h-14 bg-gray-100 group-hover:bg-orange-500 flex items-center justify-center mb-5 transition-all duration-300">
-                <Icon name={item.icon} size={22} className="text-orange-500 group-hover:text-white transition-colors duration-300" />
+              className="group flex items-start gap-4 p-7 hover:bg-gray-50 transition-colors duration-200">
+              <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-gray-100 group-hover:bg-orange-500 flex items-center justify-center transition-all duration-300 mt-0.5">
+                <Icon name={item.icon} size={16} className="text-orange-500 group-hover:text-white transition-colors duration-300" />
               </div>
-              <div className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-2">{item.label}</div>
-              <div className="font-black text-gray-900 mb-1">{item.value}</div>
-              <div className="text-gray-400 text-xs">{item.sub}</div>
+              <div className="min-w-0">
+                <div className="text-[10px] text-gray-400 uppercase tracking-widest font-semibold mb-1">{item.label}</div>
+                <div className="font-bold text-gray-900 text-sm leading-snug truncate">{item.value}</div>
+                <div className="text-gray-400 text-xs mt-0.5">{item.sub}</div>
+              </div>
             </a>
           ))}
         </div>
