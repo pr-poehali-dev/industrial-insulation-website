@@ -63,7 +63,7 @@ const SiteHeader = () => {
           <div className="hidden lg:flex items-center gap-5">
             {/* Контакты */}
             <div className="flex flex-col items-end gap-0.5 border-r border-white/10 pr-5">
-              <span className="text-gray-500 text-[10px] uppercase tracking-widest font-semibold">Санкт-Петербург</span>
+              <span className="text-gray-500 text-[10px] tracking-wide">Санкт-Петербург, Решетникова ул., 13А</span>
               <a href="mailto:teplofabrika@mail.ru"
                 className="flex items-center gap-1.5 text-gray-300 hover:text-orange-400 transition-colors duration-300 group">
                 <Icon name="Mail" size={11} className="text-orange-500/70 group-hover:text-orange-400 transition-colors" />
