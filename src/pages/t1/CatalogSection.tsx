@@ -107,6 +107,7 @@ export const CatalogSection = () => {
           className="absolute inset-0 w-full h-full object-cover"
           poster={IMG_SHIP}
         >
+          <source src="https://videos.pexels.com/video-files/8968775/8968775-sd_960_506_25fps.mp4" type="video/mp4" />
           <source src="https://videos.pexels.com/video-files/8968775/8968775-hd_1920_1080_24fps.mp4" type="video/mp4" />
           <img src={IMG_SHIP} alt="Судостроение" className="absolute inset-0 w-full h-full object-cover" />
         </video>
