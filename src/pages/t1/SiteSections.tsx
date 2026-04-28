@@ -166,18 +166,28 @@ const CATALOG_INDUSTRY: { name: string; img: string }[] = [
 const CatalogCard = ({ name, img, delay, visible }: { name: string; img: string; delay: number; visible: boolean }) => (
   <div
     className={`group relative overflow-hidden cursor-default rounded-[20px]
-      border border-white/[0.06] hover:border-orange-500/25
-      shadow-[0_4px_24px_rgba(0,0,0,0.55)] hover:shadow-[0_10px_48px_rgba(249,115,22,0.18)]
+      border border-white/[0.07] hover:border-orange-600/30
+      shadow-[0_4px_28px_rgba(0,0,0,0.7)] hover:shadow-[0_10px_48px_rgba(230,48,18,0.2)]
       transition-[border-color,box-shadow] duration-[350ms]
       ${visible ? "animate-fadeInUp" : "opacity-0"}`}
     style={{
       animationDelay: `${delay}ms`,
-      background: "linear-gradient(145deg, #111111 0%, #161616 60%, #1c1308 100%)",
+      /* База: глубокий графит, красный акцент вверху, золото нижний правый */
+      background: `
+        radial-gradient(ellipse at 0% 100%, #0d0d0d 0%, transparent 65%),
+        radial-gradient(ellipse at 100% 100%, rgba(251,191,36,0.07) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 0%, rgba(230,48,18,0.18) 0%, transparent 60%),
+        linear-gradient(160deg, #131313 0%, #1a1008 55%, #110e06 100%)
+      `,
     }}
   >
-    {/* Оранжевая черта сверху */}
-    <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent
-      group-hover:via-orange-400/80 transition-all duration-[350ms]" />
+    {/* Фирменная черта сверху: красный → оранжевый → золотой */}
+    <div className="absolute top-0 left-0 right-0 h-[2px] opacity-60 group-hover:opacity-100 transition-opacity duration-[350ms]"
+      style={{ background: "linear-gradient(90deg, transparent 0%, #e63012 20%, #f97316 50%, #fbbf24 80%, transparent 100%)" }} />
+
+    {/* Тонкое свечение по всему периметру при hover */}
+    <div className="absolute inset-0 rounded-[20px] opacity-0 group-hover:opacity-100 transition-opacity duration-[350ms] pointer-events-none"
+      style={{ boxShadow: "inset 0 0 32px rgba(230,48,18,0.07)" }} />
 
     {/* МОБАЙЛ: горизонтальный лейаут — фото всегда справа */}
     <div className="flex sm:block">
@@ -188,40 +198,43 @@ const CatalogCard = ({ name, img, delay, visible }: { name: string; img: string;
         sm:p-6 sm:min-h-[120px]
         flex-1 min-w-0
         translate-x-0 group-hover:-translate-x-1 transition-transform duration-[350ms] ease-out sm:pr-6">
-        <div className="w-2 h-2 rounded-full bg-orange-500 mb-3" />
-        <p className="text-white font-semibold text-sm sm:text-base leading-snug tracking-wide">
+        {/* Точка — фирменный градиент */}
+        <div className="w-2 h-2 rounded-full mb-3 flex-shrink-0"
+          style={{ background: "linear-gradient(135deg, #e63012 0%, #fbbf24 100%)" }} />
+        <p className="text-white font-semibold text-sm sm:text-base leading-snug tracking-wide drop-shadow-sm">
           {name}
         </p>
       </div>
 
-      {/* Фото — на мобайле всегда видно справа, на десктопе hover */}
+      {/* Фото — мобайл всегда, десктоп hover */}
       <div className="relative flex-shrink-0 w-24 h-auto sm:w-0 sm:h-0
-        sm:absolute sm:inset-0 sm:w-auto sm:h-auto
-        overflow-hidden">
+        sm:absolute sm:inset-0 sm:w-auto sm:h-auto overflow-hidden">
 
-        {/* Мобайл: всегда показываем */}
+        {/* Мобайл */}
         <div className="sm:hidden w-24 h-full min-h-[88px]">
-          <img src={img} alt={name} className="w-full h-full object-cover opacity-70" />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to right, #141414 0%, transparent 50%)" }} />
+          <img src={img} alt={name} className="w-full h-full object-cover opacity-55" />
+          <div className="absolute inset-0"
+            style={{ background: "linear-gradient(to right, #131313 0%, rgba(19,16,6,0.5) 40%, transparent 100%)" }} />
         </div>
 
-        {/* Десктоп: hover */}
+        {/* Десктоп hover */}
         <div className="hidden sm:block absolute top-0 right-0 bottom-0 w-2/5
           opacity-0 translate-x-4
           group-hover:opacity-100 group-hover:translate-x-0
           transition-[opacity,transform] duration-[350ms] ease-out">
           <img src={img} alt={name} className="w-full h-full object-cover" />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to right, #141414 0%, transparent 60%)" }} />
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0"
+            style={{ background: "linear-gradient(to right, #1a1008 0%, rgba(26,16,8,0.6) 35%, transparent 100%)" }} />
+          <div className="absolute inset-0 bg-black/35" />
         </div>
       </div>
 
     </div>
 
-    {/* Угловое свечение */}
-    <div className="absolute bottom-0 right-0 w-32 h-32 opacity-0 group-hover:opacity-100
+    {/* Золотое свечение нижний правый при hover */}
+    <div className="absolute bottom-0 right-0 w-36 h-36 opacity-0 group-hover:opacity-100
       transition-opacity duration-[350ms] pointer-events-none"
-      style={{ background: "radial-gradient(circle at bottom right, rgba(249,115,22,0.14) 0%, transparent 70%)" }} />
+      style={{ background: "radial-gradient(circle at bottom right, rgba(251,191,36,0.1) 0%, rgba(249,115,22,0.08) 40%, transparent 70%)" }} />
   </div>
 );
 
