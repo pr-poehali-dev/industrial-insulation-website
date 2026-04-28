@@ -197,11 +197,11 @@ const CatalogCard = ({ name, img, delay, visible }: { name: string; img: string;
 export const CatalogSection = () => {
   const catalogVis = useVisible(0.1);
   return (
-    <section id="catalog" className="py-28 bg-[#0a0a0a] overflow-hidden relative" ref={catalogVis.ref}>
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="catalog" className="bg-[#0a0a0a] overflow-hidden relative" ref={catalogVis.ref}>
 
-        {/* Заголовок раздела */}
-        <div className={`text-center mb-20 transition-all duration-700 ${catalogVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
+      {/* Заголовок раздела */}
+      <div className="pt-28 pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={`text-center transition-all duration-700 ${catalogVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="w-10 h-px bg-orange-500" />
             <span className="text-orange-500 text-xs font-bold uppercase tracking-[0.2em]">Материалы</span>
@@ -211,13 +211,28 @@ export const CatalogSection = () => {
             Каталог изоляционных материалов
           </h2>
         </div>
+      </div>
 
-        {/* Судостроение */}
-        <div className="mb-16">
+      {/* Судостроение — на фоне видео во всю ширину */}
+      <div className="relative">
+        {/* Видео фон */}
+        <video
+          autoPlay muted loop playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          poster={IMG_SHIP}
+        >
+          <source src="https://videos.pexels.com/video-files/8968775/8968775-hd_1920_1080_24fps.mp4" type="video/mp4" />
+          <img src={IMG_SHIP} alt="Судостроение" className="absolute inset-0 w-full h-full object-cover" />
+        </video>
+        <div className="absolute inset-0 bg-black/65" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/40 via-transparent to-[#0a0a0a]/50" />
+
+        {/* Контент поверх */}
+        <div className="relative z-10 py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`flex items-center gap-4 mb-8 transition-all duration-700 ${catalogVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
             <h3 className="text-xl sm:text-2xl font-black text-white">Каталог для судостроения</h3>
-            <div className="flex-1 h-px bg-white/10" />
-            <span className="text-orange-500/60 text-xs font-bold uppercase tracking-widest">{CATALOG_SHIP.length} позиций</span>
+            <div className="flex-1 h-px bg-white/20" />
+            <span className="text-orange-400/80 text-xs font-bold uppercase tracking-widest">{CATALOG_SHIP.length} позиций</span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {CATALOG_SHIP.map((item, i) => (
@@ -225,36 +240,22 @@ export const CatalogSection = () => {
             ))}
           </div>
         </div>
-
-        {/* Видео — верфь */}
-        <div className="relative my-16 rounded-2xl overflow-hidden h-64 sm:h-80">
-          <video
-            autoPlay muted loop playsInline
-            className="w-full h-full object-cover"
-            poster={IMG_SHIP}
-          >
-            <source src="https://videos.pexels.com/video-files/8968775/8968775-hd_1920_1080_24fps.mp4" type="video/mp4" />
-            <img src={IMG_SHIP} alt="Судостроение" className="w-full h-full object-cover" />
-          </video>
-          <div className="absolute inset-0 bg-black/55" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/60 via-transparent to-[#0a0a0a]/30" />
-        </div>
-
-        {/* Промышленность и ПГС */}
-        <div>
-          <div className={`flex items-center gap-4 mb-8 transition-all duration-700 delay-200 ${catalogVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
-            <h3 className="text-xl sm:text-2xl font-black text-white">Каталог для промышленности и ПГС</h3>
-            <div className="flex-1 h-px bg-white/10" />
-            <span className="text-orange-500/60 text-xs font-bold uppercase tracking-widest">{CATALOG_INDUSTRY.length} позиций</span>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {CATALOG_INDUSTRY.map((item, i) => (
-              <CatalogCard key={item.name} name={item.name} img={item.img} delay={i * 60} visible={catalogVis.visible} />
-            ))}
-          </div>
-        </div>
-
       </div>
+
+      {/* Промышленность и ПГС */}
+      <div className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={`flex items-center gap-4 mb-8 transition-all duration-700 delay-200 ${catalogVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
+          <h3 className="text-xl sm:text-2xl font-black text-white">Каталог для промышленности и ПГС</h3>
+          <div className="flex-1 h-px bg-white/10" />
+          <span className="text-orange-500/60 text-xs font-bold uppercase tracking-widest">{CATALOG_INDUSTRY.length} позиций</span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {CATALOG_INDUSTRY.map((item, i) => (
+            <CatalogCard key={item.name} name={item.name} img={item.img} delay={i * 60} visible={catalogVis.visible} />
+          ))}
+        </div>
+      </div>
+
     </section>
   );
 };
