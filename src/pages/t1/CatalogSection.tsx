@@ -100,7 +100,7 @@ export const CatalogSection = () => {
       </div>
 
       {/* Судостроение — на фоне видео во всю ширину */}
-      <div className="relative">
+      <div className="relative min-h-[400px]">
         {/* Видео фон */}
         <video
           autoPlay muted loop playsInline
