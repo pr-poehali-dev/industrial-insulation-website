@@ -57,39 +57,41 @@ export const AboutSection = () => {
               </p>
             </div>
 
+            {/* Плитки компетенций под текстом — 3 колонки × 2 ряда */}
+            <div className="mt-10">
+              <p className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.3em] mb-4">Ключевые компетенции</p>
+              <div className="grid grid-cols-3 gap-3">
+                {ABOUT_ADVANTAGES.map((item, i) => (
+                  <div
+                    key={item.text}
+                    className="group flex flex-col gap-3 p-4 rounded-2xl bg-white border border-gray-100
+                      hover:border-orange-200 hover:shadow-md transition-all duration-300 cursor-default"
+                    style={{ animationDelay: `${i * 60}ms` }}
+                  >
+                    <div className="w-7 h-7 rounded-lg flex items-center justify-center"
+                      style={{ background: "linear-gradient(135deg, rgba(230,48,18,0.10) 0%, rgba(249,115,22,0.05) 100%)" }}>
+                      <Icon name={item.icon as "MapPin"} size={13} className="text-orange-500/70 group-hover:text-orange-500 transition-colors duration-300" />
+                    </div>
+                    <p className="text-gray-500 group-hover:text-gray-800 text-[12px] leading-snug font-medium tracking-wide transition-colors duration-300">
+                      {item.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
 
-          {/* ── Правая колонка: логотип + компетенции + цифры ── */}
+          {/* ── Правая колонка: логотип + цифры ── */}
           <div className={`transition-all duration-700 delay-150 ${aboutVis.visible ? "animate-fadeInRight" : "opacity-0"}`}>
 
             {/* Логотип крупно */}
-            <div className="flex items-center justify-center mb-10 p-8 rounded-3xl bg-white border border-gray-100">
+            <div className="flex items-center justify-center mb-8 p-8 rounded-3xl bg-white border border-gray-100">
               <img
                 src={LOGO_SYMBOL}
                 alt="Т1 ИЗОЛЯЦИЯ — логотип"
                 className="h-40 sm:h-52 w-auto object-contain"
               />
-            </div>
-
-            <p className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.3em] mb-5">Ключевые компетенции</p>
-
-            <div className="grid grid-cols-2 gap-3">
-              {ABOUT_ADVANTAGES.map((item, i) => (
-                <div
-                  key={item.text}
-                  className="group flex flex-col gap-4 p-5 rounded-2xl bg-white border border-gray-100
-                    hover:border-orange-200 hover:shadow-md transition-all duration-300 cursor-default"
-                  style={{ animationDelay: `${i * 60}ms` }}
-                >
-                  <div className="w-8 h-8 rounded-xl flex items-center justify-center"
-                    style={{ background: "linear-gradient(135deg, rgba(230,48,18,0.10) 0%, rgba(249,115,22,0.05) 100%)" }}>
-                    <Icon name={item.icon as "MapPin"} size={14} className="text-orange-500/70 group-hover:text-orange-500 transition-colors duration-300" />
-                  </div>
-                  <p className="text-gray-500 group-hover:text-gray-800 text-[13px] leading-snug font-medium tracking-wide transition-colors duration-300">
-                    {item.text}
-                  </p>
-                </div>
-              ))}
             </div>
 
             {/* Разделитель */}
