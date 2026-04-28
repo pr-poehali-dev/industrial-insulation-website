@@ -34,22 +34,23 @@ export const AboutSection = () => {
           {/* ── Левая колонка: текст ── */}
           <div className={`transition-all duration-700 ${aboutVis.visible ? "animate-fadeInLeft" : "opacity-0"}`}>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight mb-8">
-              О компании<br />
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight mb-10">
+              О компании{" "}
               <span style={{ background: "linear-gradient(90deg, #e63012, #f97316, #fbbf24)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
                 Т1 ИЗОЛЯЦИЯ
               </span>
             </h2>
 
-            <div className="space-y-5 text-gray-400 leading-relaxed">
-              <p>
-                <span className="text-gray-200 font-medium">ООО «Т1 ИЗОЛЯЦИЯ»</span> — поставщик профессиональных решений в области теплоизоляции, шумоизоляции и защитных покрытий для судостроения, промышленности и гражданского строительства.
+            <div className="space-y-6">
+              <p className="text-gray-200 text-lg leading-relaxed font-light">
+                <span className="font-semibold text-white">ООО «Т1 ИЗОЛЯЦИЯ»</span> — поставщик профессиональных решений в области теплоизоляции, шумоизоляции и защитных покрытий для судостроения, промышленности и инженерных систем.
               </p>
-              <p>
-                С 2022 года компания обеспечивает предприятия, подрядчиков, проектные организации и инжиниринговые компании современными системными материалами для инженерных сетей, оборудования и технических объектов.
+              <div className="w-8 h-px bg-orange-500/40" />
+              <p className="text-gray-400 leading-relaxed">
+                Мы консультируем проектные, инжиниринговые и подрядные организации, подбираем материалы под задачи объекта, выполняем технические расчёты и обеспечиваем комплексные поставки по всей России.
               </p>
-              <p>
-                Мы работаем по всей территории Российской Федерации и предлагаем только проверенные решения от ведущих российских производителей.
+              <p className="text-gray-500 leading-relaxed text-sm">
+                Работаем только с проверенными производителями, гарантируем качество продукции и наличие необходимой документации.
               </p>
             </div>
 
