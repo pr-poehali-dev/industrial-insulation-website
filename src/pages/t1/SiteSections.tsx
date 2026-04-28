@@ -30,8 +30,7 @@ export const HeroSection = () => {
             className="w-full h-full object-cover"
             poster={IMG_HERO}
           >
-            <source src="https://videos.pexels.com/video-files/3785428/3785428-uhd_2560_1440_25fps.mp4" type="video/mp4" />
-            <source src="https://videos.pexels.com/video-files/2795405/2795405-uhd_2560_1440_30fps.mp4" type="video/mp4" />
+            <source src="https://videos.pexels.com/video-files/6997592/6997592-hd_1280_720_25fps.mp4" type="video/mp4" />
             <img src={IMG_HERO} alt="Промышленная теплоизоляция" className="w-full h-full object-cover" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-transparent" />
@@ -234,8 +233,7 @@ export const CatalogSection = () => {
             className="w-full h-full object-cover"
             poster={IMG_SHIP}
           >
-            <source src="https://videos.pexels.com/video-files/4769652/4769652-uhd_2560_1440_24fps.mp4" type="video/mp4" />
-            <source src="https://videos.pexels.com/video-files/3719933/3719933-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+            <source src="https://videos.pexels.com/video-files/8968775/8968775-hd_1920_1080_24fps.mp4" type="video/mp4" />
             <img src={IMG_SHIP} alt="Судостроение" className="w-full h-full object-cover" />
           </video>
           <div className="absolute inset-0 bg-black/55" />
