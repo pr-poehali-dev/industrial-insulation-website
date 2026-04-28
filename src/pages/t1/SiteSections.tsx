@@ -25,7 +25,15 @@ export const HeroSection = () => {
     <>
       <section className="relative min-h-screen flex items-center overflow-hidden" ref={heroVis.ref}>
         <div className="absolute inset-0">
-          <img src={IMG_HERO} alt="Промышленная теплоизоляция под ключ" className="w-full h-full object-cover scale-105 transition-transform duration-[8000ms]" />
+          <video
+            autoPlay muted loop playsInline
+            className="w-full h-full object-cover"
+            poster={IMG_HERO}
+          >
+            <source src="https://videos.pexels.com/video-files/3785428/3785428-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+            <source src="https://videos.pexels.com/video-files/2795405/2795405-uhd_2560_1440_30fps.mp4" type="video/mp4" />
+            <img src={IMG_HERO} alt="Промышленная теплоизоляция" className="w-full h-full object-cover" />
+          </video>
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
         </div>
@@ -217,6 +225,21 @@ export const CatalogSection = () => {
               <CatalogCard key={item.name} name={item.name} img={item.img} delay={i * 60} visible={catalogVis.visible} />
             ))}
           </div>
+        </div>
+
+        {/* Видео — верфь */}
+        <div className="relative my-16 rounded-2xl overflow-hidden h-64 sm:h-80">
+          <video
+            autoPlay muted loop playsInline
+            className="w-full h-full object-cover"
+            poster={IMG_SHIP}
+          >
+            <source src="https://videos.pexels.com/video-files/4769652/4769652-uhd_2560_1440_24fps.mp4" type="video/mp4" />
+            <source src="https://videos.pexels.com/video-files/3719933/3719933-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+            <img src={IMG_SHIP} alt="Судостроение" className="w-full h-full object-cover" />
+          </video>
+          <div className="absolute inset-0 bg-black/55" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/60 via-transparent to-[#0a0a0a]/30" />
         </div>
 
         {/* Промышленность и ПГС */}
