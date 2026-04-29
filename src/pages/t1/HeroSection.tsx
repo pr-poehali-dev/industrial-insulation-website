@@ -45,7 +45,7 @@ export const HeroSection = () => {
             </h1>
 
             {/* Подзаголовок */}
-            <p className="t-lead text-white/90 mb-10 max-w-xl">
+            <p className="t-lead mb-10 max-w-xl text-[#ffffff]">
               Проектирование, поставка и монтаж теплоизоляции — трубопроводы, оборудование, резервуары и суда. По всей России.
             </p>
 
