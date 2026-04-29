@@ -7,8 +7,11 @@ const ABOUT_ADVANTAGES = [
   { icon: "Calculator",        text: "Технические расчёты" },
   { icon: "Factory",           text: "Прямые поставки от производителей" },
   { icon: "BadgeCheck",        text: "Сертификаты и полный комплект документации" },
-  { icon: "Truck",             text: "Доставка всеми видами транспорта" },
-  { icon: "TrendingUp",        text: "87% побед в тендерах" },
+];
+
+const EXTRA_STATS = [
+  { icon: "Truck",      num: "Доставка", label: "всеми видами транспорта" },
+  { icon: "TrendingUp", num: "87%",      label: "побед в тендерах" },
 ];
 
 export const AboutSection = () => {
@@ -89,10 +92,10 @@ export const AboutSection = () => {
 
             {/* Видео */}
             <div
-              className="relative overflow-hidden w-full min-h-[220px]"
+              className="relative overflow-hidden w-full min-h-[260px]"
               style={{
                 borderRadius: 24,
-                aspectRatio: "16/10",
+                aspectRatio: "16/9",
                 boxShadow: "0 40px 100px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.05)",
               }}
             >
@@ -123,6 +126,28 @@ export const AboutSection = () => {
                     style={{ fontFamily: "'Oswald', sans-serif", background: "linear-gradient(90deg, #e63012, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
                   >
                     {s.num}
+                  </div>
+                  <div className="t-label text-gray-400">{s.label}</div>
+                </div>
+              ))}
+
+              {/* Доставка + 87% — в стиле плиток STATS */}
+              {EXTRA_STATS.map((s) => (
+                <div
+                  key={s.num}
+                  className="group flex flex-col gap-2.5 p-6 rounded-2xl bg-white border border-gray-100 hover:border-orange-200 hover:shadow-lg transition-all duration-300 cursor-default"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{ background: "linear-gradient(135deg, rgba(230,48,18,0.12) 0%, rgba(249,115,22,0.07) 100%)" }}>
+                      <Icon name={s.icon as "Truck"} size={14} className="text-orange-500" />
+                    </div>
+                    <div
+                      className="text-3xl font-black tracking-tight leading-none"
+                      style={{ fontFamily: "'Oswald', sans-serif", background: "linear-gradient(90deg, #e63012, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+                    >
+                      {s.num}
+                    </div>
                   </div>
                   <div className="t-label text-gray-400">{s.label}</div>
                 </div>
