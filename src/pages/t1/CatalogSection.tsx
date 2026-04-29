@@ -1,6 +1,7 @@
 import { IMG_SHIP, useVisible } from "./data";
 
 const SHIPYARD_VIDEO = "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/videos/shipyard-video.mp4";
+const PGS_VIDEO = "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/videos/industrial-pgs-section-video.mp4";
 
 const IMG_TUBES = "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/3ddf0ad3-7940-400c-a688-3e907253b23d.jpg";
 const IMG_ROLLS = "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/51e58607-a24b-44da-948e-737b95e9c9e0.jpg";
@@ -129,16 +130,26 @@ export const CatalogSection = () => {
       </div>
 
       {/* Промышленность и ПГС */}
-      <div className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`flex items-center gap-4 mb-8 transition-all duration-700 delay-200 ${catalogVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
-          <h3 className="t-h3 text-white">Каталог для промышленности и ПГС</h3>
-          <div className="flex-1 h-px bg-white/10" />
-          <span className="t-label text-orange-500/60">{CATALOG_INDUSTRY.length} позиций</span>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-          {CATALOG_INDUSTRY.map((item, i) => (
-            <CatalogCard key={item.name} name={item.name} img={item.img} delay={i * 60} visible={catalogVis.visible} />
-          ))}
+      <div className="relative min-h-[400px]">
+        <video
+          autoPlay muted loop playsInline preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
+          src={PGS_VIDEO}
+        />
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/50 via-transparent to-[#0a0a0a]/60" />
+
+        <div className="relative z-10 py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className={`flex items-center gap-4 mb-8 transition-all duration-700 delay-200 ${catalogVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
+            <h3 className="t-h3 text-white">Каталог для промышленности и ПГС</h3>
+            <div className="flex-1 h-px bg-white/10" />
+            <span className="t-label text-orange-500/60">{CATALOG_INDUSTRY.length} позиций</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+            {CATALOG_INDUSTRY.map((item, i) => (
+              <CatalogCard key={item.name} name={item.name} img={item.img} delay={i * 60} visible={catalogVis.visible} />
+            ))}
+          </div>
         </div>
       </div>
 
