@@ -151,20 +151,7 @@ export const AboutSection = () => {
                 </div>
               ))}
 
-              {/* Акцентный блок «Доверие» */}
-              <div
-                className="col-span-2 flex items-center gap-4 p-5 rounded-2xl"
-                style={{ background: "linear-gradient(135deg, #1a1a1a 0%, #111 100%)", boxShadow: "0 8px 32px rgba(0,0,0,0.14)" }}
-              >
-                <div className="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center"
-                  style={{ background: "linear-gradient(135deg, #e63012, #f97316)" }}>
-                  <Icon name="ShieldCheck" size={18} className="text-white" />
-                </div>
-                <div>
-                  <p className="text-white font-semibold text-[13px] leading-snug">Официальный дилер ведущих производителей</p>
-                  <p className="text-gray-500 text-[11px] mt-0.5 leading-snug">Армафлекс, Изовер, Технониколь и другие</p>
-                </div>
-              </div>
+
             </div>
 
           </div>
