@@ -50,15 +50,7 @@ export const HeroSection = () => {
             </p>
 
             {/* Кнопки */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto justify-center">
-              <a
-                href="#request"
-                className="btn-primary group text-white px-8 py-4 font-bold uppercase tracking-widest text-[13px] flex items-center justify-center gap-3 hover:opacity-90 transition-opacity duration-300"
-                style={{ background: GRAD }}
-              >
-                Получить расчёт
-                <Icon name="ArrowRight" size={15} className="group-hover:translate-x-1 transition-transform duration-300" />
-              </a>
+            <div className="flex justify-center">
               <a
                 href="#contacts"
                 className="btn-outline border border-white/35 hover:border-white/70 text-white hover:bg-white/8 px-8 py-4 font-bold uppercase tracking-widest text-[13px] text-center backdrop-blur-sm"
