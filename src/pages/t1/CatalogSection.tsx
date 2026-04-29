@@ -106,10 +106,13 @@ export const CatalogSection = () => {
       <div className="relative min-h-[400px]">
         {/* Видео фон */}
         <video
-          autoPlay muted loop playsInline preload="auto"
+          autoPlay muted loop playsInline preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
+          style={{ willChange: "transform" }}
           poster={IMG_SHIP}
           src={SHIPYARD_VIDEO}
+          disablePictureInPicture
+          disableRemotePlayback
         />
         <div className="absolute inset-0 bg-black/30" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/50 via-transparent to-[#0a0a0a]/60" />
@@ -132,9 +135,12 @@ export const CatalogSection = () => {
       {/* Промышленность и ПГС */}
       <div className="relative min-h-[400px]">
         <video
-          autoPlay muted loop playsInline preload="auto"
+          autoPlay muted loop playsInline preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
+          style={{ willChange: "transform" }}
           src={PGS_VIDEO}
+          disablePictureInPicture
+          disableRemotePlayback
         />
         <div className="absolute inset-0 bg-black/30" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/50 via-transparent to-[#0a0a0a]/60" />

@@ -86,9 +86,12 @@ export const AboutSection = () => {
             <div className="relative overflow-hidden aspect-video min-h-[280px]"
               style={{ borderRadius: 24, boxShadow: "0 32px 80px rgba(0,0,0,0.22), 0 0 0 1px rgba(0,0,0,0.06)" }}>
               <video
-                autoPlay muted loop playsInline preload="auto"
+                autoPlay muted loop playsInline preload="metadata"
                 className="absolute inset-0 w-full h-full object-cover"
+                style={{ willChange: "transform" }}
                 src="https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/videos/about-company-harbor-video.mp4"
+                disablePictureInPicture
+                disableRemotePlayback
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" style={{ borderRadius: 24 }} />
             </div>

@@ -12,8 +12,11 @@ export const HeroSection = () => {
           <video
             autoPlay muted loop playsInline preload="auto"
             className="w-full h-full object-cover"
+            style={{ willChange: "transform" }}
             poster={IMG_HERO}
             src={HERO_VIDEO}
+            disablePictureInPicture
+            disableRemotePlayback
           />
           <div className="absolute inset-0 bg-black/45" />
         </div>
