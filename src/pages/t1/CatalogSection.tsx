@@ -116,8 +116,8 @@ export const CatalogSection = () => {
           disablePictureInPicture
           disableRemotePlayback
         />
-        <div className="absolute inset-0 bg-black/30" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/55 via-transparent to-[#0a0a0a]/65" />
+        <div className="absolute inset-0 bg-black/15" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/45 via-transparent to-[#0a0a0a]/50" />
 
         <div className="relative z-10 py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Подзаголовок */}
