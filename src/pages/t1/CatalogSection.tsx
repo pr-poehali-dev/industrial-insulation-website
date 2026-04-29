@@ -27,58 +27,60 @@ const CATALOG_INDUSTRY: { name: string; img: string }[] = [
   { name: "Защитные покрытия",    img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/d0ed56cb-322d-46c3-9571-f0e5a4f43703.jpg" },
 ];
 
-const CatalogCard = ({ name, img, delay, visible }: { name: string; img: string; delay: number; visible: boolean }) => (
+const CatalogCard = ({ name, img, delay, visible }: {
+  name: string; img: string; delay: number; visible: boolean;
+}) => (
   <div
-    className={`group relative overflow-hidden cursor-default rounded-[20px]
-      border border-white/[0.05] hover:border-white/[0.12]
-      transition-[border-color,box-shadow,background] duration-500
+    className={`catalog-card group relative overflow-hidden rounded-[18px] cursor-default select-none
       ${visible ? "animate-fadeInUp" : "opacity-0"}`}
-    style={{
-      animationDelay: `${delay}ms`,
-      background: "linear-gradient(145deg, #141414 0%, #181818 50%, #161210 100%)",
-      boxShadow: "0 2px 16px rgba(0,0,0,0.6)",
-    }}
-    onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 40px rgba(0,0,0,0.85), 0 0 0 1px rgba(255,255,255,0.07)"; }}
-    onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 16px rgba(0,0,0,0.6)"; }}
+    style={{ animationDelay: `${delay}ms` }}
   >
-    {/* Оранжевая черта слева */}
-    <div className="absolute top-4 left-0 bottom-4 w-[2px] rounded-full opacity-35 group-hover:opacity-70 transition-opacity duration-500"
-      style={{ background: "linear-gradient(to bottom, #e63012, #f97316, #fbbf24)" }} />
-
-    {/* Фото — десктоп: fade + slide справа почти на всю карточку */}
-    <div className="hidden sm:block absolute inset-0 overflow-hidden rounded-[20px]">
+    {/* Фоновое фото — всегда рендерится, плавно появляется */}
+    <div className="absolute inset-0">
       <img
-        src={img} alt={name}
-        className="absolute inset-0 w-full h-full object-cover
-          opacity-0 translate-x-6 scale-[1.04]
-          group-hover:opacity-100 group-hover:translate-x-0 group-hover:scale-100
-          transition-[opacity,transform] duration-500 ease-out"
+        src={img}
+        alt=""
+        aria-hidden
+        className="w-full h-full object-cover transition-[opacity,transform] duration-700 ease-out
+          opacity-20 scale-[1.06] group-hover:opacity-100 group-hover:scale-100"
+        loading="lazy"
       />
-      {/* Тёмный overlay поверх фото — слева плотнее, справа прозрачнее */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        style={{ background: "linear-gradient(to right, rgba(18,17,15,0.92) 0%, rgba(18,17,15,0.7) 40%, rgba(18,17,15,0.35) 100%)" }} />
+      {/* Базовый тёмный фон под фото */}
+      <div className="absolute inset-0 bg-[#131210]" style={{ mixBlendMode: "multiply" }} />
+      {/* Overlay: на hover — затемняет левую часть для читаемости текста */}
+      <div
+        className="absolute inset-0 transition-opacity duration-700"
+        style={{
+          background: "linear-gradient(100deg, rgba(12,11,10,0.96) 0%, rgba(12,11,10,0.82) 45%, rgba(12,11,10,0.45) 100%)",
+          opacity: 1,
+        }}
+      />
+      {/* Дополнительный overlay исчезает при hover, открывая фото */}
+      <div
+        className="absolute inset-0 bg-[#131210]/60 opacity-100 group-hover:opacity-0 transition-opacity duration-700"
+      />
     </div>
 
-    {/* МОБАЙЛ: горизонтальный лейаут */}
-    <div className="flex sm:block">
+    {/* Фирменная полоска слева */}
+    <div
+      className="absolute left-0 top-5 bottom-5 w-[3px] rounded-full transition-opacity duration-500 opacity-40 group-hover:opacity-100"
+      style={{ background: "linear-gradient(to bottom, #e63012, #f97316, #fbbf24)" }}
+    />
 
-      {/* Контент */}
-      <div className="relative z-10 flex items-center
-        pl-6 pr-4 py-5 min-h-[80px]
-        sm:pl-7 sm:pr-6 sm:py-7 sm:min-h-[110px]
-        flex-1 min-w-0">
-        <p className="t-body text-gray-300 group-hover:text-white font-medium transition-colors duration-500">
+    {/* Контент */}
+    <div className="relative z-10 flex items-center gap-0 h-full">
+      {/* Текст */}
+      <div className="flex-1 px-7 py-6">
+        <p className="text-gray-400 group-hover:text-white font-semibold text-[14px] leading-snug tracking-wide transition-colors duration-500">
           {name}
         </p>
       </div>
 
-      {/* Фото — мобайл: всегда справа, тихо */}
-      <div className="sm:hidden relative flex-shrink-0 w-20 min-h-[80px] overflow-hidden">
-        <img src={img} alt={name} className="absolute inset-0 w-full h-full object-cover opacity-35" />
-        <div className="absolute inset-0"
-          style={{ background: "linear-gradient(to right, #141414 0%, transparent 65%)" }} />
+      {/* Мобайл: превью справа */}
+      <div className="sm:hidden flex-shrink-0 w-16 h-full relative overflow-hidden">
+        <img src={img} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover opacity-30" loading="lazy" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, #131210 0%, transparent 70%)" }} />
       </div>
-
     </div>
   </div>
 );
@@ -92,19 +94,19 @@ export const CatalogSection = () => {
       <div className="pt-28 pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center transition-all duration-700 ${catalogVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
           <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="w-10 h-px bg-orange-500" />
+            <div className="w-10 h-px bg-orange-500/60" />
             <span className="t-label text-orange-500">Продукция</span>
-            <div className="w-10 h-px bg-orange-500" />
+            <div className="w-10 h-px bg-orange-500/60" />
           </div>
           <h2 className="t-h2 text-white">
             Каталог изоляционных материалов
           </h2>
+          <div className="t-underline mx-auto justify-center" />
         </div>
       </div>
 
-      {/* Судостроение — на фоне видео во всю ширину */}
-      <div className="relative min-h-[400px]">
-        {/* Видео фон */}
+      {/* ── Судостроение ── */}
+      <div className="relative">
         <video
           autoPlay muted loop playsInline preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
@@ -115,25 +117,28 @@ export const CatalogSection = () => {
           disableRemotePlayback
         />
         <div className="absolute inset-0 bg-black/30" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/50 via-transparent to-[#0a0a0a]/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/55 via-transparent to-[#0a0a0a]/65" />
 
-        {/* Контент поверх */}
         <div className="relative z-10 py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`flex items-center gap-4 mb-8 transition-all duration-700 ${catalogVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
-            <h3 className="t-h3 text-white">Каталог для судостроения</h3>
-            <div className="flex-1 h-px bg-white/20" />
-            <span className="t-label text-orange-400/80">{CATALOG_SHIP.length} позиций</span>
+          {/* Подзаголовок */}
+          <div className={`flex items-center gap-5 mb-8 transition-all duration-700 ${catalogVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
+            <h3 className="t-h3 text-white whitespace-nowrap">Для судостроения</h3>
+            <div className="flex-1 h-px bg-white/15" />
+            <span className="t-label text-orange-400/70 whitespace-nowrap">{CATALOG_SHIP.length} позиций</span>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          {/* Сетка — фиксированная высота карточек */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {CATALOG_SHIP.map((item, i) => (
-              <CatalogCard key={item.name} name={item.name} img={item.img} delay={i * 60} visible={catalogVis.visible} />
+              <div key={item.name} className="h-[100px] sm:h-[110px]">
+                <CatalogCard name={item.name} img={item.img} delay={i * 55} visible={catalogVis.visible} />
+              </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Промышленность и ПГС */}
-      <div className="relative min-h-[400px]">
+      {/* ── Промышленность и ПГС ── */}
+      <div className="relative">
         <video
           autoPlay muted loop playsInline preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
@@ -143,17 +148,19 @@ export const CatalogSection = () => {
           disableRemotePlayback
         />
         <div className="absolute inset-0 bg-black/30" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/50 via-transparent to-[#0a0a0a]/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/55 via-transparent to-[#0a0a0a]/65" />
 
         <div className="relative z-10 py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`flex items-center gap-4 mb-8 transition-all duration-700 delay-200 ${catalogVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
-            <h3 className="t-h3 text-white">Каталог для промышленности и ПГС</h3>
+          <div className={`flex items-center gap-5 mb-8 transition-all duration-700 delay-200 ${catalogVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
+            <h3 className="t-h3 text-white whitespace-nowrap">Для промышленности и ПГС</h3>
             <div className="flex-1 h-px bg-white/10" />
-            <span className="t-label text-orange-500/60">{CATALOG_INDUSTRY.length} позиций</span>
+            <span className="t-label text-orange-500/55 whitespace-nowrap">{CATALOG_INDUSTRY.length} позиций</span>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {CATALOG_INDUSTRY.map((item, i) => (
-              <CatalogCard key={item.name} name={item.name} img={item.img} delay={i * 60} visible={catalogVis.visible} />
+              <div key={item.name} className="h-[100px] sm:h-[110px]">
+                <CatalogCard name={item.name} img={item.img} delay={i * 55} visible={catalogVis.visible} />
+              </div>
             ))}
           </div>
         </div>
