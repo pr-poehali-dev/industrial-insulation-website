@@ -21,9 +21,7 @@ export const NAV_LINKS = [
 
 export const STATS = [
   { num: "2022", label: "год основания" },
-  { num: "РФ",   label: "поставки по всей России" },
   { num: "B2B",  label: "работаем с организациями" },
-  { num: "100%", label: "официальная документация" },
 ];
 
 export const SERVICES = [

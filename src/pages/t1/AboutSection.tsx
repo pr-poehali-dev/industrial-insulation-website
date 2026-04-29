@@ -3,11 +3,12 @@ import { IMG_PIPE, STATS, useVisible } from "./data";
 
 const ABOUT_ADVANTAGES = [
   { icon: "MapPin",        text: "Поставки по всей России" },
-  { icon: "Settings2",     text: "Подбор под объект" },
+  { icon: "SlidersHorizontal", text: "Подбор материалов под объект" },
   { icon: "Calculator",    text: "Технические расчёты" },
-  { icon: "PackageCheck",  text: "Официальные поставки" },
-  { icon: "BadgeCheck",    text: "Сертификаты качества" },
-  { icon: "Anchor",        text: "Судостроение и промышленность" },
+  { icon: "Factory",       text: "Прямые поставки от производителей" },
+  { icon: "BadgeCheck",    text: "Сертификаты и полный комплект документации" },
+  { icon: "Truck",         text: "Доставка всеми видами транспорта" },
+  { icon: "TrendingUp",    text: "87% побед в тендерах" },
 ];
 
 
@@ -53,23 +54,23 @@ export const AboutSection = () => {
               </p>
             </div>
 
-            {/* Компетенции */}
+            {/* Преимущества */}
             <div className="mt-12">
-              <p className="t-label text-gray-400 mb-5">
-                Ключевые компетенции
-              </p>
-              <div className="grid grid-cols-3 gap-3">
+              <p className="t-label text-gray-400 mb-5">Почему выбирают нас</p>
+              <div className="grid grid-cols-2 gap-2.5">
                 {ABOUT_ADVANTAGES.map((item, i) => (
                   <div
                     key={item.text}
-                    className="group flex flex-col gap-3 p-4 rounded-2xl bg-white border border-gray-100 hover:border-orange-200 hover:shadow-md transition-all duration-300 cursor-default"
-                    style={{ animationDelay: `${i * 60}ms` }}
+                    className="group flex items-center gap-3 px-4 py-3.5 rounded-2xl bg-white border border-gray-100 hover:border-orange-200 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 cursor-default"
+                    style={{ animationDelay: `${i * 50}ms` }}
                   >
-                    <div className="w-7 h-7 rounded-lg flex items-center justify-center"
-                      style={{ background: "linear-gradient(135deg, rgba(230,48,18,0.10) 0%, rgba(249,115,22,0.05) 100%)" }}>
-                      <Icon name={item.icon as "MapPin"} size={13} className="text-orange-500/70 group-hover:text-orange-500 transition-colors duration-300" />
+                    <div
+                      className="flex-shrink-0 w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                      style={{ background: "linear-gradient(135deg, rgba(230,48,18,0.12) 0%, rgba(249,115,22,0.07) 100%)" }}
+                    >
+                      <Icon name={item.icon as "MapPin"} size={14} className="text-orange-500 group-hover:text-orange-600 transition-colors duration-300" />
                     </div>
-                    <p className="text-gray-500 group-hover:text-gray-800 text-[12px] leading-snug font-medium tracking-wide transition-colors duration-300">
+                    <p className="text-gray-600 group-hover:text-gray-900 text-[12.5px] leading-snug font-medium transition-colors duration-300">
                       {item.text}
                     </p>
                   </div>
@@ -99,9 +100,9 @@ export const AboutSection = () => {
             {/* Цифры */}
             <div className="grid grid-cols-2 gap-3">
               {STATS.map((s) => (
-                <div key={s.label} className="flex flex-col gap-1.5 p-5 rounded-2xl bg-white border border-gray-100">
+                <div key={s.label} className="flex flex-col gap-2 p-6 rounded-2xl bg-white border border-gray-100 hover:border-orange-200 hover:shadow-md transition-all duration-300">
                   <div
-                    className="text-3xl font-black tracking-tight leading-none"
+                    className="text-4xl font-black tracking-tight leading-none"
                     style={{ fontFamily: "'Oswald', sans-serif", background: "linear-gradient(90deg, #e63012, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
                   >
                     {s.num}
