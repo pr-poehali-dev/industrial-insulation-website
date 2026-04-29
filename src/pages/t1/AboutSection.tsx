@@ -2,38 +2,37 @@ import Icon from "@/components/ui/icon";
 import { IMG_PIPE, STATS, useVisible } from "./data";
 
 const ABOUT_ADVANTAGES = [
-  { icon: "MapPin",        text: "Поставки по всей России" },
+  { icon: "MapPin",            text: "Поставки по всей России" },
   { icon: "SlidersHorizontal", text: "Подбор материалов под объект" },
-  { icon: "Calculator",    text: "Технические расчёты" },
-  { icon: "Factory",       text: "Прямые поставки от производителей" },
-  { icon: "BadgeCheck",    text: "Сертификаты и полный комплект документации" },
-  { icon: "Truck",         text: "Доставка всеми видами транспорта" },
-  { icon: "TrendingUp",    text: "87% побед в тендерах" },
+  { icon: "Calculator",        text: "Технические расчёты" },
+  { icon: "Factory",           text: "Прямые поставки от производителей" },
+  { icon: "BadgeCheck",        text: "Сертификаты и полный комплект документации" },
+  { icon: "Truck",             text: "Доставка всеми видами транспорта" },
+  { icon: "TrendingUp",        text: "87% побед в тендерах" },
 ];
-
-
 
 export const AboutSection = () => {
   const aboutVis = useVisible(0.1);
   return (
-    <section id="about" className="py-32 lg:py-40 bg-[#f2ede8] overflow-hidden relative" ref={aboutVis.ref}>
+    <section id="about" className="py-32 lg:py-44 bg-[#f4efe9] overflow-hidden relative" ref={aboutVis.ref}>
 
+      {/* Фоновая текстура */}
       <div className="absolute inset-0 pointer-events-none">
-        <img src={IMG_PIPE} alt="" aria-hidden className="w-full h-full object-cover opacity-[0.10]" />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(242,237,232,0.94) 0%, rgba(242,237,232,0.82) 50%, rgba(242,237,232,0.90) 100%)" }} />
+        <img src={IMG_PIPE} alt="" aria-hidden className="w-full h-full object-cover opacity-[0.07]" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(160deg, rgba(244,239,233,0.97) 0%, rgba(244,239,233,0.88) 60%, rgba(244,239,233,0.96) 100%)" }} />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Лейбл */}
-        <div className={`flex items-center gap-3 mb-14 transition-all duration-700 ${aboutVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
-          <div className="w-8 h-px bg-orange-500/70" />
+        <div className={`flex items-center gap-3 mb-16 transition-all duration-700 ${aboutVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
+          <div className="w-10 h-px bg-orange-500/60" />
           <span className="t-label text-orange-600">О нас</span>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+        <div className="grid lg:grid-cols-2 gap-20 lg:gap-28 items-start">
 
-          {/* ── Левая колонка ── */}
+          {/* ── Левая колонка: текст + преимущества ── */}
           <div className={`transition-all duration-700 ${aboutVis.visible ? "animate-fadeInLeft" : "opacity-0"}`}>
 
             <h2 className="t-h2 text-gray-900">
@@ -42,50 +41,61 @@ export const AboutSection = () => {
             </h2>
             <div className="t-underline" />
 
-            <div className="space-y-5">
-              <p className="t-lead text-gray-800">
-                <span className="font-semibold">ООО «Т1 ИЗОЛЯЦИЯ»</span> — поставщик профессиональных решений в области теплоизоляции, шумоизоляции и защитных покрытий для судостроения, промышленности и инженерных систем.
+            {/* Текстовые блоки */}
+            <div className="space-y-6">
+              <p className="t-lead text-gray-800 leading-[1.9]">
+                <span className="font-semibold text-gray-900">ООО «Т1 ИЗОЛЯЦИЯ»</span> — профессиональный поставщик решений в области теплоизоляции, шумоизоляции и защитных покрытий для судостроения, промышленности и инженерных систем.
               </p>
-              <p className="t-body text-gray-600">
+              <p className="t-body text-gray-600 leading-[1.85]">
                 Консультируем проектные, инжиниринговые и подрядные организации, подбираем материалы под задачи объекта, выполняем технические расчёты и обеспечиваем комплексные поставки по всей России.
               </p>
-              <p className="t-body text-gray-500">
-                Работаем только с проверенными производителями — гарантируем качество и наличие необходимой документации.
+              <p className="t-body text-gray-500 leading-[1.8]">
+                Работаем только с проверенными производителями — гарантируем качество и наличие полной сопроводительной документации.
               </p>
             </div>
 
-            {/* Преимущества */}
-            <div className="mt-12">
-              <p className="t-label text-gray-400 mb-5">Почему выбирают нас</p>
-              <div className="grid grid-cols-2 gap-2.5">
-                {ABOUT_ADVANTAGES.map((item, i) => (
+            {/* Разделитель */}
+            <div className="mt-12 mb-8 flex items-center gap-4">
+              <div className="h-px flex-1 bg-gray-200" />
+              <span className="t-label text-gray-400">Почему выбирают нас</span>
+              <div className="h-px flex-1 bg-gray-200" />
+            </div>
+
+            {/* Плитки преимуществ */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {ABOUT_ADVANTAGES.map((item, i) => (
+                <div
+                  key={item.text}
+                  className="group flex items-center gap-3.5 px-4 py-3.5 rounded-2xl bg-white/80 border border-white hover:border-orange-200 hover:bg-white hover:shadow-md hover:-translate-y-px transition-all duration-300 cursor-default"
+                  style={{ animationDelay: `${i * 50}ms`, backdropFilter: "blur(8px)" }}
+                >
                   <div
-                    key={item.text}
-                    className="group flex items-center gap-3 px-4 py-3.5 rounded-2xl bg-white border border-gray-100 hover:border-orange-200 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 cursor-default"
-                    style={{ animationDelay: `${i * 50}ms` }}
+                    className="flex-shrink-0 w-8 h-8 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+                    style={{ background: "linear-gradient(135deg, rgba(230,48,18,0.13) 0%, rgba(249,115,22,0.07) 100%)" }}
                   >
-                    <div
-                      className="flex-shrink-0 w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
-                      style={{ background: "linear-gradient(135deg, rgba(230,48,18,0.12) 0%, rgba(249,115,22,0.07) 100%)" }}
-                    >
-                      <Icon name={item.icon as "MapPin"} size={14} className="text-orange-500 group-hover:text-orange-600 transition-colors duration-300" />
-                    </div>
-                    <p className="text-gray-600 group-hover:text-gray-900 text-[12.5px] leading-snug font-medium transition-colors duration-300">
-                      {item.text}
-                    </p>
+                    <Icon name={item.icon as "MapPin"} size={14} className="text-orange-500" />
                   </div>
-                ))}
-              </div>
+                  <p className="text-gray-600 group-hover:text-gray-900 text-[13px] leading-snug font-medium transition-colors duration-300">
+                    {item.text}
+                  </p>
+                </div>
+              ))}
             </div>
 
           </div>
 
-          {/* ── Правая колонка ── */}
-          <div className={`flex flex-col gap-4 transition-all duration-700 delay-150 ${aboutVis.visible ? "animate-fadeInRight" : "opacity-0"}`}>
+          {/* ── Правая колонка: видео + цифры ── */}
+          <div className={`flex flex-col gap-5 transition-all duration-700 delay-200 ${aboutVis.visible ? "animate-fadeInRight" : "opacity-0"}`}>
 
-            {/* Видео о компании */}
-            <div className="relative overflow-hidden aspect-video min-h-[280px]"
-              style={{ borderRadius: 24, boxShadow: "0 32px 80px rgba(0,0,0,0.22), 0 0 0 1px rgba(0,0,0,0.06)" }}>
+            {/* Видео */}
+            <div
+              className="relative overflow-hidden w-full"
+              style={{
+                borderRadius: 24,
+                aspectRatio: "16/10",
+                boxShadow: "0 40px 100px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.05)",
+              }}
+            >
               <video
                 autoPlay muted loop playsInline preload="metadata"
                 className="absolute inset-0 w-full h-full object-cover"
@@ -94,22 +104,44 @@ export const AboutSection = () => {
                 disablePictureInPicture
                 disableRemotePlayback
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" style={{ borderRadius: 24 }} />
+              {/* Лёгкий виньет снизу */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/5" />
+              {/* Фирменная полоска снизу */}
+              <div className="absolute bottom-0 left-0 right-0 h-1"
+                style={{ background: "linear-gradient(90deg, #e63012, #f97316, #fbbf24)" }} />
             </div>
 
             {/* Цифры */}
             <div className="grid grid-cols-2 gap-3">
               {STATS.map((s) => (
-                <div key={s.label} className="flex flex-col gap-2 p-6 rounded-2xl bg-white border border-gray-100 hover:border-orange-200 hover:shadow-md transition-all duration-300">
+                <div
+                  key={s.label}
+                  className="group flex flex-col gap-2.5 p-6 rounded-2xl bg-white border border-gray-100 hover:border-orange-200 hover:shadow-lg transition-all duration-300 cursor-default"
+                >
                   <div
                     className="text-4xl font-black tracking-tight leading-none"
                     style={{ fontFamily: "'Oswald', sans-serif", background: "linear-gradient(90deg, #e63012, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
                   >
                     {s.num}
                   </div>
-                  <div className="text-gray-400 text-[11px] uppercase tracking-widest leading-snug">{s.label}</div>
+                  <div className="t-label text-gray-400">{s.label}</div>
                 </div>
               ))}
+
+              {/* Акцентный блок «Доверие» */}
+              <div
+                className="col-span-2 flex items-center gap-4 p-5 rounded-2xl"
+                style={{ background: "linear-gradient(135deg, #1a1a1a 0%, #111 100%)", boxShadow: "0 8px 32px rgba(0,0,0,0.14)" }}
+              >
+                <div className="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center"
+                  style={{ background: "linear-gradient(135deg, #e63012, #f97316)" }}>
+                  <Icon name="ShieldCheck" size={18} className="text-white" />
+                </div>
+                <div>
+                  <p className="text-white font-semibold text-[13px] leading-snug">Официальный дилер ведущих производителей</p>
+                  <p className="text-gray-500 text-[11px] mt-0.5 leading-snug">Армафлекс, Изовер, Технониколь и другие</p>
+                </div>
+              </div>
             </div>
 
           </div>
