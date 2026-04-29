@@ -98,7 +98,7 @@ export const CatalogSection = () => {
             <span className="t-label text-orange-500">Продукция</span>
             <div className="w-10 h-px bg-orange-500/60" />
           </div>
-          <h2 className="t-h2 text-white">
+          <h2 className="text-white" style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700, fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)", letterSpacing: "-0.01em", textTransform: "uppercase" }}>
             Каталог изоляционных материалов
           </h2>
           <div className="t-underline mx-auto justify-center" />
@@ -136,6 +136,9 @@ export const CatalogSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Промежуток между каталогами */}
+      <div className="h-8 bg-[#0a0a0a]" />
 
       {/* ── Промышленность и ПГС ── */}
       <div className="relative min-h-[480px]">
