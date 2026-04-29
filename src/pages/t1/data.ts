@@ -12,12 +12,11 @@ export const GRAD = "linear-gradient(135deg, #e63012 0%, #f97316 50%, #fbbf24 10
 export const GRAD_H = "linear-gradient(90deg, #e63012 0%, #f97316 50%, #fbbf24 100%)";
 
 export const NAV_LINKS = [
-  { label: "О компании",   href: "#about" },
-  { label: "Услуги",       href: "#services" },
-  { label: "Отрасли",      href: "#industries" },
-  { label: "Сертификаты",  href: "#certificates" },
-  { label: "Этапы работы", href: "#process" },
-  { label: "Контакты",     href: "#contacts" },
+  { label: "О нас",                href: "#about" },
+  { label: "Продукция",            href: "#catalog" },
+  { label: "Отрасли применения",   href: "#industries" },
+  { label: "Документация",         href: "#certificates" },
+  { label: "Контакты",             href: "#contacts" },
 ];
 
 export const STATS = [
