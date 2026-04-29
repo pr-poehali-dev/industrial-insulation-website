@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { IMG_SHIP, IMG_BOILER, useVisible } from "./data";
 
 const SHIPYARD_VIDEO = "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/videos/shipyard-video.mp4";
@@ -87,6 +88,17 @@ const CatalogCard = ({ name, img, delay, visible }: {
 
 export const CatalogSection = () => {
   const catalogVis = useVisible(0.1);
+  const pgsRef = useRef<HTMLVideoElement>(null);
+
+  const handlePgsTimeUpdate = () => {
+    const v = pgsRef.current;
+    if (!v) return;
+    if (v.duration && v.currentTime >= v.duration - 0.15) {
+      v.currentTime = 0;
+      v.play();
+    }
+  };
+
   return (
     <section id="catalog" className="bg-[#0a0a0a] overflow-hidden relative" ref={catalogVis.ref}>
 
@@ -143,6 +155,7 @@ export const CatalogSection = () => {
       {/* ── Промышленность и ПГС ── */}
       <div className="relative min-h-[480px]">
         <video
+          ref={pgsRef}
           autoPlay muted loop playsInline preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ willChange: "transform" }}
@@ -150,7 +163,8 @@ export const CatalogSection = () => {
           src={PGS_VIDEO}
           disablePictureInPicture
           disableRemotePlayback
-          onEnded={e => { (e.target as HTMLVideoElement).play(); }}
+          onEnded={() => { if (pgsRef.current) { pgsRef.current.currentTime = 0; pgsRef.current.play(); } }}
+          onTimeUpdate={handlePgsTimeUpdate}
         />
         <div className="absolute inset-0 bg-black/30" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/55 via-transparent to-[#0a0a0a]/65" />
