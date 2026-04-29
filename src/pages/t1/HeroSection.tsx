@@ -34,7 +34,7 @@ export const HeroSection = () => {
             <h1 className="t-h1 text-white mb-6 text-center max-w-4xl">
               Теплоизоляция для инженерных систем и оборудования
             </h1>
-            <p className="t-lead text-gray-300 mb-10 max-w-2xl text-center">
+            <p className="t-lead text-white mb-10 max-w-2xl text-center">
               Проектирование, поставка и <strong className="text-white font-semibold">монтаж теплоизоляции</strong> — трубопроводы, оборудование, резервуары и суда. По всей России.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

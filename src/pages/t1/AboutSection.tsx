@@ -1,5 +1,5 @@
 import Icon from "@/components/ui/icon";
-import { IMG_BOILER, IMG_PIPE, STATS, useVisible } from "./data";
+import { IMG_PIPE, STATS, useVisible } from "./data";
 
 const ABOUT_ADVANTAGES = [
   { icon: "MapPin",        text: "Поставки по всей России" },
@@ -82,16 +82,15 @@ export const AboutSection = () => {
           {/* ── Правая колонка ── */}
           <div className={`flex flex-col gap-4 transition-all duration-700 delay-150 ${aboutVis.visible ? "animate-fadeInRight" : "opacity-0"}`}>
 
-            {/* Видео-заглушка */}
-            <div className="relative flex-1 rounded-3xl overflow-hidden bg-gray-900 border border-gray-200 aspect-video flex items-center justify-center min-h-[280px]">
-              <img src={IMG_BOILER} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover opacity-30" />
-              <div className="absolute inset-0 bg-gradient-to-br from-black/50 to-black/20" />
-              <div className="relative z-10 flex flex-col items-center gap-4 text-center px-8">
-                <div className="w-16 h-16 rounded-full flex items-center justify-center border-2 border-white/30 bg-white/10 backdrop-blur-sm">
-                  <Icon name="Play" size={22} className="text-white/80 ml-1" />
-                </div>
-                <p className="text-white/50 text-[11px] uppercase tracking-[0.25em] font-semibold">Видео о компании</p>
-              </div>
+            {/* Видео о компании */}
+            <div className="relative overflow-hidden aspect-video min-h-[280px]"
+              style={{ borderRadius: 24, boxShadow: "0 32px 80px rgba(0,0,0,0.22), 0 0 0 1px rgba(0,0,0,0.06)" }}>
+              <video
+                autoPlay muted loop playsInline preload="auto"
+                className="absolute inset-0 w-full h-full object-cover"
+                src="https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/videos/about-company-harbor-video.mp4"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" style={{ borderRadius: 24 }} />
             </div>
 
             {/* Цифры */}
