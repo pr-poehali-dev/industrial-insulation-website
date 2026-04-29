@@ -27,7 +27,7 @@ export const AboutSection = () => {
         {/* Лейбл */}
         <div className={`flex items-center gap-3 mb-14 transition-all duration-700 ${aboutVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
           <div className="w-8 h-px bg-orange-500/70" />
-          <span className="t-label text-orange-600">О компании</span>
+          <span className="t-label text-orange-600">О нас</span>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">

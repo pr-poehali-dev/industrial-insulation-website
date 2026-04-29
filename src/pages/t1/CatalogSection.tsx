@@ -92,7 +92,7 @@ export const CatalogSection = () => {
         <div className={`text-center transition-all duration-700 ${catalogVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="w-10 h-px bg-orange-500" />
-            <span className="t-label text-orange-500">Материалы</span>
+            <span className="t-label text-orange-500">Продукция</span>
             <div className="w-10 h-px bg-orange-500" />
           </div>
           <h2 className="t-h2 text-white">

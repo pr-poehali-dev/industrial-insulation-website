@@ -15,7 +15,7 @@ export const IndustriesSection = () => {
         <div className={`mb-16 transition-all duration-700 ${indVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
           <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-px bg-orange-500" />
-            <span className="t-label text-orange-500">Отрасли</span>
+            <span className="t-label text-orange-500">Отрасли применения</span>
           </div>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div>
@@ -58,7 +58,7 @@ export const CertificatesSection = () => {
         <div className={`text-center mb-16 transition-all duration-700 ${certVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="w-10 h-px bg-orange-500" />
-            <span className="t-label text-orange-500">Документы</span>
+            <span className="t-label text-orange-500">Документация</span>
             <div className="w-10 h-px bg-orange-500" />
           </div>
           <h2 className="t-h2 text-gray-900">
