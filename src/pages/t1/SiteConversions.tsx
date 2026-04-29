@@ -4,31 +4,26 @@ import { LOGO_SYMBOL, IMG_SHIP, IMG_PIPE, IMG_BOILER, GRAD, NAV_LINKS, SERVICES,
 
 const Logo = ({ size = 44, className = "" }: { size?: number; className?: string }) => (
   <div className={`flex items-center gap-2 ${className}`}>
-    <img
-      src={LOGO_SYMBOL}
-      alt=""
-      aria-hidden
-      style={{ height: size, width: "auto" }}
-      className="object-contain"
-    />
+    <img src={LOGO_SYMBOL} alt="" aria-hidden style={{ height: size, width: "auto" }} className="object-contain" />
     <div className="flex flex-col leading-none">
-      <span
-        className="font-black text-white tracking-wider uppercase"
-        style={{ fontFamily: "'Oswald', sans-serif", fontSize: size * 0.45, letterSpacing: "0.08em" }}
-      >
-        Т1
-      </span>
-      <span
-        className="font-bold tracking-widest uppercase"
-        style={{ fontFamily: "'Oswald', sans-serif", fontSize: size * 0.28, letterSpacing: "0.12em", color: "#9ca3af" }}
-      >
-        ИЗОЛЯЦИЯ
-      </span>
+      <span className="font-black text-white tracking-wider uppercase"
+        style={{ fontFamily: "'Oswald', sans-serif", fontSize: size * 0.45, letterSpacing: "0.08em" }}>Т1</span>
+      <span className="font-bold tracking-widest uppercase"
+        style={{ fontFamily: "'Oswald', sans-serif", fontSize: size * 0.28, letterSpacing: "0.12em", color: "#9ca3af" }}>ИЗОЛЯЦИЯ</span>
     </div>
   </div>
 );
 
-/* ─── CTA / Request section ──────────────────────────────────── */
+const inputCls = (dark: boolean) =>
+  `w-full border rounded-lg px-4 py-3.5 outline-none text-[14px] font-medium transition-all duration-200 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 ${
+    dark
+      ? "bg-[#0f0f0f] border-white/10 text-white placeholder-gray-600"
+      : "bg-white border-gray-200 text-gray-900 placeholder-gray-300"
+  }`;
+
+const labelCls = "block t-label text-gray-400 mb-2";
+
+/* ─── CTA / Request ──────────────────────────────────────────── */
 export const CtaSection = () => {
   const ctaVis = useVisible(0.1);
   const [formData, setFormData] = useState({ name: "", phone: "", message: "" });
@@ -36,32 +31,34 @@ export const CtaSection = () => {
 
   return (
     <section id="request" className="overflow-hidden relative" ref={ctaVis.ref}>
-      {/* Subtle full bg */}
       <div className="absolute inset-0 pointer-events-none">
-        <img src={IMG_PIPE} alt="" aria-hidden className="w-full h-full object-cover opacity-[0.05]" />
-        <div className="absolute inset-0 bg-gray-950/60" />
+        <img src={IMG_PIPE} alt="" aria-hidden className="w-full h-full object-cover opacity-[0.04]" />
+        <div className="absolute inset-0 bg-gray-950/65" />
       </div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2">
+        <div className="grid lg:grid-cols-2 rounded-2xl overflow-hidden shadow-2xl">
 
-          {/* Left dark */}
-          <div className={`relative bg-gray-950/90 p-12 lg:p-16 overflow-hidden ${ctaVis.visible ? "animate-fadeInLeft" : "opacity-0"}`}>
-            <div className="absolute left-0 top-0 w-1 h-full bg-orange-500" />
-            <div className="absolute inset-0 opacity-[0.03]"
-              style={{ backgroundImage: "repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%)", backgroundSize: "24px 24px" }} />
-            <div className="relative z-10">
-              <div className="flex items-center gap-3 mb-7">
-                <div className="w-8 h-px bg-orange-500" />
+          {/* Левая — тёмная */}
+          <div className={`relative bg-[#111] p-10 lg:p-14 overflow-hidden ${ctaVis.visible ? "animate-fadeInLeft" : "opacity-0"}`}>
+            {/* Фирменная полоска */}
+            <div className="absolute left-0 top-0 w-[3px] h-full" style={{ background: "linear-gradient(to bottom, #e63012, #f97316, #fbbf24)" }} />
+            {/* Паттерн */}
+            <div className="absolute inset-0 opacity-[0.025]"
+              style={{ backgroundImage: "repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%)", backgroundSize: "20px 20px" }} />
+
+            <div className="relative z-10 h-full flex flex-col">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-8 h-px bg-orange-500/60" />
                 <span className="t-label text-orange-500">Коммерческое предложение</span>
               </div>
               <h2 className="t-h2 text-white mb-2">
-                Нужен расчёт стоимости<br />теплоизоляции?
+                Нужен расчёт<br />теплоизоляции?
               </h2>
               <div className="t-underline" />
-              <p className="t-lead text-gray-400 mb-10">
+              <p className="t-lead text-gray-400 mb-10 text-[15px]">
                 Подготовим предложение под ваш объект в короткий срок. Бесплатно, без обязательств.
               </p>
-              <ul className="space-y-4">
+              <ul className="space-y-3.5 mb-auto">
                 {[
                   "Бесплатный выезд специалиста на объект",
                   "Расчёт за 1–2 рабочих дня",
@@ -69,67 +66,69 @@ export const CtaSection = () => {
                   "Гарантийный паспорт на работы",
                 ].map((pt) => (
                   <li key={pt} className="flex items-center gap-3">
-                    <div className="w-5 h-5 bg-orange-500 flex items-center justify-center flex-shrink-0">
-                      <Icon name="Check" size={11} className="text-white" />
+                    <div className="w-5 h-5 rounded flex items-center justify-center flex-shrink-0"
+                      style={{ background: "linear-gradient(135deg, #e63012, #f97316)" }}>
+                      <Icon name="Check" size={10} className="text-white" />
                     </div>
-                    <span className="t-body text-gray-300">{pt}</span>
+                    <span className="text-gray-300 text-[14px] leading-snug">{pt}</span>
                   </li>
                 ))}
               </ul>
-              <div className="mt-12 pt-8 border-t border-white/10 flex items-center gap-4">
-                <img src={IMG_SHIP} alt="Судовая теплоизоляция" className="w-20 h-14 object-cover opacity-70" />
-                <p className="text-gray-500 text-xs leading-relaxed">
-                  Судовая теплоизоляция, НПЗ, энергетика —<br />
-                  <span className="text-gray-300">опыт на объектах любой отрасли</span>
+              <div className="mt-10 pt-8 border-t border-white/8 flex items-center gap-4">
+                <img src={IMG_SHIP} alt="" aria-hidden className="w-20 h-14 object-cover rounded-lg opacity-60 flex-shrink-0" />
+                <p className="text-gray-500 text-[13px] leading-relaxed">
+                  Судостроение, НПЗ, энергетика —<br />
+                  <span className="text-gray-300">опыт на объектах любой сложности</span>
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Right form */}
-          <div className={`bg-white p-12 lg:p-16 border border-gray-100 ${ctaVis.visible ? "animate-fadeInRight" : "opacity-0"}`}>
-            <h3 className="t-h3 text-gray-900 mb-1">Получить коммерческое предложение</h3>
-            <p className="t-body text-gray-400 mb-8">Ответим в течение 1 рабочего дня</p>
+          {/* Правая — форма */}
+          <div className={`bg-white p-10 lg:p-14 ${ctaVis.visible ? "animate-fadeInRight" : "opacity-0"}`}>
+            <h3 className="t-h3 text-gray-900 mb-1.5">Получить коммерческое предложение</h3>
+            <p className="t-body text-gray-400 mb-8 text-[14px]">Ответим в течение 1 рабочего дня</p>
 
             {submitted ? (
-              <div className="flex flex-col items-center justify-center py-12 text-center">
-                <div className="w-16 h-16 flex items-center justify-center mb-6" style={{ background: GRAD }}>
+              <div className="flex flex-col items-center justify-center py-16 text-center">
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6"
+                  style={{ background: "linear-gradient(135deg, #e63012, #f97316)" }}>
                   <Icon name="Check" size={28} className="text-white" />
                 </div>
-                <h4 className="text-gray-900 font-black text-xl mb-2">Заявка отправлена!</h4>
-                <p className="text-gray-400 text-sm">Мы свяжемся с вами в ближайшее время</p>
+                <h4 className="text-gray-900 font-bold text-xl mb-2" style={{ fontFamily: "'Oswald', sans-serif" }}>Заявка отправлена!</h4>
+                <p className="text-gray-400 text-[14px]">Мы свяжемся с вами в ближайшее время</p>
               </div>
             ) : (
               <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-4">
                 <div>
-                  <label className="block text-gray-400 text-xs uppercase tracking-widest font-bold mb-2">Ваше имя *</label>
+                  <label className={labelCls}>Ваше имя *</label>
                   <input type="text" required value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Иван Петров"
-                    className="w-full border border-gray-200 focus:border-orange-500 text-gray-900 placeholder-gray-300 px-4 py-3.5 outline-none transition-colors text-sm" />
+                    className={inputCls(false)} />
                 </div>
                 <div>
-                  <label className="block text-gray-400 text-xs uppercase tracking-widest font-bold mb-2">Телефон *</label>
+                  <label className={labelCls}>Телефон *</label>
                   <input type="tel" required value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="+7 (___) ___-__-__"
-                    className="w-full border border-gray-200 focus:border-orange-500 text-gray-900 placeholder-gray-300 px-4 py-3.5 outline-none transition-colors text-sm" />
+                    className={inputCls(false)} />
                 </div>
                 <div>
-                  <label className="block text-gray-400 text-xs uppercase tracking-widest font-bold mb-2">Комментарий</label>
+                  <label className={labelCls}>Комментарий</label>
                   <textarea value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Опишите объект, тип изоляции, объём работ..."
                     rows={3}
-                    className="w-full border border-gray-200 focus:border-orange-500 text-gray-900 placeholder-gray-300 px-4 py-3.5 outline-none transition-colors text-sm resize-none" />
+                    className={`${inputCls(false)} resize-none`} />
                 </div>
                 <button type="submit"
-                  className="btn-primary w-full text-white py-4 font-black uppercase tracking-widest text-xs transition-all duration-300 flex items-center justify-center gap-2 group hover:opacity-90"
+                  className="btn-primary w-full text-white py-4 font-bold uppercase tracking-widest text-[12px] hover:opacity-90 transition-opacity flex items-center justify-center gap-2.5 group"
                   style={{ background: GRAD }}>
                   Получить коммерческое предложение
-                  <Icon name="ArrowRight" size={14} className="group-hover:translate-x-1 transition-transform" />
+                  <Icon name="ArrowRight" size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
-                <p className="text-gray-300 text-xs text-center">
+                <p className="text-gray-400 text-[12px] text-center">
                   Нажимая кнопку, вы соглашаетесь с{" "}
                   <a href="#privacy" className="underline hover:text-orange-500 transition-colors">политикой конфиденциальности</a>
                 </p>
@@ -142,96 +141,100 @@ export const CtaSection = () => {
   );
 };
 
-/* ─── Contacts section ───────────────────────────────────────── */
-
+/* ─── Contacts ───────────────────────────────────────────────── */
 export const ContactsSection = () => {
   const contVis = useVisible(0.1);
   const [submitted2, setSubmitted2] = useState(false);
   const [form2Data, setForm2Data] = useState({ name: "", phone: "", message: "" });
 
   return (
-    <section id="contacts" className="py-28 bg-white overflow-hidden relative" ref={contVis.ref}>
+    <section id="contacts" className="section-pad bg-white overflow-hidden relative" ref={contVis.ref}>
       <div className="absolute inset-0 pointer-events-none">
-        <img src={IMG_BOILER} alt="" aria-hidden className="w-full h-full object-cover opacity-[0.04]" />
+        <img src={IMG_BOILER} alt="" aria-hidden className="w-full h-full object-cover opacity-[0.03]" />
       </div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`text-center mb-16 transition-all duration-700 ${contVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="w-10 h-px bg-orange-500" />
+
+        {/* Шапка */}
+        <div className={`text-center mb-14 transition-all duration-700 ${contVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <div className="w-10 h-px bg-orange-500/60" />
             <span className="t-label text-orange-500">Контакты</span>
-            <div className="w-10 h-px bg-orange-500" />
+            <div className="w-10 h-px bg-orange-500/60" />
           </div>
-          <h2 className="t-h2 text-gray-900">
-            Как с нами связаться
-          </h2>
+          <h2 className="t-h2 text-gray-900">Как с нами связаться</h2>
           <div className="t-underline mx-auto justify-center" />
         </div>
 
-        <div className={`mb-16 border border-gray-100 divide-y sm:divide-y-0 sm:divide-x divide-gray-100 grid sm:grid-cols-2 lg:grid-cols-4 transition-all duration-700 ${contVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
+        {/* Контакты-плитки */}
+        <div className={`mb-12 rounded-2xl border border-gray-100 overflow-hidden divide-y sm:divide-y-0 sm:divide-x divide-gray-100 grid sm:grid-cols-2 lg:grid-cols-4 transition-all duration-700 ${contVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
           {CONTACTS_INFO.map((item) => (
             <a key={item.label} href={item.href}
-              className="group flex items-start gap-4 p-7 hover:bg-gray-50 transition-colors duration-200">
-              <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-gray-100 group-hover:bg-orange-500 flex items-center justify-center transition-all duration-300 mt-0.5">
-                <Icon name={item.icon} size={16} className="text-orange-500 group-hover:text-white transition-colors duration-300" />
+              className="group flex items-start gap-4 p-6 sm:p-7 hover:bg-gray-50 transition-colors duration-200">
+              <div className="flex-shrink-0 w-9 h-9 rounded-xl bg-gray-100 group-hover:bg-orange-500 flex items-center justify-center transition-all duration-300 mt-0.5">
+                <Icon name={item.icon} size={15} className="text-orange-500 group-hover:text-white transition-colors duration-300" />
               </div>
               <div className="min-w-0">
-                <div className="text-[10px] text-gray-400 uppercase tracking-widest font-semibold mb-1">{item.label}</div>
-                <div className="font-bold text-gray-900 text-sm leading-snug truncate">{item.value}</div>
-                <div className="text-gray-400 text-xs mt-0.5">{item.sub}</div>
+                <div className="t-label text-gray-400 mb-1">{item.label}</div>
+                <div className="font-semibold text-gray-900 text-[14px] leading-snug break-all">{item.value}</div>
+                <div className="text-gray-400 text-[12px] mt-0.5">{item.sub}</div>
               </div>
             </a>
           ))}
         </div>
 
-        <div className={`max-w-2xl mx-auto bg-gray-950 p-10 lg:p-14 ${contVis.visible ? "animate-fadeInUp delay-500" : "opacity-0"}`}>
-          <h3 className="t-h3 text-white mb-1 text-center">Оставьте заявку</h3>
-          <p className="t-body text-gray-400 mb-8 text-center">Свяжемся в течение 1 рабочего дня</p>
+        {/* Форма */}
+        <div className={`max-w-2xl mx-auto rounded-2xl overflow-hidden ${contVis.visible ? "animate-fadeInUp delay-500" : "opacity-0"}`}>
+          <div className="bg-gray-950 px-10 lg:px-14 py-10 lg:py-12">
+            <h3 className="t-h3 text-white mb-1.5 text-center">Оставьте заявку</h3>
+            <p className="t-body text-gray-400 mb-8 text-center text-[14px]">Свяжемся в течение 1 рабочего дня</p>
 
-          {submitted2 ? (
-            <div className="flex flex-col items-center py-10 text-center">
-              <div className="w-16 h-16 flex items-center justify-center mb-5" style={{ background: GRAD }}>
-                <Icon name="Check" size={28} className="text-white" />
+            {submitted2 ? (
+              <div className="flex flex-col items-center py-10 text-center">
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5"
+                  style={{ background: "linear-gradient(135deg, #e63012, #f97316)" }}>
+                  <Icon name="Check" size={28} className="text-white" />
+                </div>
+                <h4 className="text-white font-bold text-xl mb-2" style={{ fontFamily: "'Oswald', sans-serif" }}>Заявка принята!</h4>
+                <p className="text-gray-400 text-[14px]">Мы свяжемся с вами в ближайшее время</p>
               </div>
-              <h4 className="text-white font-black text-xl mb-2">Заявка принята!</h4>
-              <p className="text-gray-400 text-sm">Мы свяжемся с вами в ближайшее время</p>
-            </div>
-          ) : (
-            <form onSubmit={(e) => { e.preventDefault(); setSubmitted2(true); }} className="space-y-4">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-gray-400 text-xs uppercase tracking-widest font-bold mb-2">Имя *</label>
-                  <input type="text" required value={form2Data.name}
-                    onChange={(e) => setForm2Data({ ...form2Data, name: e.target.value })}
-                    placeholder="Иван Петров"
-                    className="w-full bg-gray-900 border border-gray-700 focus:border-orange-500 text-white placeholder-gray-600 px-4 py-3.5 outline-none transition-colors text-sm" />
+            ) : (
+              <form onSubmit={(e) => { e.preventDefault(); setSubmitted2(true); }} className="space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className={labelCls}>Имя *</label>
+                    <input type="text" required value={form2Data.name}
+                      onChange={(e) => setForm2Data({ ...form2Data, name: e.target.value })}
+                      placeholder="Иван Петров"
+                      className={inputCls(true)} />
+                  </div>
+                  <div>
+                    <label className={labelCls}>Телефон *</label>
+                    <input type="tel" required value={form2Data.phone}
+                      onChange={(e) => setForm2Data({ ...form2Data, phone: e.target.value })}
+                      placeholder="+7 (___) ___-__-__"
+                      className={inputCls(true)} />
+                  </div>
                 </div>
                 <div>
-                  <label className="block text-gray-400 text-xs uppercase tracking-widest font-bold mb-2">Телефон *</label>
-                  <input type="tel" required value={form2Data.phone}
-                    onChange={(e) => setForm2Data({ ...form2Data, phone: e.target.value })}
-                    placeholder="+7 (___) ___-__-__"
-                    className="w-full bg-gray-900 border border-gray-700 focus:border-orange-500 text-white placeholder-gray-600 px-4 py-3.5 outline-none transition-colors text-sm" />
+                  <label className={labelCls}>Комментарий</label>
+                  <textarea value={form2Data.message}
+                    onChange={(e) => setForm2Data({ ...form2Data, message: e.target.value })}
+                    placeholder="Опишите объект, тип изоляции, объём работ..."
+                    rows={3}
+                    className={`${inputCls(true)} resize-none`} />
                 </div>
-              </div>
-              <div>
-                <label className="block text-gray-400 text-xs uppercase tracking-widest font-bold mb-2">Комментарий</label>
-                <textarea value={form2Data.message}
-                  onChange={(e) => setForm2Data({ ...form2Data, message: e.target.value })}
-                  placeholder="Опишите объект, тип изоляции, объём работ..."
-                  rows={3}
-                  className="w-full bg-gray-900 border border-gray-700 focus:border-orange-500 text-white placeholder-gray-600 px-4 py-3.5 outline-none transition-colors text-sm resize-none" />
-              </div>
-              <button type="submit"
-                className="btn-primary w-full text-white py-4 font-black uppercase tracking-widest text-xs transition-all duration-300 hover:opacity-90"
-                style={{ background: GRAD }}>
-                Отправить заявку
-              </button>
-              <p className="text-gray-600 text-xs text-center">
-                Нажимая кнопку, вы соглашаетесь с{" "}
-                <a href="#privacy" className="underline hover:text-orange-400 transition-colors">политикой конфиденциальности</a>
-              </p>
-            </form>
-          )}
+                <button type="submit"
+                  className="btn-primary w-full text-white py-4 font-bold uppercase tracking-widest text-[12px] hover:opacity-90 transition-opacity"
+                  style={{ background: GRAD }}>
+                  Отправить заявку
+                </button>
+                <p className="text-gray-600 text-[12px] text-center">
+                  Нажимая кнопку, вы соглашаетесь с{" "}
+                  <a href="#privacy" className="underline hover:text-orange-400 transition-colors">политикой конфиденциальности</a>
+                </p>
+              </form>
+            )}
+          </div>
         </div>
       </div>
     </section>
@@ -239,33 +242,36 @@ export const ContactsSection = () => {
 };
 
 /* ─── Footer ─────────────────────────────────────────────────── */
-
 export const SiteFooter = () => (
-  <footer id="privacy" className="bg-[#050505] border-t border-white/5">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+  <footer id="privacy" className="bg-[#060606] border-t border-white/[0.06]">
+    {/* Фирменная полоска сверху */}
+    <div className="h-[3px]" style={{ background: "linear-gradient(90deg, #e63012, #f97316, #fbbf24)" }} />
+
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-14">
 
         {/* Brand */}
         <div>
-          <a href="#" className="inline-block mb-5">
+          <a href="#" className="inline-block mb-6">
             <Logo size={36} />
           </a>
-          <p className="text-gray-600 text-sm leading-relaxed mb-5">
-            Промышленная теплоизоляция. Изоляция трубопроводов, оборудования и судов. Работаем по всей России.
+          <p className="text-gray-600 text-[13px] leading-relaxed mb-5">
+            Промышленная теплоизоляция. Поставка и монтаж изоляции трубопроводов, оборудования и судов. По всей России.
           </p>
-          <a href="mailto:teplofabrika@mail.ru" className="text-white font-bold hover:text-orange-400 transition-colors text-sm">
+          <a href="mailto:teplofabrika@mail.ru"
+            className="text-gray-400 hover:text-orange-400 transition-colors text-[13px] font-medium">
             teplofabrika@mail.ru
           </a>
         </div>
 
         {/* Nav */}
         <div>
-          <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-5">Навигация</h4>
+          <h4 className="t-label text-gray-500 mb-5">Навигация</h4>
           <ul className="space-y-3">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
-                <a href={link.href} className="text-gray-500 hover:text-orange-400 text-sm transition-colors flex items-center gap-2 group">
-                  <span className="w-0 h-px bg-orange-500 group-hover:w-3 transition-all duration-300" />
+                <a href={link.href} className="text-gray-500 hover:text-orange-400 text-[13px] transition-colors flex items-center gap-2 group">
+                  <span className="w-0 h-px bg-orange-500 group-hover:w-3 transition-all duration-300 flex-shrink-0" />
                   {link.label}
                 </a>
               </li>
@@ -275,12 +281,12 @@ export const SiteFooter = () => (
 
         {/* Services */}
         <div>
-          <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-5">Услуги</h4>
+          <h4 className="t-label text-gray-500 mb-5">Услуги</h4>
           <ul className="space-y-3">
-            {SERVICES.map((s) => (
+            {SERVICES.slice(0, 6).map((s) => (
               <li key={s.title}>
-                <a href="#services" className="text-gray-500 hover:text-orange-400 text-sm transition-colors flex items-center gap-2 group">
-                  <span className="w-0 h-px bg-orange-500 group-hover:w-3 transition-all duration-300" />
+                <a href="#request" className="text-gray-500 hover:text-orange-400 text-[13px] transition-colors flex items-center gap-2 group">
+                  <span className="w-0 h-px bg-orange-500 group-hover:w-3 transition-all duration-300 flex-shrink-0" />
                   {s.title}
                 </a>
               </li>
@@ -290,15 +296,15 @@ export const SiteFooter = () => (
 
         {/* Contacts */}
         <div>
-          <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-5">Контакты</h4>
+          <h4 className="t-label text-gray-500 mb-5">Контакты</h4>
           <ul className="space-y-4">
             {CONTACTS_INFO.map((c) => (
               <li key={c.label}>
                 <a href={c.href} className="flex items-start gap-3 group">
-                  <Icon name={c.icon} size={13} className="text-orange-500 mt-0.5 flex-shrink-0" />
+                  <Icon name={c.icon} size={13} className="text-orange-500/70 mt-0.5 flex-shrink-0" />
                   <div>
-                    <div className="text-gray-500 group-hover:text-gray-300 text-sm transition-colors leading-snug">{c.value}</div>
-                    <div className="text-gray-700 text-xs">{c.sub}</div>
+                    <div className="text-gray-400 group-hover:text-gray-200 text-[13px] transition-colors leading-snug">{c.value}</div>
+                    <div className="text-gray-700 text-[11px] mt-0.5">{c.sub}</div>
                   </div>
                 </a>
               </li>
@@ -308,13 +314,13 @@ export const SiteFooter = () => (
       </div>
 
       {/* Bottom */}
-      <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="text-gray-700 text-xs">
-          © {new Date().getFullYear()} Т1 ИЗОЛЯЦИЯ. Все права защищены. Промышленная теплоизоляция.
+      <div className="border-t border-white/[0.05] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p className="text-gray-700 text-[12px]">
+          © {new Date().getFullYear()} Т1 ИЗОЛЯЦИЯ. Все права защищены.
         </p>
         <div className="flex flex-wrap justify-center gap-6">
-          <a href="#privacy" className="text-gray-700 hover:text-gray-400 text-xs transition-colors">Политика конфиденциальности</a>
-          <a href="#privacy" className="text-gray-700 hover:text-gray-400 text-xs transition-colors">Обработка персональных данных</a>
+          <a href="#privacy" className="text-gray-700 hover:text-gray-400 text-[12px] transition-colors">Политика конфиденциальности</a>
+          <a href="#privacy" className="text-gray-700 hover:text-gray-400 text-[12px] transition-colors">Обработка персональных данных</a>
         </div>
       </div>
     </div>
