@@ -1,7 +1,6 @@
 import os
 import json
 import base64
-import urllib.request
 import hmac
 import hashlib
 import datetime
@@ -17,6 +16,7 @@ def get_signature_key(key, date_stamp, region, service):
 
 
 def s3_put(bucket, key, data, content_type, access_key, secret_key, endpoint):
+    import urllib.request
     host = endpoint.replace('https://', '')
     now = datetime.datetime.utcnow()
     amz_date = now.strftime('%Y%m%dT%H%M%SZ')
@@ -55,19 +55,28 @@ def s3_put(bucket, key, data, content_type, access_key, secret_key, endpoint):
 
 
 def handler(event: dict, context) -> dict:
-    """Принимает видео в base64 и сохраняет на CDN проекта"""
+    """Принимает видео в base64 и сохраняет на CDN. Body: {video: base64, filename: string}"""
     if event.get('httpMethod') == 'OPTIONS':
-        return {'statusCode': 200, 'headers': {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type'}, 'body': ''}
+        return {
+            'statusCode': 200,
+            'headers': {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'POST, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type'
+            },
+            'body': ''
+        }
 
     access_key = os.environ['AWS_ACCESS_KEY_ID']
     secret_key = os.environ['AWS_SECRET_ACCESS_KEY']
-    s3_key = 'videos/shipyard-8968775.mp4'
-    cdn_url = f"https://cdn.poehali.dev/projects/{access_key}/bucket/{s3_key}"
 
     body = json.loads(event.get('body') or '{}')
     video_b64 = body.get('video')
-    video_data = base64.b64decode(video_b64)
+    filename = body.get('filename', 'video.mp4')
+    s3_key = f'videos/{filename}'
+    cdn_url = f"https://cdn.poehali.dev/projects/{access_key}/bucket/{s3_key}"
 
+    video_data = base64.b64decode(video_b64)
     s3_put('files', s3_key, video_data, 'video/mp4', access_key, secret_key, 'https://bucket.poehali.dev')
 
     return {

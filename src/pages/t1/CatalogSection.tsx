@@ -1,4 +1,5 @@
 import { IMG_SHIP, useVisible } from "./data";
+import { useVideoCdn } from "@/hooks/useVideoCdn";
 
 const IMG_TUBES = "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/3ddf0ad3-7940-400c-a688-3e907253b23d.jpg";
 const IMG_ROLLS = "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/51e58607-a24b-44da-948e-737b95e9c9e0.jpg";
@@ -82,6 +83,11 @@ const CatalogCard = ({ name, img, delay, visible }: { name: string; img: string;
 
 export const CatalogSection = () => {
   const catalogVis = useVisible(0.1);
+  const shipVideoSrc = useVideoCdn(
+    "https://videos.pexels.com/video-files/8968775/8968775-sd_960_506_25fps.mp4",
+    "shipyard-8968775.mp4",
+    "https://videos.pexels.com/video-files/8968775/8968775-sd_960_506_25fps.mp4"
+  );
   return (
     <section id="catalog" className="bg-[#0a0a0a] overflow-hidden relative" ref={catalogVis.ref}>
 
@@ -103,11 +109,10 @@ export const CatalogSection = () => {
       <div className="relative min-h-[400px]">
         {/* Видео фон */}
         <video
-          autoPlay muted loop playsInline
-          preload="auto"
+          autoPlay muted loop playsInline preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
           poster={IMG_SHIP}
-          src="https://videos.pexels.com/video-files/8968775/8968775-sd_960_506_25fps.mp4"
+          src={shipVideoSrc}
         />
         <div className="absolute inset-0 bg-black/65" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/40 via-transparent to-[#0a0a0a]/50" />
