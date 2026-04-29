@@ -1,4 +1,6 @@
 {
+  "upload-yadisk": "https://functions.poehali.dev/b6c7a238-c7ba-4e08-8fe6-ebfae143fcf6",
+  "check-videos": "https://functions.poehali.dev/7e497b3d-ff8d-4d3b-a7d7-f22aa48ff2a8",
   "download-video": "https://functions.poehali.dev/b894f8f5-eb68-4f22-a36b-6ce3e7b366e2",
   "upload-videos": "https://functions.poehali.dev/5209ee50-8b6c-4f1a-a48c-409299d9c479",
   "upload-video": "https://functions.poehali.dev/6a2d82a1-9c7c-4eb1-a4e8-9487df98804b"
