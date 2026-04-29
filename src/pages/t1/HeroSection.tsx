@@ -26,7 +26,7 @@ export const HeroSection = () => {
         </div>
 
         {/* Контент */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 text-white">
           <div className={`flex flex-col items-center text-center transition-all duration-1000 ${heroVis.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
 
             {/* Логотип */}
@@ -45,7 +45,7 @@ export const HeroSection = () => {
             </h1>
 
             {/* Подзаголовок */}
-            <p className="t-lead mb-10 max-w-xl text-[#ffffff]">
+            <p className="t-lead mb-10 max-w-xl text-white">
               Проектирование, поставка и монтаж теплоизоляции — трубопроводы, оборудование, резервуары и суда. По всей России.
             </p>
 
