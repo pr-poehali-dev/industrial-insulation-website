@@ -15,13 +15,16 @@ export const IndustriesSection = () => {
         <div className={`mb-16 transition-all duration-700 ${indVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
           <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-px bg-orange-500" />
-            <span className="text-orange-500 text-xs font-bold uppercase tracking-[0.2em]">Отрасли</span>
+            <span className="t-label text-orange-500">Отрасли</span>
           </div>
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
-            <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
-              Работаем в каждой<br />промышленной отрасли
-            </h2>
-            <p className="text-gray-400 max-w-xs text-sm leading-relaxed">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+            <div>
+              <h2 className="t-h2 text-white">
+                Работаем в каждой<br />промышленной отрасли
+              </h2>
+              <div className="t-underline" />
+            </div>
+            <p className="t-body text-gray-400 max-w-xs">
               Опыт на объектах разного масштаба — от районной котельной до НПЗ.
             </p>
           </div>
@@ -32,8 +35,8 @@ export const IndustriesSection = () => {
               className={`group flex flex-col items-center text-center p-8 bg-gray-950/80 hover:bg-orange-500 transition-all duration-400 cursor-default
                 ${indVis.visible ? `animate-fadeInUp delay-${(i + 1) * 100}` : "opacity-0"}`}>
               <Icon name={ind.icon} size={28} className="text-gray-400 group-hover:text-white transition-colors duration-300 mb-4" />
-              <h3 className="text-gray-300 group-hover:text-white font-bold text-sm transition-colors leading-snug mb-1">{ind.title}</h3>
-              <p className="text-gray-600 group-hover:text-orange-100 text-xs transition-colors">{ind.desc}</p>
+              <h3 className="t-body text-gray-300 group-hover:text-white font-semibold transition-colors leading-snug mb-1">{ind.title}</h3>
+              <p className="t-body text-gray-600 group-hover:text-orange-100 text-xs transition-colors">{ind.desc}</p>
             </div>
           ))}
         </div>
@@ -55,13 +58,14 @@ export const CertificatesSection = () => {
         <div className={`text-center mb-16 transition-all duration-700 ${certVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="w-10 h-px bg-orange-500" />
-            <span className="text-orange-500 text-xs font-bold uppercase tracking-[0.2em]">Документы</span>
+            <span className="t-label text-orange-500">Документы</span>
             <div className="w-10 h-px bg-orange-500" />
           </div>
-          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 tracking-tight mb-4">
+          <h2 className="t-h2 text-gray-900">
             Сертификаты, лицензии<br />и соответствие стандартам
           </h2>
-          <p className="text-gray-500 max-w-lg mx-auto text-sm leading-relaxed">
+          <div className="t-underline mx-auto justify-center" />
+          <p className="t-body text-gray-500 max-w-lg mx-auto">
             Все работы ведутся в строгом соответствии с нормами. Комплект документов — к каждому объекту.
           </p>
         </div>
@@ -79,8 +83,8 @@ export const CertificatesSection = () => {
                   {cert.category}
                 </span>
               </div>
-              <h3 className="font-black text-xl text-gray-900 mb-2">{cert.title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-4">{cert.desc}</p>
+              <h3 className="t-h3 text-gray-900 mb-2">{cert.title}</h3>
+              <p className="t-body text-gray-500 mb-4">{cert.desc}</p>
               <div className="flex items-center gap-2 text-green-600">
                 <Icon name="CheckCircle2" size={15} />
                 <span className="text-xs font-bold">Действующий документ</span>
@@ -90,8 +94,8 @@ export const CertificatesSection = () => {
         </div>
         <div className={`mt-12 bg-gray-950 p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 ${certVis.visible ? "animate-fadeInUp delay-700" : "opacity-0"}`}>
           <div>
-            <p className="text-white font-black text-lg">Нужны копии документов?</p>
-            <p className="text-gray-400 text-sm mt-1">Направим полный пакет по запросу в течение 1 рабочего дня</p>
+            <p className="t-h3 text-white">Нужны копии документов?</p>
+            <p className="t-body text-gray-400 mt-1">Направим полный пакет по запросу в течение 1 рабочего дня</p>
           </div>
           <a href="#contacts"
             className="btn-primary text-white px-8 py-3.5 font-black uppercase tracking-widest text-xs transition-all duration-300 hover:opacity-90 whitespace-nowrap flex items-center gap-2 group"
@@ -119,12 +123,13 @@ export const ProcessSection = () => {
         <div className={`text-center mb-16 transition-all duration-700 ${procVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="w-10 h-px bg-orange-500" />
-            <span className="text-orange-500 text-xs font-bold uppercase tracking-[0.2em]">Как мы работаем</span>
+            <span className="t-label text-orange-500">Как мы работаем</span>
             <div className="w-10 h-px bg-orange-500" />
           </div>
-          <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tight">
+          <h2 className="t-h2 text-white">
             5 этапов — от заявки до гарантии
           </h2>
+          <div className="t-underline mx-auto justify-center" />
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-px bg-white/5">
           {PROCESS.map((step, i) => (
@@ -138,8 +143,8 @@ export const ProcessSection = () => {
                 </div>
                 <Icon name={step.icon} size={16} className="text-gray-600 group-hover:text-orange-400 transition-colors" />
               </div>
-              <h3 className="text-white font-bold text-lg mb-3">{step.title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed group-hover:text-gray-400 transition-colors">{step.desc}</p>
+              <h3 className="t-h3 text-white mb-3">{step.title}</h3>
+              <p className="t-body text-gray-500 group-hover:text-gray-400 transition-colors">{step.desc}</p>
             </div>
           ))}
         </div>

@@ -52,12 +52,13 @@ export const CtaSection = () => {
             <div className="relative z-10">
               <div className="flex items-center gap-3 mb-7">
                 <div className="w-8 h-px bg-orange-500" />
-                <span className="text-orange-500 text-xs font-bold uppercase tracking-[0.2em]">Коммерческое предложение</span>
+                <span className="t-label text-orange-500">Коммерческое предложение</span>
               </div>
-              <h2 className="text-3xl lg:text-4xl font-black text-white leading-tight mb-6 tracking-tight">
+              <h2 className="t-h2 text-white mb-2">
                 Нужен расчёт стоимости<br />теплоизоляции?
               </h2>
-              <p className="text-gray-400 text-base leading-relaxed mb-10">
+              <div className="t-underline" />
+              <p className="t-lead text-gray-400 mb-10">
                 Подготовим предложение под ваш объект в короткий срок. Бесплатно, без обязательств.
               </p>
               <ul className="space-y-4">
@@ -71,7 +72,7 @@ export const CtaSection = () => {
                     <div className="w-5 h-5 bg-orange-500 flex items-center justify-center flex-shrink-0">
                       <Icon name="Check" size={11} className="text-white" />
                     </div>
-                    <span className="text-gray-300 text-sm">{pt}</span>
+                    <span className="t-body text-gray-300">{pt}</span>
                   </li>
                 ))}
               </ul>
@@ -87,8 +88,8 @@ export const CtaSection = () => {
 
           {/* Right form */}
           <div className={`bg-white p-12 lg:p-16 border border-gray-100 ${ctaVis.visible ? "animate-fadeInRight" : "opacity-0"}`}>
-            <h3 className="text-2xl font-black text-gray-900 mb-1">Получить коммерческое предложение</h3>
-            <p className="text-gray-400 text-sm mb-8">Ответим в течение 1 рабочего дня</p>
+            <h3 className="t-h3 text-gray-900 mb-1">Получить коммерческое предложение</h3>
+            <p className="t-body text-gray-400 mb-8">Ответим в течение 1 рабочего дня</p>
 
             {submitted ? (
               <div className="flex flex-col items-center justify-center py-12 text-center">
@@ -157,12 +158,13 @@ export const ContactsSection = () => {
         <div className={`text-center mb-16 transition-all duration-700 ${contVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="w-10 h-px bg-orange-500" />
-            <span className="text-orange-500 text-xs font-bold uppercase tracking-[0.2em]">Контакты</span>
+            <span className="t-label text-orange-500">Контакты</span>
             <div className="w-10 h-px bg-orange-500" />
           </div>
-          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 tracking-tight">
+          <h2 className="t-h2 text-gray-900">
             Как с нами связаться
           </h2>
+          <div className="t-underline mx-auto justify-center" />
         </div>
 
         <div className={`mb-16 border border-gray-100 divide-y sm:divide-y-0 sm:divide-x divide-gray-100 grid sm:grid-cols-2 lg:grid-cols-4 transition-all duration-700 ${contVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
@@ -182,8 +184,8 @@ export const ContactsSection = () => {
         </div>
 
         <div className={`max-w-2xl mx-auto bg-gray-950 p-10 lg:p-14 ${contVis.visible ? "animate-fadeInUp delay-500" : "opacity-0"}`}>
-          <h3 className="text-white font-black text-2xl mb-1 text-center">Оставьте заявку</h3>
-          <p className="text-gray-400 text-sm mb-8 text-center">Свяжемся в течение 1 рабочего дня</p>
+          <h3 className="t-h3 text-white mb-1 text-center">Оставьте заявку</h3>
+          <p className="t-body text-gray-400 mb-8 text-center">Свяжемся в течение 1 рабочего дня</p>
 
           {submitted2 ? (
             <div className="flex flex-col items-center py-10 text-center">

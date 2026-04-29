@@ -66,7 +66,7 @@ const CatalogCard = ({ name, img, delay, visible }: { name: string; img: string;
         pl-6 pr-4 py-5 min-h-[80px]
         sm:pl-7 sm:pr-6 sm:py-7 sm:min-h-[110px]
         flex-1 min-w-0">
-        <p className="text-gray-300 group-hover:text-white font-medium text-sm sm:text-[15px] leading-snug tracking-wide transition-colors duration-500">
+        <p className="t-body text-gray-300 group-hover:text-white font-medium transition-colors duration-500">
           {name}
         </p>
       </div>
@@ -92,10 +92,10 @@ export const CatalogSection = () => {
         <div className={`text-center transition-all duration-700 ${catalogVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="w-10 h-px bg-orange-500" />
-            <span className="text-orange-500 text-xs font-bold uppercase tracking-[0.2em]">Материалы</span>
+            <span className="t-label text-orange-500">Материалы</span>
             <div className="w-10 h-px bg-orange-500" />
           </div>
-          <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tight">
+          <h2 className="t-h2 text-white">
             Каталог изоляционных материалов
           </h2>
         </div>
@@ -116,9 +116,9 @@ export const CatalogSection = () => {
         {/* Контент поверх */}
         <div className="relative z-10 py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`flex items-center gap-4 mb-8 transition-all duration-700 ${catalogVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
-            <h3 className="text-xl sm:text-2xl font-black text-white">Каталог для судостроения</h3>
+            <h3 className="t-h3 text-white">Каталог для судостроения</h3>
             <div className="flex-1 h-px bg-white/20" />
-            <span className="text-orange-400/80 text-xs font-bold uppercase tracking-widest">{CATALOG_SHIP.length} позиций</span>
+            <span className="t-label text-orange-400/80">{CATALOG_SHIP.length} позиций</span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {CATALOG_SHIP.map((item, i) => (
@@ -131,9 +131,9 @@ export const CatalogSection = () => {
       {/* Промышленность и ПГС */}
       <div className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`flex items-center gap-4 mb-8 transition-all duration-700 delay-200 ${catalogVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
-          <h3 className="text-xl sm:text-2xl font-black text-white">Каталог для промышленности и ПГС</h3>
+          <h3 className="t-h3 text-white">Каталог для промышленности и ПГС</h3>
           <div className="flex-1 h-px bg-white/10" />
-          <span className="text-orange-500/60 text-xs font-bold uppercase tracking-widest">{CATALOG_INDUSTRY.length} позиций</span>
+          <span className="t-label text-orange-500/60">{CATALOG_INDUSTRY.length} позиций</span>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           {CATALOG_INDUSTRY.map((item, i) => (

@@ -31,9 +31,11 @@ export const HeroSection = () => {
               style={{ height: 180, width: "auto" }}
             />
 
-            <h1 className="sm:text-6xl lg:text-[5.5rem] font-black text-white leading-[1.05] mb-8 tracking-tight text-center text-7xl">Теплоизоляция для инженерных систем и оборудования </h1>
-            <p className="text-lg sm:text-xl text-gray-300 mb-10 leading-relaxed max-w-2xl text-center">
-              Проектирование, поставка и <strong className="text-white">монтаж теплоизоляции</strong> — трубопроводы, оборудование, резервуары и суда. По всей России.
+            <h1 className="t-h1 text-white mb-6 text-center max-w-4xl">
+              Теплоизоляция для инженерных систем и оборудования
+            </h1>
+            <p className="t-lead text-gray-300 mb-10 max-w-2xl text-center">
+              Проектирование, поставка и <strong className="text-white font-semibold">монтаж теплоизоляции</strong> — трубопроводы, оборудование, резервуары и суда. По всей России.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="#request"
