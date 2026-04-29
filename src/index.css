@@ -248,9 +248,9 @@
 .t-h1 {
   font-family: "Oswald", sans-serif;
   font-weight: 700;
-  font-size: clamp(3.5rem, 8vw, 6rem);
-  line-height: 1.04;
-  letter-spacing: -0.01em;
+  font-size: clamp(3.75rem, 9vw, 7rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
 }
 
@@ -258,9 +258,9 @@
 .t-h2 {
   font-family: "Oswald", sans-serif;
   font-weight: 700;
-  font-size: clamp(2.25rem, 5vw, 3.5rem);
-  line-height: 1.08;
-  letter-spacing: -0.01em;
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
 }
 
@@ -268,9 +268,9 @@
 .t-h3 {
   font-family: "Oswald", sans-serif;
   font-weight: 600;
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  line-height: 1.2;
-  letter-spacing: 0em;
+  font-size: clamp(1.375rem, 2.5vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
 }
 
@@ -305,15 +305,15 @@
 .t-underline {
   display: flex;
   align-items: center;
-  gap: 6px;
-  margin-top: 16px;
-  margin-bottom: 36px;
+  gap: 5px;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 .t-underline::before {
   content: "";
   display: block;
-  height: 3px;
-  width: 40px;
+  height: 4px;
+  width: 52px;
   border-radius: 9999px;
   background: linear-gradient(90deg, #e63012, #f97316);
   flex-shrink: 0;
@@ -321,11 +321,27 @@
 .t-underline::after {
   content: "";
   display: block;
-  height: 3px;
-  width: 16px;
+  height: 4px;
+  width: 18px;
   border-radius: 9999px;
-  background: rgba(249, 115, 22, 0.3);
+  background: rgba(249, 115, 22, 0.25);
   flex-shrink: 0;
+}
+
+/* t-label — увеличенные отступы снизу */
+.t-label + .t-h2,
+.t-label + h2 {
+  margin-top: 12px;
+}
+
+/* Центрированное подчёркивание */
+.t-underline.justify-center::before,
+.t-underline.mx-auto::before {
+  width: 48px;
+}
+.t-underline.justify-center::after,
+.t-underline.mx-auto::after {
+  width: 16px;
 }
 
 .card-hover {
