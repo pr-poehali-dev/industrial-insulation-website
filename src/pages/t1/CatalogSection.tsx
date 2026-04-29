@@ -106,7 +106,7 @@ export const CatalogSection = () => {
       </div>
 
       {/* ── Судостроение ── */}
-      <div className="relative">
+      <div className="relative min-h-[480px]">
         <video
           autoPlay muted loop playsInline preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
@@ -138,7 +138,7 @@ export const CatalogSection = () => {
       </div>
 
       {/* ── Промышленность и ПГС ── */}
-      <div className="relative">
+      <div className="relative min-h-[480px]">
         <video
           autoPlay muted loop playsInline preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"

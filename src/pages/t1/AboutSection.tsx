@@ -89,7 +89,7 @@ export const AboutSection = () => {
 
             {/* Видео */}
             <div
-              className="relative overflow-hidden w-full"
+              className="relative overflow-hidden w-full min-h-[220px]"
               style={{
                 borderRadius: 24,
                 aspectRatio: "16/10",
