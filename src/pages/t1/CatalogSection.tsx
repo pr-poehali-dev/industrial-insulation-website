@@ -1,4 +1,4 @@
-import { IMG_SHIP, useVisible } from "./data";
+import { IMG_SHIP, IMG_BOILER, useVisible } from "./data";
 
 const SHIPYARD_VIDEO = "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/videos/shipyard-video.mp4";
 const PGS_VIDEO = "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/videos/industrial-pgs-section-video.mp4";
@@ -143,6 +143,7 @@ export const CatalogSection = () => {
           autoPlay muted loop playsInline preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ willChange: "transform" }}
+          poster={IMG_BOILER}
           src={PGS_VIDEO}
           disablePictureInPicture
           disableRemotePlayback
