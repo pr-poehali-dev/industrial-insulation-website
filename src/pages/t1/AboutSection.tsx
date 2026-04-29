@@ -2,7 +2,6 @@ import Icon from "@/components/ui/icon";
 import { IMG_PIPE, STATS, useVisible } from "./data";
 
 const ABOUT_ADVANTAGES = [
-  { icon: "MapPin",            text: "Поставки по всей России" },
   { icon: "SlidersHorizontal", text: "Подбор материалов под объект" },
   { icon: "Calculator",        text: "Технические расчёты" },
   { icon: "Factory",           text: "Прямые поставки от производителей" },
@@ -33,7 +32,7 @@ export const AboutSection = () => {
           <span className="t-label text-orange-600">О нас</span>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-20 lg:gap-28 items-start">
+        <div className="grid lg:grid-cols-2 gap-20 lg:gap-28 items-stretch">
 
           {/* ── Левая колонка: текст + преимущества ── */}
           <div className={`transition-all duration-700 ${aboutVis.visible ? "animate-fadeInLeft" : "opacity-0"}`}>
@@ -90,12 +89,11 @@ export const AboutSection = () => {
           {/* ── Правая колонка: видео + цифры ── */}
           <div className={`flex flex-col gap-5 transition-all duration-700 delay-200 ${aboutVis.visible ? "animate-fadeInRight" : "opacity-0"}`}>
 
-            {/* Видео */}
+            {/* Видео — тянется на всю доступную высоту */}
             <div
-              className="relative overflow-hidden w-full min-h-[260px]"
+              className="relative overflow-hidden w-full flex-1 min-h-[300px]"
               style={{
                 borderRadius: 24,
-                aspectRatio: "16/9",
                 boxShadow: "0 40px 100px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.05)",
               }}
             >
