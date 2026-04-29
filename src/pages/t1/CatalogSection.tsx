@@ -143,13 +143,14 @@ export const CatalogSection = () => {
       {/* ── Промышленность и ПГС ── */}
       <div className="relative min-h-[480px]">
         <video
-          autoPlay muted loop playsInline preload="metadata"
+          autoPlay muted loop playsInline preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ willChange: "transform" }}
           poster={IMG_BOILER}
           src={PGS_VIDEO}
           disablePictureInPicture
           disableRemotePlayback
+          onEnded={e => { (e.target as HTMLVideoElement).play(); }}
         />
         <div className="absolute inset-0 bg-black/30" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/55 via-transparent to-[#0a0a0a]/65" />
