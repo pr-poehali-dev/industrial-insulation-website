@@ -120,7 +120,7 @@ export const CatalogSection = () => {
       {/* ── Судостроение ── */}
       <div className="relative min-h-[480px]">
         <video
-          autoPlay muted loop playsInline preload="metadata"
+          autoPlay muted loop playsInline preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ willChange: "transform" }}
           poster={IMG_SHIP}

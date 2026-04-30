@@ -96,7 +96,7 @@ export const AboutSection = () => {
               }}
             >
               <video
-                autoPlay muted loop playsInline preload="metadata"
+                autoPlay muted loop playsInline preload="auto"
                 className="absolute inset-0 w-full h-full object-cover"
                 style={{ willChange: "transform" }}
                 src="https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/videos/about-company-harbor-video.mp4"
