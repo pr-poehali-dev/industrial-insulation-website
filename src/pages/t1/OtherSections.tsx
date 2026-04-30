@@ -25,7 +25,7 @@ export const IndustriesSection = () => {
               </h2>
               <div className="t-underline" />
             </div>
-            <p className="t-body text-gray-400 max-w-sm lg:pb-10">
+            <p className="t-body max-w-sm lg:pb-10 text-[#ffffff]">
               Опыт на объектах разного масштаба — от районной котельной до НПЗ и судостроительных верфей.
             </p>
           </div>
