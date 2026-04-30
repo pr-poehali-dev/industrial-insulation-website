@@ -89,6 +89,16 @@ const CatalogCard = ({ name, img, delay, visible }: {
 export const CatalogSection = () => {
   const catalogVis = useVisible(0.1);
   const pgsRef = useRef<HTMLVideoElement>(null);
+  const shipRef = useRef<HTMLVideoElement>(null);
+
+  const handleShipTimeUpdate = () => {
+    const v = shipRef.current;
+    if (!v) return;
+    if (v.duration && v.currentTime >= v.duration - 0.15) {
+      v.currentTime = 0;
+      v.play();
+    }
+  };
 
   const handlePgsTimeUpdate = () => {
     const v = pgsRef.current;
@@ -120,13 +130,16 @@ export const CatalogSection = () => {
       {/* ── Судостроение ── */}
       <div className="relative min-h-[480px]">
         <video
-          autoPlay muted loop playsInline preload="metadata"
+          ref={shipRef}
+          autoPlay muted loop playsInline preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ willChange: "transform" }}
           poster={IMG_SHIP}
           src={SHIPYARD_VIDEO}
           disablePictureInPicture
           disableRemotePlayback
+          onEnded={() => { if (shipRef.current) { shipRef.current.currentTime = 0; shipRef.current.play(); } }}
+          onTimeUpdate={handleShipTimeUpdate}
         />
         <div className="absolute inset-0 bg-black/15" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/45 via-transparent to-[#0a0a0a]/50" />
