@@ -185,6 +185,8 @@ export const CatalogSection = () => {
         </div>
       </div>
 
+      <div className="h-16 bg-[#f4f0eb]" />
+
     </section>
   );
 };
