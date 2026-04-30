@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { IMG_SHIP, IMG_BOILER, useVisible } from "./data";
 
 const SHIPYARD_VIDEO = "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/videos/shipyard-video.mp4";
@@ -89,26 +89,7 @@ const CatalogCard = ({ name, img, delay, visible }: {
 export const CatalogSection = () => {
   const catalogVis = useVisible(0.1);
   const pgsRef = useRef<HTMLVideoElement>(null);
-  const shipRef = useRef<HTMLVideoElement>(null);
 
-  useEffect(() => {
-    const v = shipRef.current;
-    if (!v) return;
-    const onEnded = () => { v.currentTime = 0; v.play(); };
-    const onStalled = () => { v.load(); v.play(); };
-    v.addEventListener("ended", onEnded);
-    v.addEventListener("stalled", onStalled);
-    v.addEventListener("suspend", onStalled);
-    const interval = setInterval(() => {
-      if (v.paused && v.readyState >= 2) v.play();
-    }, 500);
-    return () => {
-      v.removeEventListener("ended", onEnded);
-      v.removeEventListener("stalled", onStalled);
-      v.removeEventListener("suspend", onStalled);
-      clearInterval(interval);
-    };
-  }, []);
 
   const handlePgsTimeUpdate = () => {
     const v = pgsRef.current;
@@ -140,7 +121,6 @@ export const CatalogSection = () => {
       {/* ── Судостроение ── */}
       <div className="relative min-h-[480px]">
         <video
-          ref={shipRef}
           autoPlay muted loop playsInline preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ willChange: "transform" }}
@@ -148,7 +128,6 @@ export const CatalogSection = () => {
           src={SHIPYARD_VIDEO}
           disablePictureInPicture
           disableRemotePlayback
-
         />
         <div className="absolute inset-0 bg-black/15" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/45 via-transparent to-[#0a0a0a]/50" />
