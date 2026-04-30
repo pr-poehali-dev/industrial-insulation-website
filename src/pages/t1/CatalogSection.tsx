@@ -100,17 +100,17 @@ export const CatalogSection = () => {
   };
 
   return (
-    <section id="catalog" className="bg-[#0a0a0a] overflow-hidden relative" ref={catalogVis.ref}>
+    <section id="catalog" className="bg-[#f4f0eb] overflow-hidden relative" ref={catalogVis.ref}>
 
       {/* Заголовок раздела */}
       <div className="pt-28 pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center transition-all duration-700 ${catalogVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="w-10 h-px bg-orange-500/60" />
-            <span className="t-label text-orange-500">Продукция</span>
+            <span className="t-label text-orange-600">Продукция</span>
             <div className="w-10 h-px bg-orange-500/60" />
           </div>
-          <h2 className="text-white" style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700, fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)", letterSpacing: "-0.01em", textTransform: "uppercase" }}>
+          <h2 className="text-gray-900" style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700, fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)", letterSpacing: "-0.01em", textTransform: "uppercase" }}>
             Каталог изоляционных материалов
           </h2>
           <div className="t-underline mx-auto justify-center" />
