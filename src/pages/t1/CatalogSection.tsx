@@ -90,7 +90,6 @@ export const CatalogSection = () => {
   const catalogVis = useVisible(0.1);
   const pgsRef = useRef<HTMLVideoElement>(null);
 
-
   const handlePgsTimeUpdate = () => {
     const v = pgsRef.current;
     if (!v) return;
@@ -121,7 +120,7 @@ export const CatalogSection = () => {
       {/* ── Судостроение ── */}
       <div className="relative min-h-[480px]">
         <video
-          autoPlay muted loop playsInline preload="auto"
+          autoPlay muted loop playsInline preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ willChange: "transform" }}
           poster={IMG_SHIP}
