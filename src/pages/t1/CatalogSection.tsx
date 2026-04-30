@@ -150,7 +150,7 @@ export const CatalogSection = () => {
       </div>
 
       {/* Промежуток между каталогами */}
-      <div className="h-12 bg-[#0a0a0a]" />
+      <div className="h-12 bg-[#f4f0eb]" />
 
       {/* ── Промышленность и ПГС ── */}
       <div className="relative min-h-[480px]">
