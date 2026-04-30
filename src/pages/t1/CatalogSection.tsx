@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { IMG_SHIP, IMG_BOILER, useVisible } from "./data";
 
 const SHIPYARD_VIDEO = "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/videos/shipyard-video.mp4";
@@ -91,14 +91,24 @@ export const CatalogSection = () => {
   const pgsRef = useRef<HTMLVideoElement>(null);
   const shipRef = useRef<HTMLVideoElement>(null);
 
-  const handleShipTimeUpdate = () => {
+  useEffect(() => {
     const v = shipRef.current;
     if (!v) return;
-    if (v.duration && v.currentTime >= v.duration - 0.15) {
-      v.currentTime = 0;
-      v.play();
-    }
-  };
+    const onEnded = () => { v.currentTime = 0; v.play(); };
+    const onStalled = () => { v.load(); v.play(); };
+    v.addEventListener("ended", onEnded);
+    v.addEventListener("stalled", onStalled);
+    v.addEventListener("suspend", onStalled);
+    const interval = setInterval(() => {
+      if (v.paused && v.readyState >= 2) v.play();
+    }, 500);
+    return () => {
+      v.removeEventListener("ended", onEnded);
+      v.removeEventListener("stalled", onStalled);
+      v.removeEventListener("suspend", onStalled);
+      clearInterval(interval);
+    };
+  }, []);
 
   const handlePgsTimeUpdate = () => {
     const v = pgsRef.current;
@@ -138,8 +148,7 @@ export const CatalogSection = () => {
           src={SHIPYARD_VIDEO}
           disablePictureInPicture
           disableRemotePlayback
-          onEnded={() => { if (shipRef.current) { shipRef.current.currentTime = 0; shipRef.current.play(); } }}
-          onTimeUpdate={handleShipTimeUpdate}
+
         />
         <div className="absolute inset-0 bg-black/15" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/45 via-transparent to-[#0a0a0a]/50" />

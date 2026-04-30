@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 import { IMG_PIPE, STATS, useVisible } from "./data";
 
@@ -18,14 +18,24 @@ export const AboutSection = () => {
   const aboutVis = useVisible(0.1);
   const harborRef = useRef<HTMLVideoElement>(null);
 
-  const handleHarborTimeUpdate = () => {
+  useEffect(() => {
     const v = harborRef.current;
     if (!v) return;
-    if (v.duration && v.currentTime >= v.duration - 0.15) {
-      v.currentTime = 0;
-      v.play();
-    }
-  };
+    const onEnded = () => { v.currentTime = 0; v.play(); };
+    const onStalled = () => { v.load(); v.play(); };
+    v.addEventListener("ended", onEnded);
+    v.addEventListener("stalled", onStalled);
+    v.addEventListener("suspend", onStalled);
+    const interval = setInterval(() => {
+      if (v.paused && v.readyState >= 2) v.play();
+    }, 500);
+    return () => {
+      v.removeEventListener("ended", onEnded);
+      v.removeEventListener("stalled", onStalled);
+      v.removeEventListener("suspend", onStalled);
+      clearInterval(interval);
+    };
+  }, []);
 
   return (
     <section id="about" className="py-32 lg:py-44 bg-[#f4efe9] overflow-hidden relative" ref={aboutVis.ref}>
@@ -115,8 +125,7 @@ export const AboutSection = () => {
                 src="https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/videos/about-company-harbor-video.mp4"
                 disablePictureInPicture
                 disableRemotePlayback
-                onEnded={() => { if (harborRef.current) { harborRef.current.currentTime = 0; harborRef.current.play(); } }}
-                onTimeUpdate={handleHarborTimeUpdate}
+
               />
               {/* Лёгкий виньет снизу */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/5" />
