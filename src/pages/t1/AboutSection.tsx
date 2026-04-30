@@ -109,7 +109,7 @@ export const AboutSection = () => {
                   >
                     {s.num}
                   </div>
-                  <div className="t-label text-white/50">{s.label}</div>
+                  <div className="t-label text-white">{s.label}</div>
                 </div>
               ))}
 
@@ -131,7 +131,7 @@ export const AboutSection = () => {
                       {s.num}
                     </div>
                   </div>
-                  <div className="t-label text-white/50">{s.label}</div>
+                  <div className="t-label text-white">{s.label}</div>
                 </div>
               ))}
             </div>
