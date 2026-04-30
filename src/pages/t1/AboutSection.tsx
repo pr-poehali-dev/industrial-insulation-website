@@ -96,7 +96,7 @@ export const AboutSection = () => {
           {/* ── Правая колонка: цифры ── */}
           <div className={`transition-all duration-700 delay-200 ${aboutVis.visible ? "animate-fadeInRight" : "opacity-0"} flex flex-col`}>
 
-            <div className="grid grid-cols-2 gap-5 flex-1 content-between">
+            <div className="grid grid-cols-2 gap-4 flex-1 content-evenly">
               {STATS.map((s) => (
                 <div
                   key={s.label}
