@@ -41,7 +41,7 @@ export const AboutSection = () => {
           <span className="t-label text-orange-400">О нас</span>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-20 lg:gap-28 items-start">
+        <div className="grid lg:grid-cols-2 gap-20 lg:gap-28 items-stretch">
 
           {/* ── Левая колонка: текст + преимущества ── */}
           <div className={`transition-all duration-700 ${aboutVis.visible ? "animate-fadeInLeft" : "opacity-0"}`}>
@@ -54,11 +54,11 @@ export const AboutSection = () => {
 
             {/* Текстовые блоки */}
             <div className="space-y-6">
-              <p className="t-lead text-white/90 leading-[1.9]">Профессиональный поставщик решений в области теплоизоляции, шумоизоляции и защитных покрытий для судостроения, промышленности и инженерных систем.</p>
-              <p className="t-body text-white/70 leading-[1.85]">
+              <p className="t-lead text-white leading-[1.9]">Профессиональный поставщик решений в области теплоизоляции, шумоизоляции и защитных покрытий для судостроения, промышленности и инженерных систем.</p>
+              <p className="t-body text-white leading-[1.85]">
                 Консультируем проектные, инжиниринговые и подрядные организации, подбираем материалы под задачи объекта, выполняем технические расчёты и обеспечиваем комплексные поставки по всей России.
               </p>
-              <p className="t-body text-white/60 leading-[1.8]">
+              <p className="t-body text-white leading-[1.8]">
                 Работаем только с проверенными производителями — гарантируем качество и наличие полной сопроводительной документации.
               </p>
             </div>
@@ -84,7 +84,7 @@ export const AboutSection = () => {
                   >
                     <Icon name={item.icon as "MapPin"} size={14} className="text-orange-400" />
                   </div>
-                  <p className="text-white/70 group-hover:text-white text-[13px] leading-snug font-medium transition-colors duration-300">
+                  <p className="text-white text-[13px] leading-snug font-medium transition-colors duration-300">
                     {item.text}
                   </p>
                 </div>
@@ -94,9 +94,9 @@ export const AboutSection = () => {
           </div>
 
           {/* ── Правая колонка: цифры ── */}
-          <div className={`transition-all duration-700 delay-200 ${aboutVis.visible ? "animate-fadeInRight" : "opacity-0"}`}>
+          <div className={`transition-all duration-700 delay-200 ${aboutVis.visible ? "animate-fadeInRight" : "opacity-0"} flex flex-col`}>
 
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-5 flex-1 content-between">
               {STATS.map((s) => (
                 <div
                   key={s.label}
