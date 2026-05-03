@@ -36,51 +36,64 @@ const CatalogCard = ({ name, sub, img, delay, visible }: {
       ${visible ? "animate-fadeInUp" : "opacity-0"}`}
     style={{
       animationDelay: `${delay}ms`,
-      borderRadius: "14px",
-      boxShadow: "0 2px 8px rgba(0,0,0,0.28), 0 1px 2px rgba(0,0,0,0.18)",
-      border: "1px solid rgba(255,255,255,0.06)",
-      transition: "box-shadow 0.35s ease, transform 0.35s ease",
+      borderRadius: "20px",
+      background: "linear-gradient(135deg, #141210 0%, #1c1814 60%, #1f1510 100%)",
+      boxShadow: "0 4px 16px rgba(0,0,0,0.55), 0 1px 3px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04)",
+      border: "1px solid rgba(255,255,255,0.07)",
+      transition: "box-shadow 0.4s ease, transform 0.4s ease, border-color 0.4s ease",
     }}
-    onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.boxShadow = "0 6px 24px rgba(0,0,0,0.45), 0 1px 3px rgba(0,0,0,0.2)"; (e.currentTarget as HTMLDivElement).style.transform = "translateY(-2px)"; }}
-    onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 8px rgba(0,0,0,0.28), 0 1px 2px rgba(0,0,0,0.18)"; (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)"; }}
+    onMouseEnter={e => {
+      const el = e.currentTarget as HTMLDivElement;
+      el.style.boxShadow = "0 10px 36px rgba(0,0,0,0.65), 0 2px 6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06)";
+      el.style.transform = "translateY(-3px)";
+      el.style.borderColor = "rgba(230,48,18,0.25)";
+    }}
+    onMouseLeave={e => {
+      const el = e.currentTarget as HTMLDivElement;
+      el.style.boxShadow = "0 4px 16px rgba(0,0,0,0.55), 0 1px 3px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04)";
+      el.style.transform = "translateY(0)";
+      el.style.borderColor = "rgba(255,255,255,0.07)";
+    }}
   >
-    {/* Фон */}
-    <div className="absolute inset-0">
+    {/* Фото фон */}
+    <div className="absolute inset-0 rounded-[20px] overflow-hidden">
       <img
         src={img}
         alt=""
         aria-hidden
-        className="w-full h-full object-cover transition-[opacity,transform] duration-700 ease-out opacity-25 scale-[1.05] group-hover:opacity-90 group-hover:scale-100"
+        className="w-full h-full object-cover transition-[opacity,transform] duration-700 ease-out opacity-0 scale-[1.05] group-hover:opacity-35 group-hover:scale-100"
         loading="lazy"
       />
-      <div className="absolute inset-0 bg-[#0f0e0d]" style={{ mixBlendMode: "multiply" }} />
       <div
-        className="absolute inset-0 transition-opacity duration-600"
-        style={{ background: "linear-gradient(105deg, rgba(10,9,8,0.97) 0%, rgba(10,9,8,0.80) 50%, rgba(10,9,8,0.40) 100%)", opacity: 1 }}
+        className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-700"
+        style={{ background: "linear-gradient(135deg, #141210 0%, #1c1814 60%, #1f1510 100%)" }}
       />
-      <div className="absolute inset-0 bg-[#0f0e0d]/55 opacity-100 group-hover:opacity-0 transition-opacity duration-700" />
+      <div
+        className="absolute inset-0"
+        style={{ background: "linear-gradient(105deg, rgba(10,9,8,0.96) 0%, rgba(10,9,8,0.75) 55%, rgba(10,9,8,0.30) 100%)" }}
+      />
     </div>
 
     {/* Полоска слева */}
     <div
-      className="absolute left-0 top-4 bottom-4 w-[3px] rounded-full transition-opacity duration-400 opacity-35 group-hover:opacity-100"
+      className="absolute left-0 top-[18%] bottom-[18%] w-[3px] rounded-full transition-opacity duration-400 opacity-40 group-hover:opacity-100"
       style={{ background: "linear-gradient(to bottom, #e63012, #f97316, #fbbf24)" }}
     />
 
     {/* Контент */}
     <div className="relative z-10 flex items-center h-full">
       <div className="flex-1 pl-6 pr-5 py-5">
-        <p className="text-white font-semibold text-[13.5px] leading-tight tracking-wide drop-shadow-sm">
+        <p className="text-white font-semibold text-[13.5px] leading-tight tracking-wide">
           {name}
         </p>
-        <p className="text-gray-400 group-hover:text-gray-300 text-[11.5px] leading-snug mt-[5px] transition-colors duration-500">
+        <p className="text-gray-500 group-hover:text-gray-300 text-[11.5px] leading-snug mt-[5px] transition-colors duration-500">
           {sub}
         </p>
       </div>
 
       <div className="sm:hidden flex-shrink-0 w-14 h-full relative overflow-hidden">
-        <img src={img} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover opacity-25" loading="lazy" />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, #0f0e0d 0%, transparent 65%)" }} />
+        <img src={img} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover opacity-20" loading="lazy" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, #141210 0%, transparent 65%)" }} />
       </div>
     </div>
   </div>
