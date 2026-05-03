@@ -10,7 +10,7 @@ const ABOUT_ADVANTAGES = [
 
 const EXTRA_STATS = [
   { icon: "Truck",      num: "Доставка",              label: "всеми видами транспорта", sub: null,        accent: false },
-  { icon: "Handshake",  num: "Нестандартные решения", label: "Реализация сложных и нестандартных задач", sub: "До 7 дней", accent: true },
+  { icon: "Settings",   num: "Нестандартные решения", label: "Реализация сложных и нестандартных задач", sub: "До 7 дней", accent: true },
 ];
 
 export const AboutSection = () => {
@@ -101,12 +101,10 @@ export const AboutSection = () => {
                   className="group flex flex-col gap-2.5 p-6 rounded-2xl bg-white/10 border border-white/15 hover:border-orange-400/50 hover:bg-white/15 hover:shadow-lg transition-all duration-300 cursor-default"
                   style={{ backdropFilter: "blur(8px)" }}
                 >
-                  {i === 0 && (
-                    <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ background: "linear-gradient(135deg, rgba(230,48,18,0.3) 0%, rgba(249,115,22,0.2) 100%)" }}>
-                      <Icon name="Calendar" size={14} className="text-orange-400" />
-                    </div>
-                  )}
+                  <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style={{ background: "linear-gradient(135deg, rgba(230,48,18,0.3) 0%, rgba(249,115,22,0.2) 100%)" }}>
+                    <Icon name={i === 0 ? "Calendar" : "Handshake"} size={14} className="text-orange-400" />
+                  </div>
                   <div
                     className="text-4xl font-black tracking-tight leading-none"
                     style={{ fontFamily: "'Oswald', sans-serif", background: "linear-gradient(90deg, #e63012, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
