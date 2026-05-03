@@ -32,58 +32,55 @@ const CatalogCard = ({ name, sub, img, delay, visible }: {
   name: string; sub: string; img: string; delay: number; visible: boolean;
 }) => (
   <div
-    className={`catalog-card group relative overflow-hidden rounded-[18px] cursor-default select-none
+    className={`catalog-card group relative overflow-hidden cursor-default select-none
       ${visible ? "animate-fadeInUp" : "opacity-0"}`}
-    style={{ animationDelay: `${delay}ms` }}
+    style={{
+      animationDelay: `${delay}ms`,
+      borderRadius: "14px",
+      boxShadow: "0 2px 8px rgba(0,0,0,0.28), 0 1px 2px rgba(0,0,0,0.18)",
+      border: "1px solid rgba(255,255,255,0.06)",
+      transition: "box-shadow 0.35s ease, transform 0.35s ease",
+    }}
+    onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.boxShadow = "0 6px 24px rgba(0,0,0,0.45), 0 1px 3px rgba(0,0,0,0.2)"; (e.currentTarget as HTMLDivElement).style.transform = "translateY(-2px)"; }}
+    onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 8px rgba(0,0,0,0.28), 0 1px 2px rgba(0,0,0,0.18)"; (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)"; }}
   >
-    {/* Фоновое фото — всегда рендерится, плавно появляется */}
+    {/* Фон */}
     <div className="absolute inset-0">
       <img
         src={img}
         alt=""
         aria-hidden
-        className="w-full h-full object-cover transition-[opacity,transform] duration-700 ease-out
-          opacity-20 scale-[1.06] group-hover:opacity-100 group-hover:scale-100"
+        className="w-full h-full object-cover transition-[opacity,transform] duration-700 ease-out opacity-25 scale-[1.05] group-hover:opacity-90 group-hover:scale-100"
         loading="lazy"
       />
-      {/* Базовый тёмный фон под фото */}
-      <div className="absolute inset-0 bg-[#131210]" style={{ mixBlendMode: "multiply" }} />
-      {/* Overlay: на hover — затемняет левую часть для читаемости текста */}
+      <div className="absolute inset-0 bg-[#0f0e0d]" style={{ mixBlendMode: "multiply" }} />
       <div
-        className="absolute inset-0 transition-opacity duration-700"
-        style={{
-          background: "linear-gradient(100deg, rgba(12,11,10,0.96) 0%, rgba(12,11,10,0.82) 45%, rgba(12,11,10,0.45) 100%)",
-          opacity: 1,
-        }}
+        className="absolute inset-0 transition-opacity duration-600"
+        style={{ background: "linear-gradient(105deg, rgba(10,9,8,0.97) 0%, rgba(10,9,8,0.80) 50%, rgba(10,9,8,0.40) 100%)", opacity: 1 }}
       />
-      {/* Дополнительный overlay исчезает при hover, открывая фото */}
-      <div
-        className="absolute inset-0 bg-[#131210]/60 opacity-100 group-hover:opacity-0 transition-opacity duration-700"
-      />
+      <div className="absolute inset-0 bg-[#0f0e0d]/55 opacity-100 group-hover:opacity-0 transition-opacity duration-700" />
     </div>
 
-    {/* Фирменная полоска слева */}
+    {/* Полоска слева */}
     <div
-      className="absolute left-0 top-5 bottom-5 w-[3px] rounded-full transition-opacity duration-500 opacity-40 group-hover:opacity-100"
+      className="absolute left-0 top-4 bottom-4 w-[3px] rounded-full transition-opacity duration-400 opacity-35 group-hover:opacity-100"
       style={{ background: "linear-gradient(to bottom, #e63012, #f97316, #fbbf24)" }}
     />
 
     {/* Контент */}
-    <div className="relative z-10 flex items-center gap-0 h-full">
-      {/* Текст */}
-      <div className="flex-1 px-7 py-6">
-        <p className="text-white font-semibold text-[14px] leading-snug tracking-wide">
+    <div className="relative z-10 flex items-center h-full">
+      <div className="flex-1 pl-6 pr-5 py-5">
+        <p className="text-white font-semibold text-[13.5px] leading-tight tracking-wide drop-shadow-sm">
           {name}
         </p>
-        <p className="text-gray-400 group-hover:text-gray-300 text-[12px] leading-snug mt-1 transition-colors duration-500">
+        <p className="text-gray-400 group-hover:text-gray-300 text-[11.5px] leading-snug mt-[5px] transition-colors duration-500">
           {sub}
         </p>
       </div>
 
-      {/* Мобайл: превью справа */}
-      <div className="sm:hidden flex-shrink-0 w-16 h-full relative overflow-hidden">
-        <img src={img} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover opacity-30" loading="lazy" />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, #131210 0%, transparent 70%)" }} />
+      <div className="sm:hidden flex-shrink-0 w-14 h-full relative overflow-hidden">
+        <img src={img} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover opacity-25" loading="lazy" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, #0f0e0d 0%, transparent 65%)" }} />
       </div>
     </div>
   </div>
