@@ -74,10 +74,10 @@ const CatalogCard = ({ name, sub, img, delay, visible }: {
     {/* Контент */}
     <div className="relative z-10 flex items-center h-full">
       <div className="flex-1 pl-6 pr-5 py-5">
-        <p className="text-white font-semibold text-[13.5px] leading-tight tracking-wide drop-shadow-md">
+        <p className="text-white font-bold text-[15px] leading-tight tracking-wide drop-shadow-md">
           {name}
         </p>
-        <p className="text-gray-500 group-hover:text-gray-200 text-[11.5px] leading-snug mt-[5px] transition-colors duration-[400ms] drop-shadow-sm">
+        <p className="text-gray-400 group-hover:text-gray-300 text-[11px] leading-snug mt-[8px] transition-colors duration-[400ms] drop-shadow-sm">
           {sub}
         </p>
       </div>
