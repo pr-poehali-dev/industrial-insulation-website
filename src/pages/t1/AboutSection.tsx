@@ -126,8 +126,8 @@ export const AboutSection = () => {
                     <Icon name={s.icon as "Truck"} size={14} className="text-orange-400" />
                   </div>
                   <div
-                    className="text-4xl font-black tracking-tight leading-none"
-                    style={{ fontFamily: "'Oswald', sans-serif", background: "linear-gradient(90deg, #e63012, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+                    className="font-black tracking-tight"
+                    style={{ fontFamily: "'Oswald', sans-serif", fontSize: i === 1 ? "clamp(0.9rem, 1.8vw, 1.25rem)" : "2.25rem", lineHeight: i === 1 ? 1.25 : 1, background: "linear-gradient(90deg, #e63012, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
                   >
                     {s.num}
                   </div>
