@@ -13,22 +13,19 @@ export const IndustriesSection = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Шапка */}
-        <div className={`mb-14 transition-all duration-700 ${indVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
-          <div className="flex items-center gap-3 mb-5">
+        <div className={`text-center mb-14 transition-all duration-700 ${indVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
+          <div className="flex items-center justify-center gap-3 mb-5">
             <div className="w-10 h-px bg-orange-500/60" />
             <span className="t-label text-orange-500">Отрасли применения</span>
+            <div className="w-10 h-px bg-orange-500/60" />
           </div>
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-            <div>
-              <h2 className="t-h2 text-white">
-                Работаем в каждой<br />промышленной отрасли
-              </h2>
-              <div className="t-underline" />
-            </div>
-            <p className="t-body max-w-sm lg:pb-10 text-stone-50">
-              Опыт на объектах разного масштаба — от районной котельной до НПЗ и судостроительных верфей.
-            </p>
-          </div>
+          <h2 className="t-h2 text-orange-400">
+            Работаем в каждой<br />промышленной отрасли
+          </h2>
+          <div className="t-underline mx-auto justify-center" />
+          <p className="t-body max-w-sm mx-auto text-stone-400 mt-4">
+            Опыт на объектах разного масштаба — от районной котельной до НПЗ и судостроительных верфей.
+          </p>
         </div>
 
         {/* Сетка отраслей */}
@@ -68,7 +65,7 @@ export const CertificatesSection = () => {
             <span className="t-label text-orange-500">Документация</span>
             <div className="w-10 h-px bg-orange-500/60" />
           </div>
-          <h2 className="t-h2 text-gray-900">
+          <h2 className="t-h2 text-orange-500">
             Сертификаты, лицензии<br />и соответствие стандартам
           </h2>
           <div className="t-underline mx-auto justify-center" />
@@ -150,7 +147,7 @@ export const ProcessSection = () => {
             <span className="t-label text-orange-500">Как мы работаем</span>
             <div className="w-10 h-px bg-orange-500/60" />
           </div>
-          <h2 className="t-h2 text-white">
+          <h2 className="t-h2 text-orange-400">
             5 этапов — от заявки до гарантии
           </h2>
           <div className="t-underline mx-auto justify-center" />

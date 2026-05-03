@@ -110,7 +110,7 @@ export const CatalogSection = () => {
             <span className="t-label text-orange-600">Продукция</span>
             <div className="w-10 h-px bg-orange-500/60" />
           </div>
-          <h2 className="text-gray-900" style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700, fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)", letterSpacing: "-0.01em", textTransform: "uppercase" }}>
+          <h2 className="text-orange-500" style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700, fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)", letterSpacing: "-0.01em", textTransform: "uppercase" }}>
             Каталог изоляционных материалов
           </h2>
           <div className="t-underline mx-auto justify-center" />

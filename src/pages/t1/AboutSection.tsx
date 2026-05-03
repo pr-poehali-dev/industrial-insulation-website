@@ -35,22 +35,24 @@ export const AboutSection = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Лейбл */}
-        <div className={`flex items-center gap-3 mb-16 transition-all duration-700 ${aboutVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
-          <div className="w-10 h-px bg-orange-500/60" />
-          <span className="t-label text-orange-400">О нас</span>
+        {/* Лейбл + Заголовок по центру */}
+        <div className={`text-center mb-16 transition-all duration-700 ${aboutVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <div className="w-10 h-px bg-orange-500/60" />
+            <span className="t-label text-orange-400">О нас</span>
+            <div className="w-10 h-px bg-orange-500/60" />
+          </div>
+          <h2 className="t-h2 text-orange-500">
+            Т1{" "}
+            <span className="text-orange-300">ИЗОЛЯЦИЯ</span>
+          </h2>
+          <div className="t-underline mx-auto justify-center" />
         </div>
 
         <div className="grid lg:grid-cols-2 gap-20 lg:gap-28 items-stretch">
 
           {/* ── Левая колонка: текст + преимущества ── */}
           <div className={`transition-all duration-700 ${aboutVis.visible ? "animate-fadeInLeft" : "opacity-0"}`}>
-
-            <h2 className="t-h2 text-white">
-              Т1{" "}
-              <span className="gradient-text">ИЗОЛЯЦИЯ</span>
-            </h2>
-            <div className="t-underline" />
 
             {/* Текстовые блоки */}
             <div className="space-y-6">

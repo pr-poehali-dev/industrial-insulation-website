@@ -51,7 +51,7 @@ export const CtaSection = () => {
                 <div className="w-8 h-px bg-orange-500/60" />
                 <span className="t-label text-orange-500">Коммерческое предложение</span>
               </div>
-              <h2 className="t-h2 text-white mb-2">
+              <h2 className="t-h2 text-orange-400 mb-2">
                 Нужен расчёт<br />теплоизоляции?
               </h2>
               <div className="t-underline" />
@@ -161,7 +161,7 @@ export const ContactsSection = () => {
             <span className="t-label text-orange-500">Контакты</span>
             <div className="w-10 h-px bg-orange-500/60" />
           </div>
-          <h2 className="t-h2 text-gray-900">Как с нами связаться</h2>
+          <h2 className="t-h2 text-orange-500">Как с нами связаться</h2>
           <div className="t-underline mx-auto justify-center" />
         </div>
 
