@@ -1,5 +1,5 @@
 import Icon from "@/components/ui/icon";
-import { IMG_BOILER, IMG_PIPE, IMG_SHIP, GRAD, INDUSTRIES, CERTIFICATES, PROCESS, useVisible } from "./data";
+import { IMG_BOILER, IMG_PIPE, IMG_SHIP, IMG_HERO, GRAD, INDUSTRIES, CERTIFICATES, PROCESS, useVisible } from "./data";
 
 /* ─── Industries ─────────────────────────────────────────────── */
 export const IndustriesSection = () => {
@@ -33,12 +33,27 @@ export const IndustriesSection = () => {
           {INDUSTRIES.map((ind, i) => (
             <div
               key={ind.title}
-              className={`group flex flex-col items-center text-center p-6 sm:p-8 bg-gray-950/85 hover:bg-orange-500 transition-all duration-400 cursor-default
+              className={`group relative flex flex-col items-center text-center p-6 sm:p-8 overflow-hidden cursor-default bg-gray-950
                 ${indVis.visible ? `animate-fadeInUp delay-${(i + 1) * 100}` : "opacity-0"}`}
+              style={{ transition: "transform 0.35s ease, box-shadow 0.35s ease" }}
+              onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.transform = "scale(1.02)"; (e.currentTarget as HTMLDivElement).style.zIndex = "10"; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.transform = "scale(1)"; (e.currentTarget as HTMLDivElement).style.zIndex = ""; }}
             >
-              <Icon name={ind.icon} size={26} className="text-gray-500 group-hover:text-white transition-colors duration-300 mb-3" />
-              <h3 className="text-gray-300 group-hover:text-white font-semibold text-[13px] transition-colors leading-snug mb-1">{ind.title}</h3>
-              <p className="text-gray-600 group-hover:text-orange-100/80 text-[11px] transition-colors leading-snug">{ind.desc}</p>
+              {/* Фото — появляется при hover */}
+              <img
+                src={ind.img}
+                alt=""
+                aria-hidden
+                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 scale-[1.06] group-hover:scale-100 transition-[opacity,transform] duration-[380ms] ease-out"
+              />
+              {/* Overlay для читаемости текста */}
+              <div className="absolute inset-0 bg-gray-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-[380ms]" />
+              {/* Контент */}
+              <div className="relative z-10 flex flex-col items-center">
+                <Icon name={ind.icon} size={26} className="text-gray-500 group-hover:text-orange-400 transition-colors duration-300 mb-3" />
+                <h3 className="text-gray-300 group-hover:text-white font-semibold text-[13px] transition-colors leading-snug mb-1">{ind.title}</h3>
+                <p className="text-gray-600 group-hover:text-orange-100/80 text-[11px] transition-colors leading-snug">{ind.desc}</p>
+              </div>
             </div>
           ))}
         </div>

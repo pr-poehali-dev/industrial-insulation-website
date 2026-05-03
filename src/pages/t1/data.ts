@@ -46,13 +46,13 @@ export const WHY_US = [
 ];
 
 export const INDUSTRIES = [
-  { icon: "Anchor",    title: "Судостроение",              desc: "Верфи, доки, суда" },
-  { icon: "Ship",      title: "Порты и терминалы",        desc: "Перегрузочные комплексы" },
-  { icon: "Building2", title: "Промышленные предприятия", desc: "Производственные объекты" },
-  { icon: "Factory",   title: "Заводы и производства",    desc: "Химия, металлургия, пищепром" },
-  { icon: "Droplets",  title: "Нефтегаз",                 desc: "НПЗ, магистральные трубопроводы" },
-  { icon: "Zap",       title: "Энергетика",               desc: "ТЭЦ, котельные, АЭС" },
-  { icon: "Home",      title: "ЖКХ",                      desc: "Тепловые сети, ЦТП" },
+  { icon: "Anchor",    title: "Судостроение",              desc: "Верфи, доки, суда",                    img: IMG_SHIP },
+  { icon: "Ship",      title: "Порты и терминалы",        desc: "Перегрузочные комплексы",              img: IMG_SHIP },
+  { icon: "Building2", title: "Промышленные предприятия", desc: "Производственные объекты",             img: IMG_BOILER },
+  { icon: "Factory",   title: "Заводы и производства",    desc: "Химия, металлургия, пищепром",         img: IMG_BOILER },
+  { icon: "Droplets",  title: "Нефтегаз",                 desc: "НПЗ, магистральные трубопроводы",      img: IMG_PIPE },
+  { icon: "Zap",       title: "Энергетика",               desc: "ТЭЦ, котельные, АЭС",                  img: IMG_HERO },
+  { icon: "Home",      title: "ЖКХ",                      desc: "Тепловые сети, ЦТП",                   img: IMG_HERO },
 ];
 
 export const PROCESS = [
