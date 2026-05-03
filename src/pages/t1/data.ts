@@ -46,13 +46,13 @@ export const WHY_US = [
 ];
 
 export const INDUSTRIES = [
-  { icon: "Factory",   title: "Заводы и производства",    desc: "Химия, металлургия, пищепром" },
-  { icon: "Zap",       title: "Энергетика",               desc: "ТЭЦ, котельные, АЭС" },
-  { icon: "Droplets",  title: "Нефтегаз",                 desc: "НПЗ, магистральные трубопроводы" },
-  { icon: "Home",      title: "ЖКХ",                      desc: "Тепловые сети, ЦТП" },
   { icon: "Anchor",    title: "Судостроение",              desc: "Верфи, доки, суда" },
   { icon: "Ship",      title: "Порты и терминалы",        desc: "Перегрузочные комплексы" },
   { icon: "Building2", title: "Промышленные предприятия", desc: "Производственные объекты" },
+  { icon: "Factory",   title: "Заводы и производства",    desc: "Химия, металлургия, пищепром" },
+  { icon: "Droplets",  title: "Нефтегаз",                 desc: "НПЗ, магистральные трубопроводы" },
+  { icon: "Zap",       title: "Энергетика",               desc: "ТЭЦ, котельные, АЭС" },
+  { icon: "Home",      title: "ЖКХ",                      desc: "Тепловые сети, ЦТП" },
 ];
 
 export const PROCESS = [
