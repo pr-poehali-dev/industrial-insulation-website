@@ -23,7 +23,7 @@ export const IndustriesSection = () => {
             Работаем в каждой<br />промышленной отрасли
           </h2>
           <div className="t-underline mx-auto justify-center" />
-          <p className="t-body max-w-sm mx-auto mt-4 text-[#ffffff]">
+          <p className="t-body max-w-sm mx-auto mt-4 !text-white">
             Опыт на объектах разного масштаба — от районной котельной до НПЗ и судостроительных верфей.
           </p>
         </div>
