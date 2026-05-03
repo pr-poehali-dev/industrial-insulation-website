@@ -65,18 +65,15 @@ const CatalogCard = ({ name, sub, img, delay, visible }: {
       loading="lazy"
     />
 
-    {/* Базовый градиент (перекрывает фото в покое, затемняет при hover) */}
+    {/* Базовый тёмный фон — скрывается при hover */}
     <div
-      className="absolute inset-0 transition-opacity duration-[380ms]"
-      style={{
-        background: "linear-gradient(135deg, rgba(10,9,8,0.98) 0%, rgba(15,12,10,0.92) 50%, rgba(20,16,12,0.85) 100%)",
-        opacity: 1,
-      }}
+      className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-[380ms]"
+      style={{ background: "linear-gradient(135deg, #141210 0%, #1c1814 60%, #1f1510 100%)" }}
     />
-    {/* Дополнительный overlay при hover — тёмная левая часть для текста */}
+    {/* Overlay при hover — лёгкое затемнение слева для читаемости текста */}
     <div
       className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-[380ms]"
-      style={{ background: "linear-gradient(100deg, rgba(5,4,3,0.88) 0%, rgba(5,4,3,0.60) 55%, rgba(5,4,3,0.20) 100%)" }}
+      style={{ background: "linear-gradient(100deg, rgba(5,4,3,0.72) 0%, rgba(5,4,3,0.40) 55%, rgba(5,4,3,0.10) 100%)" }}
     />
 
     {/* Полоска слева */}
