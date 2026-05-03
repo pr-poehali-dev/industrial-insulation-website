@@ -10,7 +10,7 @@ const ABOUT_ADVANTAGES = [
 
 const EXTRA_STATS = [
   { icon: "Truck",      num: "Доставка",              label: "всеми видами транспорта", sub: null,        accent: false },
-  { icon: "Settings",   num: "Нестандартные решения", label: "Реализация сложных и нестандартных задач", sub: "До 7 дней", accent: true },
+  { icon: "Settings",   num: "Нестандартные решения", label: "Реализация за 7 дней", sub: null, accent: true },
 ];
 
 export const AboutSection = () => {
@@ -125,36 +125,32 @@ export const AboutSection = () => {
                   }`}
                   style={{ backdropFilter: "blur(8px)" }}
                 >
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ background: s.accent ? "linear-gradient(135deg, rgba(230,48,18,0.5) 0%, rgba(249,115,22,0.35) 100%)" : "linear-gradient(135deg, rgba(230,48,18,0.3) 0%, rgba(249,115,22,0.2) 100%)" }}>
-                      <Icon name={s.icon as "Truck"} size={14} className="text-orange-400" />
-                    </div>
-                    {!s.accent && (
+                  <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style={{ background: s.accent ? "linear-gradient(135deg, rgba(230,48,18,0.5) 0%, rgba(249,115,22,0.35) 100%)" : "linear-gradient(135deg, rgba(230,48,18,0.3) 0%, rgba(249,115,22,0.2) 100%)" }}>
+                    <Icon name={s.icon as "Truck"} size={14} className="text-orange-400" />
+                  </div>
+                  {s.accent ? (
+                    <>
+                      <div
+                        className="text-[17px] font-black tracking-tight leading-snug"
+                        style={{ fontFamily: "'Oswald', sans-serif", color: "#f97316" }}
+                      >
+                        {s.num}
+                      </div>
+                      <div className="text-white text-[13px] font-medium leading-snug">
+                        {s.label}
+                      </div>
+                    </>
+                  ) : (
+                    <>
                       <div
                         className="text-3xl font-black tracking-tight leading-none"
                         style={{ fontFamily: "'Oswald', sans-serif", background: "linear-gradient(90deg, #e63012, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
                       >
                         {s.num}
                       </div>
-                    )}
-                  </div>
-                  {s.accent && (
-                    <div
-                      className="text-[15px] font-black tracking-tight leading-tight"
-                      style={{ fontFamily: "'Oswald', sans-serif", background: "linear-gradient(90deg, #e63012, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
-                    >
-                      {s.num}
-                    </div>
-                  )}
-                  <div className="t-label text-white/80">{s.label}</div>
-                  {s.sub && (
-                    <div
-                      className="text-2xl font-black tracking-tight leading-none mt-1"
-                      style={{ fontFamily: "'Oswald', sans-serif", background: "linear-gradient(90deg, #e63012, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
-                    >
-                      {s.sub}
-                    </div>
+                      <div className="t-label text-white/80">{s.label}</div>
+                    </>
                   )}
                 </div>
               ))}
