@@ -132,7 +132,7 @@ export const CatalogSection = () => {
             <span className="t-label text-orange-400/70 whitespace-nowrap">{CATALOG_SHIP.length} позиций</span>
           </div>
           {/* Сетка — фиксированная высота карточек */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {CATALOG_SHIP.map((item, i) => (
               <div key={item.name} className="h-[100px] sm:h-[110px]">
                 <CatalogCard name={item.name} sub={item.sub} img={item.img} delay={i * 55} visible={catalogVis.visible} />
@@ -165,7 +165,7 @@ export const CatalogSection = () => {
             <div className="flex-1 h-px bg-white/10" />
             <span className="t-label text-orange-500/55 whitespace-nowrap">{CATALOG_INDUSTRY.length} позиций</span>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
             {CATALOG_INDUSTRY.map((item, i) => (
               <div key={item.name} className="h-[100px] sm:h-[110px]">
                 <CatalogCard name={item.name} sub={item.sub} img={item.img} delay={i * 55} visible={catalogVis.visible} />
