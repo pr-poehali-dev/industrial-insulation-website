@@ -10,7 +10,7 @@ const ABOUT_ADVANTAGES = [
 
 const EXTRA_STATS = [
   { icon: "Truck",    num: "Доставка",    label: "всеми видами транспорта" },
-  { icon: "Settings", num: "До 7 дней",  label: "нестандартные решения" },
+  { icon: "Settings", num: "Нестандартные решения", label: "Реализация за 7 дней" },
 ];
 
 export const AboutSection = () => {
@@ -115,7 +115,7 @@ export const AboutSection = () => {
                 </div>
               ))}
 
-              {EXTRA_STATS.map((s) => (
+              {EXTRA_STATS.map((s, i) => (
                 <div
                   key={s.num}
                   className="group flex flex-col gap-2.5 p-6 rounded-2xl bg-white/10 border border-white/15 hover:border-orange-400/50 hover:bg-white/15 hover:shadow-lg transition-all duration-300 cursor-default"
@@ -126,7 +126,7 @@ export const AboutSection = () => {
                     <Icon name={s.icon as "Truck"} size={14} className="text-orange-400" />
                   </div>
                   <div
-                    className="text-4xl font-black tracking-tight leading-none"
+                    className={`font-black tracking-tight leading-snug ${i === 1 ? "text-xl" : "text-4xl leading-none"}`}
                     style={{ fontFamily: "'Oswald', sans-serif", background: "linear-gradient(90deg, #e63012, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
                   >
                     {s.num}
