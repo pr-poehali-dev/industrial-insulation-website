@@ -1,6 +1,6 @@
 import SiteHeader from "./t1/SiteHeader";
 import { HeroSection, AboutSection, CatalogSection, IndustriesSection, CertificatesSection, ProcessSection } from "./t1/SiteSections";
-import { CtaSection, ContactsSection, SiteFooter } from "./t1/SiteConversions";
+import { ContactsSection, SiteFooter } from "./t1/SiteConversions";
 
 const Index = () => (
   <div className="min-h-screen bg-white text-gray-900">
@@ -10,7 +10,6 @@ const Index = () => (
     <CatalogSection />
     <IndustriesSection />
     <CertificatesSection />
-    <CtaSection />
     <ContactsSection />
     <SiteFooter />
   </div>
