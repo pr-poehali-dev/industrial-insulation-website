@@ -126,7 +126,7 @@ export const AboutSection = () => {
                     <Icon name={s.icon as "Truck"} size={14} className="text-orange-400" />
                   </div>
                   <div
-                    className={`font-black tracking-tight leading-snug ${i === 1 ? "text-xl" : "text-4xl leading-none"}`}
+                    className="text-4xl font-black tracking-tight leading-none"
                     style={{ fontFamily: "'Oswald', sans-serif", background: "linear-gradient(90deg, #e63012, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
                   >
                     {s.num}
