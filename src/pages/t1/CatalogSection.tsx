@@ -32,60 +32,67 @@ const CatalogCard = ({ name, sub, img, delay, visible }: {
   name: string; sub: string; img: string; delay: number; visible: boolean;
 }) => (
   <div
-    className={`catalog-card group relative overflow-hidden cursor-default select-none hover:scale-[1.02] hover:-translate-y-[2px]
+    className={`group relative overflow-hidden cursor-default select-none w-full h-full
       ${visible ? "animate-fadeInUp" : "opacity-0"}`}
     style={{
       animationDelay: `${delay}ms`,
-      borderRadius: "20px",
+      borderRadius: "18px",
       background: "linear-gradient(135deg, #141210 0%, #1c1814 60%, #1f1510 100%)",
-      boxShadow: "0 4px 16px rgba(0,0,0,0.55), 0 1px 3px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04)",
+      boxShadow: "0 4px 18px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04)",
       border: "1px solid rgba(255,255,255,0.07)",
-      transition: "box-shadow 0.4s ease, transform 0.4s ease, border-color 0.4s ease",
+      transition: "box-shadow 0.35s ease, transform 0.35s ease, border-color 0.35s ease",
+      willChange: "transform",
+    }}
+    onMouseEnter={e => {
+      const el = e.currentTarget as HTMLDivElement;
+      el.style.transform = "translateY(-3px) scale(1.02)";
+      el.style.boxShadow = "0 10px 32px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.06)";
+      el.style.borderColor = "rgba(230,48,18,0.22)";
+    }}
+    onMouseLeave={e => {
+      const el = e.currentTarget as HTMLDivElement;
+      el.style.transform = "translateY(0) scale(1)";
+      el.style.boxShadow = "0 4px 18px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04)";
+      el.style.borderColor = "rgba(255,255,255,0.07)";
     }}
   >
-    {/* Фото — скрыто, появляется при hover */}
-    <div className="absolute inset-0">
-      <img
-        src={img}
-        alt=""
-        aria-hidden
-        className="w-full h-full object-cover transition-[opacity,transform] duration-[400ms] ease-out opacity-0 scale-100 group-hover:opacity-100 group-hover:scale-[1.04]"
-        loading="lazy"
-      />
-      {/* Overlay поверх фото — для читаемости текста */}
-      <div
-        className="absolute inset-0 transition-opacity duration-[400ms]"
-        style={{ background: "linear-gradient(135deg, rgba(8,7,6,0.82) 0%, rgba(8,7,6,0.55) 60%, rgba(8,7,6,0.30) 100%)" }}
-      />
-    </div>
+    {/* Фото — появляется при hover */}
+    <img
+      src={img}
+      alt=""
+      aria-hidden
+      className="absolute inset-0 w-full h-full object-cover transition-[opacity,transform] duration-[380ms] ease-out opacity-0 scale-[1.06] group-hover:opacity-100 group-hover:scale-100"
+      loading="lazy"
+    />
 
-    {/* Базовый тёмный фон (скрывается при hover) */}
+    {/* Базовый градиент (перекрывает фото в покое, затемняет при hover) */}
     <div
-      className="absolute inset-0 transition-opacity duration-[400ms] opacity-100 group-hover:opacity-0"
-      style={{ background: "linear-gradient(135deg, #141210 0%, #1c1814 60%, #1f1510 100%)" }}
+      className="absolute inset-0 transition-opacity duration-[380ms]"
+      style={{
+        background: "linear-gradient(135deg, rgba(10,9,8,0.98) 0%, rgba(15,12,10,0.92) 50%, rgba(20,16,12,0.85) 100%)",
+        opacity: 1,
+      }}
+    />
+    {/* Дополнительный overlay при hover — тёмная левая часть для текста */}
+    <div
+      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-[380ms]"
+      style={{ background: "linear-gradient(100deg, rgba(5,4,3,0.88) 0%, rgba(5,4,3,0.60) 55%, rgba(5,4,3,0.20) 100%)" }}
     />
 
     {/* Полоска слева */}
     <div
-      className="absolute left-0 top-[18%] bottom-[18%] w-[3px] rounded-full transition-opacity duration-[400ms] opacity-40 group-hover:opacity-100"
+      className="absolute left-0 top-[20%] bottom-[20%] w-[3px] rounded-r-full transition-opacity duration-[380ms] opacity-35 group-hover:opacity-100"
       style={{ background: "linear-gradient(to bottom, #e63012, #f97316, #fbbf24)" }}
     />
 
     {/* Контент */}
-    <div className="relative z-10 flex items-center h-full">
-      <div className="flex-1 pl-6 pr-5 py-5">
-        <p className="text-white font-bold text-[15px] leading-tight tracking-wide drop-shadow-md">
-          {name}
-        </p>
-        <p className="text-gray-400 group-hover:text-gray-300 text-[11px] leading-snug mt-[8px] transition-colors duration-[400ms] drop-shadow-sm">
-          {sub}
-        </p>
-      </div>
-
-      <div className="sm:hidden flex-shrink-0 w-14 h-full relative overflow-hidden">
-        <img src={img} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover opacity-20" loading="lazy" />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, #141210 0%, transparent 65%)" }} />
-      </div>
+    <div className="relative z-10 flex flex-col justify-center h-full px-6 py-0">
+      <p className="text-white font-bold text-[14.5px] leading-tight tracking-wide">
+        {name}
+      </p>
+      <p className="text-gray-500 group-hover:text-gray-300 text-[11px] leading-snug mt-2 transition-colors duration-[380ms]">
+        {sub}
+      </p>
     </div>
   </div>
 );
@@ -132,12 +139,9 @@ export const CatalogSection = () => {
             <div className="flex-1 h-px bg-white/15" />
             <span className="t-label text-orange-400/70 whitespace-nowrap">{CATALOG_SHIP.length} позиций</span>
           </div>
-          {/* Сетка — фиксированная высота карточек */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 auto-rows-[112px]">
             {CATALOG_SHIP.map((item, i) => (
-              <div key={item.name} className="h-[100px] sm:h-[110px]">
-                <CatalogCard name={item.name} sub={item.sub} img={item.img} delay={i * 55} visible={catalogVis.visible} />
-              </div>
+              <CatalogCard key={item.name} name={item.name} sub={item.sub} img={item.img} delay={i * 55} visible={catalogVis.visible} />
             ))}
           </div>
         </div>
@@ -166,11 +170,9 @@ export const CatalogSection = () => {
             <div className="flex-1 h-px bg-white/10" />
             <span className="t-label text-orange-500/55 whitespace-nowrap">{CATALOG_INDUSTRY.length} позиций</span>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 auto-rows-[112px]">
             {CATALOG_INDUSTRY.map((item, i) => (
-              <div key={item.name} className="h-[100px] sm:h-[110px]">
-                <CatalogCard name={item.name} sub={item.sub} img={item.img} delay={i * 55} visible={catalogVis.visible} />
-              </div>
+              <CatalogCard key={item.name} name={item.name} sub={item.sub} img={item.img} delay={i * 55} visible={catalogVis.visible} />
             ))}
           </div>
         </div>
