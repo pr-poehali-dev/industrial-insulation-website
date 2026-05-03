@@ -15,8 +15,6 @@ const CATALOG_SHIP: { name: string; img: string }[] = [
   { name: "Стыковочные ленты",    img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/6a3cb15e-2c7a40d3-a075-c99e7ed457f2.jpg" },
   { name: "Клей и очиститель",    img: IMG_GLUE },
   { name: "Защитные покрытия",    img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/d0ed56cb-322d-46c3-9571-f0e5a4f43703.jpg" },
-  { name: "ИТШМИ ПАНЦИРЬ",        img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/62c10ffd-18cb-4f61-a83e-97bfa3120d57.jpg" },
-  { name: "ЗМ ПАНЦИРЬ",           img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/ea11e02a-fb71-4dc6-9b16-04ad25dd97fa.jpg" },
 ];
 
 const CATALOG_INDUSTRY: { name: string; img: string }[] = [
@@ -26,6 +24,8 @@ const CATALOG_INDUSTRY: { name: string; img: string }[] = [
   { name: "Стыковочные ленты",    img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/03841964-0c63-4461-be67-e7e5fe5dd7f1.jpg" },
   { name: "Клей и очиститель",    img: IMG_GLUE },
   { name: "Защитные покрытия",    img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/d0ed56cb-322d-46c3-9571-f0e5a4f43703.jpg" },
+  { name: "ИТШМИ ПАНЦИРЬ",        img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/62c10ffd-18cb-4f61-a83e-97bfa3120d57.jpg" },
+  { name: "ЗМ ПАНЦИРЬ",           img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/ea11e02a-fb71-4dc6-9b16-04ad25dd97fa.jpg" },
 ];
 
 const CatalogCard = ({ name, img, delay, visible }: {
