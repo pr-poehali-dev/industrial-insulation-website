@@ -1,5 +1,5 @@
 import SiteHeader from "./t1/SiteHeader";
-import { HeroSection, AboutSection, CatalogSection, IndustriesSection, CertificatesSection, ProcessSection } from "./t1/SiteSections";
+import { HeroSection, AboutSection, CatalogSection, IndustriesSection, CertificatesSection } from "./t1/SiteSections";
 import { ContactsSection, SiteFooter } from "./t1/SiteConversions";
 
 const Index = () => (
@@ -10,7 +10,6 @@ const Index = () => (
     <CatalogSection />
     <IndustriesSection />
     <CertificatesSection />
-    <ProcessSection />
     <ContactsSection />
     <SiteFooter />
   </div>
