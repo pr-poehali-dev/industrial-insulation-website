@@ -9,8 +9,8 @@ const ABOUT_ADVANTAGES = [
 ];
 
 const EXTRA_STATS = [
-  { icon: "Truck",      num: "Доставка", label: "всеми видами транспорта" },
-  { icon: "TrendingUp", num: "87%",      label: "побед в тендерах" },
+  { icon: "Truck",      num: "Доставка",              label: "всеми видами транспорта", sub: null,        accent: false },
+  { icon: "Handshake",  num: "Нестандартные решения", label: "Реализация сложных и нестандартных задач", sub: "До 7 дней", accent: true },
 ];
 
 export const AboutSection = () => {
@@ -95,12 +95,18 @@ export const AboutSection = () => {
           <div className={`transition-all duration-700 delay-200 ${aboutVis.visible ? "animate-fadeInRight" : "opacity-0"} flex flex-col`}>
 
             <div className="grid grid-cols-2 gap-4 flex-1 content-evenly">
-              {STATS.map((s) => (
+              {STATS.map((s, i) => (
                 <div
                   key={s.label}
                   className="group flex flex-col gap-2.5 p-6 rounded-2xl bg-white/10 border border-white/15 hover:border-orange-400/50 hover:bg-white/15 hover:shadow-lg transition-all duration-300 cursor-default"
                   style={{ backdropFilter: "blur(8px)" }}
                 >
+                  {i === 0 && (
+                    <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{ background: "linear-gradient(135deg, rgba(230,48,18,0.3) 0%, rgba(249,115,22,0.2) 100%)" }}>
+                      <Icon name="Calendar" size={14} className="text-orange-400" />
+                    </div>
+                  )}
                   <div
                     className="text-4xl font-black tracking-tight leading-none"
                     style={{ fontFamily: "'Oswald', sans-serif", background: "linear-gradient(90deg, #e63012, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
@@ -114,22 +120,44 @@ export const AboutSection = () => {
               {EXTRA_STATS.map((s) => (
                 <div
                   key={s.num}
-                  className="group flex flex-col gap-2.5 p-6 rounded-2xl bg-white/10 border border-white/15 hover:border-orange-400/50 hover:bg-white/15 hover:shadow-lg transition-all duration-300 cursor-default"
+                  className={`group flex flex-col gap-2.5 p-6 rounded-2xl border transition-all duration-300 cursor-default ${
+                    s.accent
+                      ? "bg-orange-500/15 border-orange-500/40 hover:border-orange-400 hover:bg-orange-500/20 hover:shadow-lg"
+                      : "bg-white/10 border-white/15 hover:border-orange-400/50 hover:bg-white/15 hover:shadow-lg"
+                  }`}
                   style={{ backdropFilter: "blur(8px)" }}
                 >
                   <div className="flex items-center gap-2.5">
                     <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ background: "linear-gradient(135deg, rgba(230,48,18,0.3) 0%, rgba(249,115,22,0.2) 100%)" }}>
+                      style={{ background: s.accent ? "linear-gradient(135deg, rgba(230,48,18,0.5) 0%, rgba(249,115,22,0.35) 100%)" : "linear-gradient(135deg, rgba(230,48,18,0.3) 0%, rgba(249,115,22,0.2) 100%)" }}>
                       <Icon name={s.icon as "Truck"} size={14} className="text-orange-400" />
                     </div>
+                    {!s.accent && (
+                      <div
+                        className="text-3xl font-black tracking-tight leading-none"
+                        style={{ fontFamily: "'Oswald', sans-serif", background: "linear-gradient(90deg, #e63012, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+                      >
+                        {s.num}
+                      </div>
+                    )}
+                  </div>
+                  {s.accent && (
                     <div
-                      className="text-3xl font-black tracking-tight leading-none"
+                      className="text-[15px] font-black tracking-tight leading-tight"
                       style={{ fontFamily: "'Oswald', sans-serif", background: "linear-gradient(90deg, #e63012, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
                     >
                       {s.num}
                     </div>
-                  </div>
-                  <div className="t-label text-white">{s.label}</div>
+                  )}
+                  <div className="t-label text-white/80">{s.label}</div>
+                  {s.sub && (
+                    <div
+                      className="text-2xl font-black tracking-tight leading-none mt-1"
+                      style={{ fontFamily: "'Oswald', sans-serif", background: "linear-gradient(90deg, #e63012, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+                    >
+                      {s.sub}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
