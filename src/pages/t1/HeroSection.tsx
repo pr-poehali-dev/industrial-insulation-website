@@ -32,9 +32,9 @@ export const HeroSection = () => {
             {/* Логотип */}
             <div className="mb-8 sm:mb-10">
               <img
-                src="https://cdn.poehali.dev/files/53d29d32-74f0-4088-9d14-8c8b870bf4a3.png"
+                src="https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/f2c7dc5a-0b3d-4793-ac51-fe07c6fad3cc.png"
                 alt="Т1 Изоляция"
-                className="drop-shadow-2xl object-contain rounded-xl"
+                className="object-contain drop-shadow-2xl"
                 style={{ height: "clamp(120px, 18vw, 180px)", width: "auto" }}
               />
             </div>
