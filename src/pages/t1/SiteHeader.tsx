@@ -3,12 +3,21 @@ import Icon from "@/components/ui/icon";
 import { LOGO_SYMBOL, NAV_LINKS, GRAD } from "./data";
 
 const Logo = ({ height = 44, className = "" }: { height?: number; className?: string }) => (
-  <img
-    src="https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/3fbe37a8-6652-4f36-9664-81478dc53da4.png"
-    alt="Т1 ИЗОЛЯЦИЯ"
-    style={{ height, width: "auto" }}
-    className={`object-contain ${className}`}
-  />
+  <div className={`flex items-center gap-2.5 ${className}`}>
+    <img
+      src="https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/648b3ec0-db8c-4ad1-97a1-356b82c2e054.png"
+      alt=""
+      aria-hidden
+      style={{ height, width: "auto" }}
+      className="object-contain flex-shrink-0"
+    />
+    <span
+      className="text-white whitespace-nowrap leading-none tracking-wide"
+      style={{ fontFamily: "'Oswald', sans-serif", fontSize: height * 0.55, fontWeight: 700, letterSpacing: "0.06em" }}
+    >
+      Т1 ИЗОЛЯЦИЯ
+    </span>
+  </div>
 );
 
 const SiteHeader = () => {
