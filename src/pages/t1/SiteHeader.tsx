@@ -45,7 +45,7 @@ const SiteHeader = () => {
 
           {/* Logo */}
           <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="flex items-center">
-            <Logo height={38} className="hover:opacity-90 transition-opacity duration-300" />
+            <Logo height={56} className="hover:opacity-90 transition-opacity duration-300" />
           </a>
 
           {/* Desktop Nav */}
