@@ -12,7 +12,7 @@ const CATALOG_SHIP: { name: string; sub: string; img: string }[] = [
   { name: "Трубная изоляция",          sub: "Вспененный каучук для трубопроводов",    img: IMG_TUBES },
   { name: "Рулонная изоляция",         sub: "Вспененный каучук для поверхностей",     img: IMG_ROLLS },
   { name: "Монтажные материалы",       sub: "Ленты, клеи, очистители",               img: IMG_GLUE },
-  { name: "Защитные покрытия",         sub: "Металл и полимерные решения",            img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/d0ed56cb-322d-46c3-9571-f0e5a4f43703.jpg" },
+  { name: "Защитные материалы",         sub: "Металл и полимерные решения",            img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/d0ed56cb-322d-46c3-9571-f0e5a4f43703.jpg" },
   { name: "Термочехлы",                sub: "Для оборудования и трубопроводов",       img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/6a3cb15e-2c7a40d3-a075-c99e7ed457f2.jpg" },
   { name: "Антиконденсатные покрытия", sub: "Тепло- и влагозащита поверхностей",     img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/62c10ffd-18cb-4f61-a83e-97bfa3120d57.jpg" },
 ];
@@ -21,7 +21,7 @@ const CATALOG_INDUSTRY: { name: string; sub: string; img: string }[] = [
   { name: "Трубная изоляция",          sub: "Вспененный каучук для трубопроводов",      img: IMG_TUBES },
   { name: "Рулонная изоляция",         sub: "Вспененный каучук для поверхностей",       img: IMG_ROLLS },
   { name: "Монтажные материалы",       sub: "Ленты, клеи, очистители",                 img: IMG_GLUE },
-  { name: "Защитные покрытия",         sub: "Металл и полимерные решения",              img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/d0ed56cb-322d-46c3-9571-f0e5a4f43703.jpg" },
+  { name: "Защитные материалы",         sub: "Металл и полимерные решения",              img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/d0ed56cb-322d-46c3-9571-f0e5a4f43703.jpg" },
   { name: "Термочехлы",                sub: "Для оборудования и трубопроводов",         img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/03841964-0c63-4461-be67-e7e5fe5dd7f1.jpg" },
   { name: "Каменная вата",             sub: "Теплоизоляция для инженерных систем",      img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/62c10ffd-18cb-4f61-a83e-97bfa3120d57.jpg" },
   { name: "Шумоизоляция",              sub: "Снижение шума оборудования и систем",      img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/ea11e02a-fb71-4dc6-9b16-04ad25dd97fa.jpg" },
