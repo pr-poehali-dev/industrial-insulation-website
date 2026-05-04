@@ -5,7 +5,7 @@ import { LOGO_SYMBOL, NAV_LINKS, GRAD } from "./data";
 const Logo = ({ height = 44, className = "" }: { height?: number; className?: string }) => (
   <div className={`flex items-center gap-2.5 ${className}`}>
     <img
-      src="https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/648b3ec0-db8c-4ad1-97a1-356b82c2e054.png"
+      src="https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/f2c7dc5a-0b3d-4793-ac51-fe07c6fad3cc.png"
       alt=""
       aria-hidden
       style={{ height, width: "auto" }}
