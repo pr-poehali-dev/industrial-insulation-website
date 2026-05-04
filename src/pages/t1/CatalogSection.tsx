@@ -175,11 +175,7 @@ export const CatalogSection = () => {
         </div>
       </div>
 
-      <div className="bg-[#f4f0eb] py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="h-px bg-gray-300/60" />
-        </div>
-      </div>
+      <div className="h-12 bg-[#f4f0eb]" />
 
     </section>
   );

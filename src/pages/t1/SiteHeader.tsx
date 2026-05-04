@@ -2,18 +2,17 @@ import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 import { LOGO_SYMBOL, NAV_LINKS, GRAD } from "./data";
 
-const Logo = ({ height = 44, className = "" }: { height?: number; className?: string }) => (
-  <div className={`flex items-center gap-2.5 ${className}`}>
+const Logo = ({ className = "" }: { className?: string }) => (
+  <div className={`flex items-center gap-3 ${className}`}>
     <img
       src="https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/f2c7dc5a-0b3d-4793-ac51-fe07c6fad3cc.png"
       alt=""
       aria-hidden
-      style={{ height, width: "auto" }}
-      className="object-contain flex-shrink-0"
+      className="object-contain flex-shrink-0 h-14 lg:h-[72px] w-auto"
     />
     <span
-      className="text-white whitespace-nowrap leading-none tracking-wide"
-      style={{ fontFamily: "'Oswald', sans-serif", fontSize: height * 0.55, fontWeight: 700, letterSpacing: "0.06em" }}
+      className="text-white whitespace-nowrap leading-none tracking-wide text-lg lg:text-xl"
+      style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700, letterSpacing: "0.06em" }}
     >
       Т1 ИЗОЛЯЦИЯ
     </span>
@@ -45,7 +44,7 @@ const SiteHeader = () => {
 
           {/* Logo */}
           <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="flex items-center">
-            <Logo height={56} className="hover:opacity-90 transition-opacity duration-300" />
+            <Logo className="hover:opacity-90 transition-opacity duration-300" />
           </a>
 
           {/* Desktop Nav */}
