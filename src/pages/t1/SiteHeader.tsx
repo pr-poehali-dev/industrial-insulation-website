@@ -61,11 +61,19 @@ const SiteHeader = () => {
 
           {/* CTA */}
           <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
-            <a href="mailto:teplofabrika@mail.ru"
-              className="flex items-center gap-1.5 group border-r border-white/10 pr-4">
-              <Icon name="Mail" size={13} className="text-orange-500/70 group-hover:text-orange-400 flex-shrink-0 transition-colors duration-300" />
-              <span className="text-[11px] text-gray-400 group-hover:text-orange-400 font-medium transition-colors duration-300 leading-none whitespace-nowrap">teplofabrika@mail.ru</span>
-            </a>
+            <div className="flex flex-col gap-1 border-r border-white/10 pr-4">
+              <a href="tel:+78126426742" className="flex items-center gap-1.5 group">
+                <Icon name="Phone" size={13} className="text-orange-500/70 group-hover:text-orange-400 flex-shrink-0 transition-colors duration-300" />
+                <div className="flex flex-col leading-none">
+                  <span className="text-[9px] text-gray-600 uppercase tracking-widest">Офис</span>
+                  <span className="text-[11px] text-gray-400 group-hover:text-orange-400 font-medium transition-colors duration-300 whitespace-nowrap">+7 812 642 67 42</span>
+                </div>
+              </a>
+              <a href="mailto:teplofabrika@mail.ru" className="flex items-center gap-1.5 group">
+                <Icon name="Mail" size={13} className="text-orange-500/70 group-hover:text-orange-400 flex-shrink-0 transition-colors duration-300" />
+                <span className="text-[11px] text-gray-400 group-hover:text-orange-400 font-medium transition-colors duration-300 leading-none whitespace-nowrap">teplofabrika@mail.ru</span>
+              </a>
+            </div>
             <a href="#contacts"
               className="btn-primary text-white px-5 py-2.5 text-[11px] font-black uppercase tracking-widest transition-all duration-300 hover:opacity-90 whitespace-nowrap"
               style={{ background: GRAD }}>
@@ -75,10 +83,16 @@ const SiteHeader = () => {
 
           {/* Планшет (md..lg) */}
           <div className="hidden md:flex lg:hidden items-center gap-3">
-            <a href="mailto:teplofabrika@mail.ru" className="flex items-center gap-1.5 group">
-              <Icon name="Mail" size={14} className="text-orange-500" />
-              <span className="text-gray-400 text-xs group-hover:text-orange-400 transition-colors duration-300">teplofabrika@mail.ru</span>
-            </a>
+            <div className="flex flex-col gap-0.5">
+              <a href="tel:+78126426742" className="flex items-center gap-1.5 group">
+                <Icon name="Phone" size={14} className="text-orange-500" />
+                <span className="text-gray-400 text-xs group-hover:text-orange-400 transition-colors duration-300">+7 812 642 67 42</span>
+              </a>
+              <a href="mailto:teplofabrika@mail.ru" className="flex items-center gap-1.5 group">
+                <Icon name="Mail" size={14} className="text-orange-500" />
+                <span className="text-gray-400 text-xs group-hover:text-orange-400 transition-colors duration-300">teplofabrika@mail.ru</span>
+              </a>
+            </div>
             <a href="#contacts"
               className="btn-primary text-white px-4 py-2 text-xs font-black uppercase tracking-widest transition-all duration-300 hover:opacity-90"
               style={{ background: GRAD }}>
@@ -107,6 +121,10 @@ const SiteHeader = () => {
               <Icon name="MapPin" size={12} className="text-orange-500/60 flex-shrink-0" />
               Санкт-Петербург, Решетникова ул., 13А
             </div>
+            <a href="tel:+78126426742" className="flex items-center gap-2 text-gray-400 text-xs">
+              <Icon name="Phone" size={12} className="text-orange-500/60 flex-shrink-0" />
+              +7 812 642 67 42
+            </a>
             <a href="mailto:teplofabrika@mail.ru" className="flex items-center gap-2 text-gray-400 text-xs">
               <Icon name="Mail" size={12} className="text-orange-500/60 flex-shrink-0" />
               teplofabrika@mail.ru
