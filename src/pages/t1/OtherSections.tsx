@@ -23,9 +23,7 @@ export const IndustriesSection = () => {
             Работаем в каждой<br />промышленной отрасли
           </h2>
           <div className="t-underline mx-auto justify-center" />
-          <p className="t-body max-w-sm mx-auto mt-4 !text-white">
-            Опыт на объектах разного масштаба — от районной котельной до НПЗ и судостроительных верфей.
-          </p>
+          <p className="t-body max-w-sm mx-auto mt-4 !text-white">Опыт поставок на объекты — от районной котельной до нефтеперерабатывающих заводов  и судостроительных верфей</p>
         </div>
 
         {/* Сетка отраслей */}
