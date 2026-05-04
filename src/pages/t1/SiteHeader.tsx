@@ -65,7 +65,7 @@ const SiteHeader = () => {
               <a href="tel:+78126426742" className="flex items-center gap-1.5 group">
                 <Icon name="Phone" size={13} className="text-orange-500/70 group-hover:text-orange-400 flex-shrink-0 transition-colors duration-300" />
                 <div className="flex flex-col leading-none">
-                  <span className="text-[9px] text-gray-600 uppercase tracking-widest">Офис</span>
+                  <span className=""></span>
                   <span className="text-[11px] text-gray-400 group-hover:text-orange-400 font-medium transition-colors duration-300 whitespace-nowrap">+7 812 642 67 42</span>
                 </div>
               </a>
