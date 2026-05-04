@@ -48,9 +48,9 @@ export const WHY_US = [
 export const INDUSTRIES = [
   { icon: "Anchor",    title: "Судостроение",              desc: "Верфи, доки, суда",                    img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/2ddcfe4f-787b-43d3-bbbd-516901336093.jpg" },
   { icon: "Ship",      title: "Порты и терминалы",        desc: "Перегрузочные комплексы",              img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/21169fd0-d63f-4a50-9c10-72ec8d9f748b.jpg" },
+  { icon: "Droplets",  title: "Нефтегаз",                 desc: "НПЗ, магистральные трубопроводы",      img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/c97af338-e7c7-40ce-8d26-f531575d80b1.jpg" },
   { icon: "Building2", title: "Промышленные предприятия", desc: "Производственные объекты",             img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/452cbe0f-9751-4c8c-a3f5-ecbc70375385.jpg" },
   { icon: "Factory",   title: "Заводы и производства",    desc: "Химия, металлургия, пищепром",         img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/a26260aa-38f9-4535-9d46-964e281ff2f2.jpg" },
-  { icon: "Droplets",  title: "Нефтегаз",                 desc: "НПЗ, магистральные трубопроводы",      img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/c97af338-e7c7-40ce-8d26-f531575d80b1.jpg" },
   { icon: "Zap",       title: "Энергетика",               desc: "ТЭЦ, котельные, АЭС",                  img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/e8157ac5-5cf0-4f3d-b470-d139abe8ef7b.jpg" },
   { icon: "Home",      title: "ЖКХ",                      desc: "Тепловые сети, ЦТП",                   img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/3ac3e038-fef9-421c-9795-3997287c4165.jpg" },
 ];
