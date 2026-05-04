@@ -76,7 +76,7 @@ export const CONTACTS_INFO = [
   { icon: "Phone",     label: "Телефон",         value: "+7 812 642 67 42",            sub: "Офис",                          href: "tel:+78126426742" },
   { icon: "Mail",      label: "Email",          value: "teplofabrika@mail.ru",        sub: "Ответим за 1 рабочий день",     href: "mailto:teplofabrika@mail.ru" },
   { icon: "MapPin",    label: "Адрес",          value: "196105, Санкт-Петербург",     sub: "ул. Решетникова, 13А",          href: "https://yandex.ru/maps/?text=Санкт-Петербург%2C+ул.+Решетникова%2C+13А" },
-  { icon: "Clock",     label: "Режим работы",   value: "Пн–Пт: 9:00–18:00",          sub: "Сб–Вс — по договорённости",    href: "#" },
+  { icon: "Clock",     label: "Режим работы",   value: "ПН–ПТ: 9:00–18:00",          sub: "СБ–ВС — по договорённости",    href: "#" },
 ];
 
 /* ─── Intersection Observer Hook ────────────────────────────── */
