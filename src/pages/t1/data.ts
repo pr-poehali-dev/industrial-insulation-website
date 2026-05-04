@@ -52,7 +52,7 @@ export const INDUSTRIES = [
   { icon: "Building2", title: "Промышленные предприятия", desc: "Производственные объекты",             img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/452cbe0f-9751-4c8c-a3f5-ecbc70375385.jpg" },
   { icon: "Factory",   title: "Заводы и производства",    desc: "Химия, металлургия, пищепром",         img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/a26260aa-38f9-4535-9d46-964e281ff2f2.jpg" },
   { icon: "Zap",       title: "Энергетика",               desc: "ТЭЦ, котельные, АЭС",                  img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/e8157ac5-5cf0-4f3d-b470-d139abe8ef7b.jpg" },
-  { icon: "Home",      title: "ЖКХ",                      desc: "Тепловые сети, ЦТП",                   img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/3ac3e038-fef9-421c-9795-3997287c4165.jpg" },
+  { icon: "Home",      title: "ЖКХ",                      desc: "Тепловые сети, ЦТП, ИТП",                   img: "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/3ac3e038-fef9-421c-9795-3997287c4165.jpg" },
 ];
 
 export const PROCESS = [
