@@ -2,30 +2,13 @@ import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 import { LOGO_SYMBOL, NAV_LINKS, GRAD } from "./data";
 
-const Logo = ({ size = 44, className = "" }: { size?: number; className?: string }) => (
-  <div className={`flex items-center gap-2.5 ${className}`}>
-    <img
-      src={LOGO_SYMBOL}
-      alt=""
-      aria-hidden
-      style={{ height: size, width: "auto" }}
-      className="object-contain"
-    />
-    <div className="flex flex-col leading-none">
-      <span
-        className="font-black text-white tracking-wider uppercase"
-        style={{ fontFamily: "'Oswald', sans-serif", fontSize: size * 0.45, letterSpacing: "0.08em" }}
-      >
-        Т1
-      </span>
-      <span
-        className="font-bold text-white tracking-widest uppercase"
-        style={{ fontFamily: "'Oswald', sans-serif", fontSize: size * 0.28, letterSpacing: "0.12em", color: "#d1d5db" }}
-      >
-        ИЗОЛЯЦИЯ
-      </span>
-    </div>
-  </div>
+const Logo = ({ height = 44, className = "" }: { height?: number; className?: string }) => (
+  <img
+    src="https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/3fbe37a8-6652-4f36-9664-81478dc53da4.png"
+    alt="Т1 ИЗОЛЯЦИЯ"
+    style={{ height, width: "auto" }}
+    className={`object-contain ${className}`}
+  />
 );
 
 const SiteHeader = () => {
@@ -44,8 +27,8 @@ const SiteHeader = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
 
           {/* Logo */}
-          <a href="#" className="flex items-center group">
-            <Logo size={40} className="group-hover:opacity-90 transition-opacity duration-300" />
+          <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="flex items-center">
+            <Logo height={38} className="hover:opacity-90 transition-opacity duration-300" />
           </a>
 
           {/* Desktop Nav */}
