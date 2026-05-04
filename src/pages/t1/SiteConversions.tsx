@@ -169,6 +169,8 @@ export const ContactsSection = () => {
         <div className={`mb-12 rounded-2xl border border-gray-100 overflow-hidden divide-y sm:divide-y-0 sm:divide-x divide-gray-100 grid sm:grid-cols-2 lg:grid-cols-4 transition-all duration-700 ${contVis.visible ? "animate-fadeInUp" : "opacity-0"}`}>
           {CONTACTS_INFO.map((item) => (
             <a key={item.label} href={item.href}
+              target={item.href.startsWith('http') ? '_blank' : undefined}
+              rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
               className="group flex items-start gap-4 p-6 sm:p-7 hover:bg-gray-50 transition-colors duration-200">
               <div className="flex-shrink-0 w-9 h-9 rounded-xl bg-gray-100 group-hover:bg-orange-500 flex items-center justify-center transition-all duration-300 mt-0.5">
                 <Icon name={item.icon} size={15} className="text-orange-500 group-hover:text-white transition-colors duration-300" />

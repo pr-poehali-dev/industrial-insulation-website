@@ -117,10 +117,10 @@ const SiteHeader = () => {
             </a>
           ))}
           <div className="mt-4 pt-4 border-t border-white/5 flex flex-col gap-2">
-            <div className="flex items-center gap-2 text-gray-500 text-xs">
+            <a href="https://yandex.ru/maps/?text=Санкт-Петербург%2C+ул.+Решетникова%2C+13А" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-500 text-xs hover:text-orange-400 transition-colors">
               <Icon name="MapPin" size={12} className="text-orange-500/60 flex-shrink-0" />
               Санкт-Петербург, Решетникова ул., 13А
-            </div>
+            </a>
             <a href="tel:+78126426742" className="flex items-center gap-2 text-gray-400 text-xs">
               <Icon name="Phone" size={12} className="text-orange-500/60 flex-shrink-0" />
               +7 812 642 67 42
