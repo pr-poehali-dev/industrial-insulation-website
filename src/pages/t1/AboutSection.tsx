@@ -9,8 +9,8 @@ const ABOUT_ADVANTAGES = [
 ];
 
 const EXTRA_STATS = [
-  { icon: "Truck",    num: "Доставка",    label: "всеми видами транспорта" },
-  { icon: "Settings", num: "Нестандартные решения", label: "Реализация за 7 дней" },
+  { icon: "Truck",    num: "ДОСТАВКА",    label: "всеми видами транспорта" },
+  { icon: "Settings", num: "СПЕЦЗАКАЗ", label: "Реализация за 7 дней" },
 ];
 
 export const AboutSection = () => {
@@ -128,8 +128,8 @@ export const AboutSection = () => {
                     <Icon name={s.icon as "Truck"} size={14} className="text-orange-400" />
                   </div>
                   <div
-                    className="font-black tracking-tight"
-                    style={{ fontFamily: "'Oswald', sans-serif", fontSize: i === 1 ? "clamp(0.9rem, 1.8vw, 1.25rem)" : "2.25rem", lineHeight: i === 1 ? 1.25 : 1, background: "linear-gradient(90deg, #e63012, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+                    className="text-4xl font-black tracking-tight leading-none uppercase"
+                    style={{ fontFamily: "'Exo 2', sans-serif", fontSize: "clamp(1.5rem, 2.6vw, 2.25rem)", letterSpacing: "0.02em", background: "linear-gradient(90deg, #e63012, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
                   >
                     {s.num}
                   </div>
