@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 import { IMG_PIPE, STATS, useVisible } from "./data";
 
@@ -16,46 +15,12 @@ const EXTRA_STATS = [
 
 export const AboutSection = () => {
   const aboutVis = useVisible(0.1);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
-
-    const tryPlay = () => v.play().catch(() => {});
-
-    const onEnded = () => { v.currentTime = 0; tryPlay(); };
-    const onTimeUpdate = () => {
-      if (v.duration && v.currentTime >= v.duration - 0.15) {
-        v.currentTime = 0;
-        tryPlay();
-      }
-    };
-    const onVisibility = () => { if (!document.hidden) tryPlay(); };
-    const onLoaded = () => { v.loop = true; tryPlay(); };
-
-    v.loop = true;
-    v.addEventListener("ended", onEnded);
-    v.addEventListener("timeupdate", onTimeUpdate);
-    v.addEventListener("loadeddata", onLoaded);
-    document.addEventListener("visibilitychange", onVisibility);
-
-    tryPlay();
-
-    return () => {
-      v.removeEventListener("ended", onEnded);
-      v.removeEventListener("timeupdate", onTimeUpdate);
-      v.removeEventListener("loadeddata", onLoaded);
-      document.removeEventListener("visibilitychange", onVisibility);
-    };
-  }, []);
 
   return (
     <section id="about" className="py-32 lg:py-44 overflow-hidden relative" ref={aboutVis.ref}>
 
       {/* Фоновое видео */}
       <video
-        ref={videoRef}
         autoPlay muted loop playsInline preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ willChange: "transform" }}

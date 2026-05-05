@@ -1,5 +1,4 @@
 
-import { useEffect, useRef } from "react";
 import { IMG_SHIP, IMG_BOILER, useVisible } from "./data";
 
 const SHIPYARD_VIDEO = "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/videos/shipyard-video.mp4";
@@ -97,39 +96,6 @@ const CatalogCard = ({ name, sub, img, delay, visible }: {
 
 export const CatalogSection = () => {
   const catalogVis = useVisible(0.1);
-  const pgsVideoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const v = pgsVideoRef.current;
-    if (!v) return;
-
-    const tryPlay = () => v.play().catch(() => {});
-
-    const onEnded = () => { v.currentTime = 0; tryPlay(); };
-    const onTimeUpdate = () => {
-      if (v.duration && v.currentTime >= v.duration - 0.15) {
-        v.currentTime = 0;
-        tryPlay();
-      }
-    };
-    const onVisibility = () => { if (!document.hidden) tryPlay(); };
-    const onLoaded = () => { v.loop = true; tryPlay(); };
-
-    v.loop = true;
-    v.addEventListener("ended", onEnded);
-    v.addEventListener("timeupdate", onTimeUpdate);
-    v.addEventListener("loadeddata", onLoaded);
-    document.addEventListener("visibilitychange", onVisibility);
-
-    tryPlay();
-
-    return () => {
-      v.removeEventListener("ended", onEnded);
-      v.removeEventListener("timeupdate", onTimeUpdate);
-      v.removeEventListener("loadeddata", onLoaded);
-      document.removeEventListener("visibilitychange", onVisibility);
-    };
-  }, []);
 
   return (
     <section id="catalog" className="bg-[#f4f0eb] overflow-hidden relative" ref={catalogVis.ref}>
@@ -187,7 +153,6 @@ export const CatalogSection = () => {
           autoPlay muted loop playsInline preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ willChange: "transform" }}
-          ref={pgsVideoRef}
           poster={IMG_BOILER}
           disablePictureInPicture
           disableRemotePlayback
