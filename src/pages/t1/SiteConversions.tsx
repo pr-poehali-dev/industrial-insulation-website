@@ -3,16 +3,16 @@ import Icon from "@/components/ui/icon";
 import { LOGO_SYMBOL, IMG_SHIP, IMG_PIPE, IMG_BOILER, GRAD, NAV_LINKS, CONTACTS_INFO, useVisible } from "./data";
 
 const Logo = ({ className = "" }: { className?: string }) => (
-  <div className={`flex items-center gap-1 ${className}`}>
+  <div className={`flex items-center gap-0 ${className}`}>
     <img
       src={LOGO_SYMBOL}
       alt=""
       aria-hidden
-      className="object-contain flex-shrink-0 h-14 lg:h-[72px] w-auto"
+      className="object-contain flex-shrink-0 h-14 lg:h-[72px] w-auto -mr-1"
     />
     <span
       className="text-white whitespace-nowrap leading-none uppercase text-lg lg:text-xl"
-      style={{ fontFamily: "'Exo 2', sans-serif", fontWeight: 700, letterSpacing: "0.08em" }}
+      style={{ fontFamily: "'OCR A Std', 'Share Tech Mono', monospace", fontWeight: 700, letterSpacing: "0.08em" }}
     >
       Т1 ИЗОЛЯЦИЯ
     </span>

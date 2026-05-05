@@ -3,16 +3,16 @@ import Icon from "@/components/ui/icon";
 import { LOGO_SYMBOL, NAV_LINKS, GRAD } from "./data";
 
 const Logo = ({ className = "" }: { className?: string }) => (
-  <div className={`flex items-center gap-1 ${className}`}>
+  <div className={`flex items-center gap-0 ${className}`}>
     <img
       src="https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/f2c7dc5a-0b3d-4793-ac51-fe07c6fad3cc.png"
       alt=""
       aria-hidden
-      className="object-contain flex-shrink-0 h-14 lg:h-[72px] w-auto"
+      className="object-contain flex-shrink-0 h-14 lg:h-[72px] w-auto -mr-1"
     />
     <span
       className="text-white whitespace-nowrap leading-none uppercase text-lg lg:text-xl"
-      style={{ fontFamily: "'Exo 2', sans-serif", fontWeight: 700, letterSpacing: "0.08em" }}
+      style={{ fontFamily: "'OCR A Std', 'Share Tech Mono', monospace", fontWeight: 700, letterSpacing: "0.08em" }}
     >
       Т1 ИЗОЛЯЦИЯ
     </span>
