@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
-import { LOGO_SYMBOL, IMG_SHIP, IMG_PIPE, IMG_BOILER, GRAD, NAV_LINKS, SERVICES, CONTACTS_INFO, useVisible } from "./data";
+import { LOGO_SYMBOL, IMG_SHIP, IMG_PIPE, IMG_BOILER, GRAD, NAV_LINKS, CONTACTS_INFO, useVisible } from "./data";
 
 const Logo = ({ className = "" }: { className?: string }) => (
   <div className={`flex items-center gap-1 ${className}`}>
@@ -286,19 +286,12 @@ export const SiteFooter = () => (
           </ul>
         </div>
 
-        {/* Services */}
+        {/* О компании */}
         <div>
-          <h4 className="t-label text-gray-500 mb-5">Услуги</h4>
-          <ul className="space-y-3">
-            {SERVICES.slice(0, 6).map((s) => (
-              <li key={s.title}>
-                <a href="#request" className="text-gray-500 hover:text-orange-400 text-[13px] transition-colors flex items-center gap-2 group">
-                  <span className="w-0 h-px bg-orange-500 group-hover:w-3 transition-all duration-300 flex-shrink-0" />
-                  {s.title}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <h4 className="t-label text-gray-500 mb-5">О компании</h4>
+          <p className="text-gray-500 text-[13px] leading-relaxed">
+            Т1 ИЗОЛЯЦИЯ — поставщик решений в области тепло- и шумоизоляции для промышленности и судостроения. Подбираем материалы, выполняем расчёты и обеспечиваем поставки по всей России.
+          </p>
         </div>
 
         {/* Contacts */}
