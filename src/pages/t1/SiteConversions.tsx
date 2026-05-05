@@ -255,7 +255,7 @@ export const SiteFooter = () => (
     <div className="h-[3px]" style={{ background: "linear-gradient(90deg, #e63012, #f97316, #fbbf24)" }} />
 
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-14">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12 mb-14">
 
         {/* Brand */}
         <div>
@@ -284,14 +284,6 @@ export const SiteFooter = () => (
               </li>
             ))}
           </ul>
-        </div>
-
-        {/* О компании */}
-        <div>
-          <h4 className="t-label text-gray-500 mb-5">О компании</h4>
-          <p className="text-gray-500 text-[13px] leading-relaxed">
-            Т1 ИЗОЛЯЦИЯ — поставщик решений в области тепло- и шумоизоляции для промышленности и судостроения. Подбираем материалы, выполняем расчёты и обеспечиваем поставки по всей России.
-          </p>
         </div>
 
         {/* Contacts */}
