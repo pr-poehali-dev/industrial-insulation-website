@@ -65,20 +65,76 @@
 <!-- /Yandex.Metrika counter -->
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  function initVideos() {
-    document.querySelectorAll('video').forEach(function(video) {
-      video.loop = true;
-      video.muted = true;
-      video.addEventListener('ended', function() {
+(function() {
+  var processed = new WeakSet();
+
+  function setupVideo(video) {
+    if (processed.has(video)) return;
+    processed.add(video);
+
+    video.loop = true;
+    video.muted = true;
+    video.autoplay = true;
+    video.playsInline = true;
+    video.setAttribute('loop', '');
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+
+    var restart = function() {
+      try {
         video.currentTime = 0;
-        video.play();
+        var p = video.play();
+        if (p && p.catch) p.catch(function(){});
+      } catch (e) {}
+    };
+
+    video.addEventListener('ended', restart);
+    video.addEventListener('pause', function() {
+      if (!video.ended && document.contains(video)) {
+        setTimeout(function(){ video.play().catch(function(){}); }, 50);
+      }
+    });
+    video.addEventListener('timeupdate', function() {
+      if (video.duration && video.currentTime >= video.duration - 0.2) {
+        restart();
+      }
+    });
+
+    var pl = video.play();
+    if (pl && pl.catch) pl.catch(function(){});
+  }
+
+  function scan() {
+    document.querySelectorAll('video').forEach(setupVideo);
+  }
+
+  // Сканировать сразу и многократно (React рендерит позже)
+  scan();
+  document.addEventListener('DOMContentLoaded', scan);
+  window.addEventListener('load', scan);
+  [500, 1500, 3000, 5000].forEach(function(ms){ setTimeout(scan, ms); });
+
+  // Следить за добавлением новых видео в DOM
+  var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(m) {
+      m.addedNodes.forEach(function(node) {
+        if (node.nodeType !== 1) return;
+        if (node.tagName === 'VIDEO') setupVideo(node);
+        else if (node.querySelectorAll) node.querySelectorAll('video').forEach(setupVideo);
       });
     });
-  }
-  initVideos();
-  setTimeout(initVideos, 2000);
-});
+  });
+  observer.observe(document.documentElement, { childList: true, subtree: true });
+
+  // Перепроверка по фокусу/видимости
+  document.addEventListener('visibilitychange', function() {
+    if (!document.hidden) {
+      document.querySelectorAll('video').forEach(function(v) {
+        v.play().catch(function(){});
+      });
+    }
+  });
+})();
 </script>
 </body>
 </html>
