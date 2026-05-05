@@ -66,21 +66,26 @@
 
 <script>
 (function() {
-  var processed = new WeakSet();
+  var tracked = [];
 
   function setupVideo(video) {
-    if (processed.has(video)) return;
-    processed.add(video);
+    if (video.__loopHooked) return;
+    video.__loopHooked = true;
 
     video.loop = true;
     video.muted = true;
+    video.defaultMuted = true;
     video.autoplay = true;
     video.playsInline = true;
     video.setAttribute('loop', '');
     video.setAttribute('muted', '');
+    video.setAttribute('autoplay', '');
     video.setAttribute('playsinline', '');
+    video.removeAttribute('controls');
 
-    var restart = function() {
+    tracked.push(video);
+
+    var force = function() {
       try {
         video.currentTime = 0;
         var p = video.play();
@@ -88,33 +93,47 @@
       } catch (e) {}
     };
 
-    video.addEventListener('ended', restart);
+    video.addEventListener('ended', force);
     video.addEventListener('pause', function() {
-      if (!video.ended && document.contains(video)) {
-        setTimeout(function(){ video.play().catch(function(){}); }, 50);
-      }
-    });
-    video.addEventListener('timeupdate', function() {
-      if (video.duration && video.currentTime >= video.duration - 0.2) {
-        restart();
+      if (document.contains(video) && !document.hidden) {
+        var p = video.play();
+        if (p && p.catch) p.catch(function(){});
       }
     });
 
-    var pl = video.play();
-    if (pl && pl.catch) pl.catch(function(){});
+    var p = video.play();
+    if (p && p.catch) p.catch(function(){});
   }
+
+  // Глобальный тикер: каждые 250мс проверяем все видео
+  setInterval(function() {
+    tracked.forEach(function(video) {
+      if (!document.contains(video)) return;
+      // если близко к концу — перезапускаем
+      if (video.duration && video.currentTime >= video.duration - 0.25) {
+        try {
+          video.currentTime = 0;
+          var p = video.play();
+          if (p && p.catch) p.catch(function(){});
+        } catch (e) {}
+      }
+      // если на паузе — будим
+      if (video.paused && !document.hidden) {
+        var pp = video.play();
+        if (pp && pp.catch) pp.catch(function(){});
+      }
+    });
+  }, 250);
 
   function scan() {
     document.querySelectorAll('video').forEach(setupVideo);
   }
 
-  // Сканировать сразу и многократно (React рендерит позже)
   scan();
   document.addEventListener('DOMContentLoaded', scan);
   window.addEventListener('load', scan);
-  [500, 1500, 3000, 5000].forEach(function(ms){ setTimeout(scan, ms); });
+  [200, 600, 1200, 2500, 5000].forEach(function(ms){ setTimeout(scan, ms); });
 
-  // Следить за добавлением новых видео в DOM
   var observer = new MutationObserver(function(mutations) {
     mutations.forEach(function(m) {
       m.addedNodes.forEach(function(node) {
@@ -125,15 +144,6 @@
     });
   });
   observer.observe(document.documentElement, { childList: true, subtree: true });
-
-  // Перепроверка по фокусу/видимости
-  document.addEventListener('visibilitychange', function() {
-    if (!document.hidden) {
-      document.querySelectorAll('video').forEach(function(v) {
-        v.play().catch(function(){});
-      });
-    }
-  });
 })();
 </script>
 </body>
