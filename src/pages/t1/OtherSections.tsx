@@ -65,15 +65,15 @@ export const IndustriesSection = () => {
 export const CertificatesSection = () => {
   const certVis = useVisible(0.1);
   return (
-    <section id="certificates" className="section-pad overflow-hidden relative" ref={certVis.ref}>
+    <section id="certificates" className="section-pad overflow-hidden relative bg-[#0a0a0a]" ref={certVis.ref}>
       <div className="absolute inset-0 pointer-events-none">
         <img
           src="https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/97f3a39f-8642-429a-b959-c1bb797f681e.jpg"
           alt=""
           aria-hidden
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover opacity-[0.18]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/85 via-white/90 to-white/95" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 via-[#0a0a0a]/85 to-[#0a0a0a]/90" />
       </div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -84,11 +84,11 @@ export const CertificatesSection = () => {
             <span className="t-label text-orange-500">Документация</span>
             <div className="w-10 h-px bg-orange-500/60" />
           </div>
-          <h2 className="t-h2 text-orange-500">
+          <h2 className="t-h2 text-orange-400">
             Сертификаты, лицензии<br />и соответствие стандартам
           </h2>
           <div className="t-underline mx-auto justify-center" />
-          <p className="t-body text-gray-500 max-w-lg mx-auto">Полный комплект документов к каждому объекту</p>
+          <p className="t-body text-gray-400 max-w-lg mx-auto">Полный комплект документов к каждому объекту</p>
         </div>
 
         {/* Карточки */}
@@ -96,28 +96,29 @@ export const CertificatesSection = () => {
           {CERTIFICATES.map((cert, i) => (
             <div
               key={cert.title}
-              className={`group relative overflow-hidden border border-gray-100 rounded-2xl p-8 hover:border-orange-200 hover:shadow-2xl transition-all duration-400 card-hover bg-white
+              className={`group relative overflow-hidden border border-white/10 rounded-2xl p-8 hover:border-orange-400/40 hover:shadow-2xl transition-all duration-400 card-hover bg-white/[0.04]
                 ${certVis.visible ? `animate-fadeInUp delay-${(i + 1) * 100}` : "opacity-0"}`}
+              style={{ backdropFilter: "blur(8px)" }}
             >
               {/* Линия сверху */}
               <div className="absolute top-0 left-0 w-0 h-[3px] rounded-full group-hover:w-full transition-all duration-500"
                 style={{ background: "linear-gradient(90deg, #e63012, #f97316)" }} />
 
               <div className="flex items-start justify-between mb-6">
-                <div className="w-11 h-11 rounded-xl bg-gray-50 group-hover:bg-orange-500 flex items-center justify-center transition-all duration-300">
-                  <Icon name="Award" size={18} className="text-orange-500 group-hover:text-white transition-colors duration-300" />
+                <div className="w-11 h-11 rounded-xl bg-white/[0.06] group-hover:bg-orange-500 flex items-center justify-center transition-all duration-300">
+                  <Icon name="Award" size={18} className="text-orange-400 group-hover:text-white transition-colors duration-300" />
                 </div>
-                <span className="t-label text-gray-400 group-hover:text-orange-500 transition-colors bg-gray-50 group-hover:bg-orange-50 px-3 py-1.5 rounded-lg">
+                <span className="t-label text-gray-400 group-hover:text-orange-400 transition-colors bg-white/[0.05] group-hover:bg-orange-500/15 px-3 py-1.5 rounded-lg">
                   {cert.category}
                 </span>
               </div>
 
-              <h3 className="font-bold text-[17px] text-gray-900 mb-2 leading-snug" style={{ fontFamily: "'Oswald', sans-serif", letterSpacing: "-0.01em" }}>
+              <h3 className="font-bold text-[17px] text-white mb-2 leading-snug" style={{ fontFamily: "'Oswald', sans-serif", letterSpacing: "-0.01em" }}>
                 {cert.title}
               </h3>
-              <p className="t-body text-gray-500 mb-5 text-[14px]">{cert.desc}</p>
+              <p className="t-body text-gray-400 mb-5 text-[14px]">{cert.desc}</p>
 
-              <div className="flex items-center gap-2 text-green-600">
+              <div className="flex items-center gap-2 text-green-400">
                 <Icon name="CheckCircle2" size={14} />
                 <span className="text-[12px] font-semibold">Действующий документ</span>
               </div>
