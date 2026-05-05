@@ -63,5 +63,22 @@
     <div><img src="https://mc.yandex.ru/watch/101026698" style="position:absolute; left:-9999px;" alt=""/></div>
 </noscript>
 <!-- /Yandex.Metrika counter -->
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  function initVideos() {
+    document.querySelectorAll('video').forEach(function(video) {
+      video.loop = true;
+      video.muted = true;
+      video.addEventListener('ended', function() {
+        video.currentTime = 0;
+        video.play();
+      });
+    });
+  }
+  initVideos();
+  setTimeout(initVideos, 2000);
+});
+</script>
 </body>
 </html>
