@@ -11,8 +11,8 @@ const Logo = ({ className = "" }: { className?: string }) => (
       className="object-contain flex-shrink-0 h-14 lg:h-[72px] w-auto -mr-1"
     />
     <span
-      className="text-white whitespace-nowrap leading-none uppercase text-lg lg:text-xl"
-      style={{ fontFamily: "'OCR A Std', 'Share Tech Mono', monospace", fontWeight: 700, letterSpacing: "0.08em" }}
+      className="text-white whitespace-nowrap leading-none uppercase text-xl lg:text-2xl"
+      style={{ fontFamily: "'Saira Semi Condensed', sans-serif", fontWeight: 800, letterSpacing: "0.04em" }}
     >
       Т1 ИЗОЛЯЦИЯ
     </span>
