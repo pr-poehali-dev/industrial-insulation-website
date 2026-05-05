@@ -1,4 +1,5 @@
 
+import { useEffect, useRef } from "react";
 import { IMG_SHIP, IMG_BOILER, useVisible } from "./data";
 
 const SHIPYARD_VIDEO = "https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/videos/shipyard-video.mp4";
@@ -96,6 +97,16 @@ const CatalogCard = ({ name, sub, img, delay, visible }: {
 
 export const CatalogSection = () => {
   const catalogVis = useVisible(0.1);
+  const pgsVideoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const v = pgsVideoRef.current;
+    if (!v) return;
+    const restart = () => { v.currentTime = 0; v.play(); };
+    v.addEventListener("ended", restart);
+    v.play().catch(() => {});
+    return () => v.removeEventListener("ended", restart);
+  }, []);
 
   return (
     <section id="catalog" className="bg-[#f4f0eb] overflow-hidden relative" ref={catalogVis.ref}>
@@ -153,6 +164,7 @@ export const CatalogSection = () => {
           autoPlay muted loop playsInline preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ willChange: "transform" }}
+          ref={pgsVideoRef}
           poster={IMG_BOILER}
           src={PGS_VIDEO}
           disablePictureInPicture

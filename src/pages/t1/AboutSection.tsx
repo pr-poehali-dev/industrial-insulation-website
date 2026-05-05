@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 import { IMG_PIPE, STATS, useVisible } from "./data";
 
@@ -15,11 +16,23 @@ const EXTRA_STATS = [
 
 export const AboutSection = () => {
   const aboutVis = useVisible(0.1);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    const restart = () => { v.currentTime = 0; v.play(); };
+    v.addEventListener("ended", restart);
+    v.play().catch(() => {});
+    return () => v.removeEventListener("ended", restart);
+  }, []);
+
   return (
     <section id="about" className="py-32 lg:py-44 overflow-hidden relative" ref={aboutVis.ref}>
 
       {/* Фоновое видео */}
       <video
+        ref={videoRef}
         autoPlay muted loop playsInline preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ willChange: "transform" }}
