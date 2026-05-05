@@ -2,15 +2,20 @@ import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import { LOGO_SYMBOL, IMG_SHIP, IMG_PIPE, IMG_BOILER, GRAD, NAV_LINKS, SERVICES, CONTACTS_INFO, useVisible } from "./data";
 
-const Logo = ({ size = 44, className = "" }: { size?: number; className?: string }) => (
-  <div className={`flex items-center gap-2 ${className}`}>
-    <img src={LOGO_SYMBOL} alt="" aria-hidden style={{ height: size, width: "auto" }} className="object-contain" />
-    <div className="flex flex-col leading-none">
-      <span className="font-black text-white tracking-wider uppercase"
-        style={{ fontFamily: "'Oswald', sans-serif", fontSize: size * 0.45, letterSpacing: "0.08em" }}>Т1</span>
-      <span className="font-bold tracking-widest uppercase"
-        style={{ fontFamily: "'Oswald', sans-serif", fontSize: size * 0.28, letterSpacing: "0.12em", color: "#9ca3af" }}>ИЗОЛЯЦИЯ</span>
-    </div>
+const Logo = ({ className = "" }: { className?: string }) => (
+  <div className={`flex items-center gap-1 ${className}`}>
+    <img
+      src={LOGO_SYMBOL}
+      alt=""
+      aria-hidden
+      className="object-contain flex-shrink-0 h-14 lg:h-[72px] w-auto"
+    />
+    <span
+      className="text-white whitespace-nowrap leading-none uppercase text-lg lg:text-xl"
+      style={{ fontFamily: "'Exo 2', sans-serif", fontWeight: 700, letterSpacing: "0.08em" }}
+    >
+      Т1 ИЗОЛЯЦИЯ
+    </span>
   </div>
 );
 
@@ -255,7 +260,7 @@ export const SiteFooter = () => (
         {/* Brand */}
         <div>
           <a href="#" className="inline-block mb-6">
-            <Logo size={36} />
+            <Logo />
           </a>
           <p className="text-gray-600 text-[13px] leading-relaxed mb-5">
             Промышленная теплоизоляция. Поставка и монтаж изоляции трубопроводов, оборудования и судов. По всей России.
