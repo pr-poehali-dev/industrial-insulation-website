@@ -65,9 +65,15 @@ export const IndustriesSection = () => {
 export const CertificatesSection = () => {
   const certVis = useVisible(0.1);
   return (
-    <section id="certificates" className="section-pad bg-white overflow-hidden relative" ref={certVis.ref}>
+    <section id="certificates" className="section-pad overflow-hidden relative" ref={certVis.ref}>
       <div className="absolute inset-0 pointer-events-none">
-        <img src={IMG_BOILER} alt="" aria-hidden className="w-full h-full object-cover opacity-[0.025]" />
+        <img
+          src="https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/files/97f3a39f-8642-429a-b959-c1bb797f681e.jpg"
+          alt=""
+          aria-hidden
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/85 via-white/90 to-white/95" />
       </div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
