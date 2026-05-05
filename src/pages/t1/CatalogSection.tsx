@@ -62,6 +62,7 @@ const CatalogCard = ({ name, sub, img, delay, visible }: {
       alt=""
       aria-hidden
       className="absolute inset-0 w-full h-full object-cover transition-[opacity,transform] duration-[380ms] ease-out opacity-0 scale-[1.06] group-hover:opacity-100 group-hover:scale-100"
+      style={{ filter: "brightness(1.15) contrast(1.08) saturate(1.05)" }}
       loading="lazy"
     />
 
@@ -70,10 +71,10 @@ const CatalogCard = ({ name, sub, img, delay, visible }: {
       className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-[380ms]"
       style={{ background: "linear-gradient(135deg, #141210 0%, #1c1814 60%, #1f1510 100%)" }}
     />
-    {/* Overlay при hover — лёгкое затемнение слева для читаемости текста */}
+    {/* Overlay при hover — лёгкое затемнение слева только под текстом */}
     <div
       className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-[380ms]"
-      style={{ background: "linear-gradient(100deg, rgba(5,4,3,0.72) 0%, rgba(5,4,3,0.40) 55%, rgba(5,4,3,0.10) 100%)" }}
+      style={{ background: "linear-gradient(100deg, rgba(5,4,3,0.55) 0%, rgba(5,4,3,0.20) 55%, rgba(5,4,3,0) 100%)" }}
     />
 
     {/* Полоска слева */}
