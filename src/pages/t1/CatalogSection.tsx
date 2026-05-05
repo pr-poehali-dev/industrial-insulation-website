@@ -189,10 +189,11 @@ export const CatalogSection = () => {
           style={{ willChange: "transform" }}
           ref={pgsVideoRef}
           poster={IMG_BOILER}
-          src={PGS_VIDEO}
           disablePictureInPicture
           disableRemotePlayback
-        />
+        >
+          <source src={PGS_VIDEO} type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-black/30" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/55 via-transparent to-[#0a0a0a]/65" />
 

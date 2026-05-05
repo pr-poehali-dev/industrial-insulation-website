@@ -59,10 +59,11 @@ export const AboutSection = () => {
         autoPlay muted loop playsInline preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ willChange: "transform" }}
-        src="https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/videos/about-company-harbor-video.mp4"
         disablePictureInPicture
         disableRemotePlayback
-      />
+      >
+        <source src="https://cdn.poehali.dev/projects/666206ac-09b6-496e-92d3-ecbea5df546a/bucket/videos/about-company-harbor-video.mp4" type="video/mp4" />
+      </video>
       {/* Затемнение поверх видео */}
       <div className="absolute inset-0 bg-black/60" />
       {/* Фирменная полоска снизу */}
